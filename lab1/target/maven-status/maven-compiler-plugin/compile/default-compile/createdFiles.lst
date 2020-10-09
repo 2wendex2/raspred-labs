@@ -1,0 +1,3 @@
+org/wendex/WordMapper.class
+org/wendex/WordReducer.class
+org/wendex/WordCountApp.class
