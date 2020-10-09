@@ -1,9 +1,10 @@
 package org.wendex;
 
 import org.apache.hadoop.io.Writable;
-import org.apache.hadoop.io.Text;
-import org.apache.hadoop.fs.Path;
+import java.util.ArrayList;
 
 public class CsvWritable implements Writable {
+	private ArrayList<ArrayList<String>> table;
 
+	
 }
