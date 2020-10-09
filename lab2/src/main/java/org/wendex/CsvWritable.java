@@ -6,5 +6,5 @@ import java.util.ArrayList;
 public class CsvWritable implements Writable {
 	private ArrayList<ArrayList<String>> table;
 
-	
+
 }
