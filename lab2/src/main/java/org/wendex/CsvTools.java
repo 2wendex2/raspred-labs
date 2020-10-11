@@ -27,17 +27,13 @@ public class CsvTools {
         int n = 0;
 
         int i = 0;
-        for (int k = 0; k < MAX_ROWS; k++) {
+        for (int k = 0; i < s.length(); k++) {
             StringBuilder sb = new StringBuilder();
-            i = parseRow(s, sb, i);
-
+            i = parseRow(s, i, sb);
+            arr[k] = sb.toString();
         }
 
-
-        bool begi
-        for (int i = 0; i < s.length(); i++) {
-            if
-        }
+        return arr;
     }
 
     public static StringBuilder writeFirst(String s) {
