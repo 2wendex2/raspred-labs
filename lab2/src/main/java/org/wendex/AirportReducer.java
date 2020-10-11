@@ -13,6 +13,6 @@ public class AirportReducer extends Reducer<AirportWritableComparable, AirportWr
 	protected void reduce(AirportWritableComparable key, Iterable<AirportWritable> values, Context context)
 			throws IOException, InterruptedException {
 
-		context.write(key, values[0]);
+		context.write(key, values.iterator().next());
 	}
 }
