@@ -19,10 +19,10 @@ public class AirportWritable implements Writable {
 		dataOutput.writeChar('"');
 	}
 
-	 @Override
-	 public void readFields(DataInput dataInput) throws IOException {
-		for (String s = dataInput.readLine(); s != null; s = dataInput.readLine()) {
-			
-		}
-	 }
+	@Override
+	public void readFields(DataInput dataInput) throws IOException {
+		String s = dataInput.readLine();
+		String[] a = s.replaceAll("\"\"", "\"").split(",");
+		
+	}
 }
