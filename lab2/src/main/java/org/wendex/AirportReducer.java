@@ -43,6 +43,6 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 		sb.append('\t');
 		sb.append(max);
 		Text result = new Text(sb.toString());
-		context.write(new IntWritable(key.getId()), .next());
+		context.write(new IntWritable(key.getId()), result);
 	}
 }
