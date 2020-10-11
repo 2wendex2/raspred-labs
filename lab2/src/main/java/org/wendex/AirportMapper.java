@@ -11,8 +11,9 @@ import java.util.regex.*;
 
 public class AirportMapper extends Mapper<LongWritable, AirportWritable, AirportWritableComparable, AirportWritable> {
 	@Override
-	protected void map(LongWritable key, AirportWritable value, Context context) throws IOException, InterruptedException {
-		AirportWritableComparable airportWritableComparable = new AirportWritableComparable()
+	protected void map(LongWritable key, AirportWritable value, Context context)
+			throws IOException, InterruptedException {
+		AirportWritableComparable airportWritableComparable = new AirportWritableComparable(va)
 		context.write(new Text(matcher.group().toLowerCase()), new IntWritable(1));
 		}
 	}

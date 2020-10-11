@@ -30,4 +30,8 @@ public class AirportWritable implements Writable {
 		id = Integer.parseInt(a[0]);
 		name = a[1];
 	}
+
+	public AirportWritableComparable toAirportWritableComparable() {
+		return new AirportWritableComparable(id, 0);
+	}
 }
