@@ -16,6 +16,7 @@ public class AirportApp {
 		Job job = Job.getInstance();
 		job.setJarByClass(AirportApp.class);
 		job.setJobName("Airport");
+		M
 		FileInputFormat.addInputPath(job, new Path(args[1]));
 		FileOutputFormat.setOutputPath(job, new Path(args[2]));
 		job.setMapperClass(FlightMapper.class);
