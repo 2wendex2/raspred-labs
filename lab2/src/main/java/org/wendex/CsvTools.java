@@ -24,6 +24,5 @@ public class CsvTools {
         sb.append(",");
         sb.append(s);
         sb.append("\"");
-        return sb;
     }
 }
