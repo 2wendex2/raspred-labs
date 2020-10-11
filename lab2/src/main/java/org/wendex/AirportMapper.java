@@ -11,6 +11,8 @@ public class AirportMapper extends Mapper<LongWritable, Text, AirportWritableCom
 	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
 		AirportWritable airportWritable = new AirportWritable(value);
-		context.write(airportWritable.toAirportWritableComparable(), airportWritable);
+		if (airportWritable.isValid()) {
+			context.write(airportWritable.toAirportWritableComparable(), airportWritable);
+		}
 	}
 }
