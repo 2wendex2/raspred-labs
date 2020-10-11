@@ -19,15 +19,30 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 		String airportName = it.next().toString();
 		double sum = 0;
 		double cnt = 0;
-		double max = Double.POSITIVE_INFINITY;
-		double min = Double.NEGATIVE_INFINITY;
+		double max = Double.NEGATIVE_INFINITY;
+		double min = Double.POSITIVE_INFINITY;
 		for (Double delay = Double.parseDouble(it.next().toString()); it.hasNext();
 			 delay = Double.parseDouble(it.next().toString())) {
 			cnt++;
 			sum += delay;
+			if (delay < min) {
+				min = delay;
+			}
 
+			if (delay > max) {
+				max = delay;
+			}
 		}
 
+		sum = sum / cnt;
+		StringBuilder sb = new StringBuilder(airportName);
+		sb.append("\t\t");
+		sb.append(min);
+		sb.append('\t');
+		sb.append(sum);
+		sb.append('\t');
+		sb.append(max);
+		Text result = new Text(sb.toString());
 		context.write(new IntWritable(key.getId()), .next());
 	}
 }
