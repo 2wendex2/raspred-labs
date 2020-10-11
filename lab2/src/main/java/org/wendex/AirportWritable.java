@@ -10,6 +10,17 @@ public class AirportWritable implements Writable {
 	private int id;
 	private String name;
 
+	public void readFromLine(String line) {
+		String[] arr = line.replaceAll("\"\"", "\"").split(",");
+		for (int i = 0; i < arr.length; i++) {
+			if (arr[i].charAt(0) == '\"') {
+				arr[i] = arr[i].substring(1, arr[i].length() - 1);
+			}
+		}
+		id = Integer.parseInt(arr[0]);
+		name = arr[1];
+	}
+
 	@Override
 	public void write(DataOutput dataOutput) throws IOException {
 		dataOutput.writeChars(Integer.toString(id));
@@ -21,14 +32,7 @@ public class AirportWritable implements Writable {
 	@Override
 	public void readFields(DataInput dataInput) throws IOException {
 		String s = dataInput.readLine();
-		String[] a = s.replaceAll("\"\"", "\"").split(",");
-		for (int i = 0; i < a.length; i++) {
-			if (a[i].charAt(0) == '\"') {
-				a[i] = a[i].substring(1, a[i].length() - 1);
-			}
-		}
-		id = Integer.parseInt(a[0]);
-		name = a[1];
+		readFromLine(s);
 	}
 
 	public AirportWritableComparable toAirportWritableComparable() {
