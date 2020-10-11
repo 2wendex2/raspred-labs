@@ -11,7 +11,7 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 	@Override
 	protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context)
 			throws IOException, InterruptedException {
-		Iterator<Text> it = values.iterator();
+		/*Iterator<Text> it = values.iterator();
 		String airportName = it.next().toString();
 		if (!it.hasNext()) {
 			return;
@@ -42,6 +42,6 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 		sb.append('\t');
 		sb.append(max);
 		Text result = new Text(sb.toString());
-		context.write(new IntWritable(key.getId()), result);
+		context.write(new IntWritable(key.getId()), result);*/
 	}
 }
