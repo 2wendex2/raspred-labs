@@ -1,2 +1,4 @@
-package org.wendex;public class FlightMapper {
+package org.wendex;
+
+public class FlightMapper {
 }
