@@ -7,7 +7,7 @@ import org.apache.hadoop.io.IntWritable;
 import java.io.IOException;
 import java.util.regex.*;
 
-public class WordMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
+public class AirportMapper extends Mapper<LongWritable, Text, Text, IntWritable> {
 	@Override
 	protected void map(LongWritable key, Text value, Context context) throws IOException, InterruptedException {
 		Pattern pattern = Pattern.compile("[a-z0-9а-я]+", Pattern.UNICODE_CASE | Pattern.CASE_INSENSITIVE | Pattern.MULTILINE | Pattern.UNICODE_CHARACTER_CLASS);
