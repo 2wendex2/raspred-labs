@@ -34,6 +34,8 @@ public class AirportWritable implements Writable {
 		readFromLine(text.toString());
 	}
 
+	public AirportWritable() {}
+
 	@Override
 	public void write(DataOutput dataOutput) throws IOException {
 		dataOutput.writeChars(Integer.toString(id));
