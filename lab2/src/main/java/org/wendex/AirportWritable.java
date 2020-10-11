@@ -38,16 +38,14 @@ public class AirportWritable implements Writable {
 
 	@Override
 	public void write(DataOutput dataOutput) throws IOException {
-		dataOutput.writeChars(Integer.toString(id));
-		dataOutput.writeChars(",\"");
-		dataOutput.writeChars(name.replaceAll("\"", "\"\""));
-		dataOutput.writeChar('"');
+		dataOutput.writeInt(id);
+		dataOutput.writeChars(name);
 	}
 
 	@Override
 	public void readFields(DataInput dataInput) throws IOException {
-		String s = dataInput.readLine();
-		readFromLine(s);
+		id = dataInput.readInt();
+		name = dataInput.readLine();
 	}
 
 	public AirportWritableComparable toAirportWritableComparable() {
