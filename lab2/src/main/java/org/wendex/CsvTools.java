@@ -3,21 +3,19 @@ package org.wendex;
 public class CsvTools {
     private String parseRow(String s, int index) {
         StringBuilder sb = new StringBuilder();
-        boolean mark = false, inMark = false;
+        boolean inMark = false;
         if (s.charAt(index) == '\"') {
             inMark = true;
+            index++;
         }
 
         for (int i = index; i < s.length(); i++) {
-            if (s.charAt(i) == '\"') {
-                if (mark) {
-                    sb.append('\"');
-                    mark = false;
-                } else {
-                    mark = true;
-                }
+            if (s.charAt(i) == ',' && !inMark) {
+                return sb.toString();
+            } else if (s.charAt(i) == '\"') {
+                inMark = false;
             } else {
-
+                sb.append(s.charAt(i));
             }
         }
     }
