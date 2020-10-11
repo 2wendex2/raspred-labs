@@ -23,8 +23,12 @@ public class AirportWritable implements Writable {
 	public void readFields(DataInput dataInput) throws IOException {
 		String s = dataInput.readLine();
 		String[] a = s.replaceAll("\"\"", "\"").split(",");
-		for (String b : a) {
-			if ()
+		for (int i = 0; i < a.length; i++) {
+			if (a[i].charAt(0) == '\"') {
+				a[i] = a[i].substring(1, a[i].length() - 1);\
+			}
 		}
+		id = Integer.parseInt(a[0]);
+		name = a[1];
 	}
 }
