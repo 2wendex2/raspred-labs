@@ -31,6 +31,11 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
 
     @Override
     public int compareTo(AirportWritableComparable o) {
+        int dif = id - o.id;
+        if (dif != 0) {
+            return dif;
+        }
+
         if (flightFlag) {
             if (!o.flightFlag) {
                 return 1;
@@ -41,6 +46,6 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
             }
         }
 
-        return id - o.id;
+        return 0;
     }
 }
