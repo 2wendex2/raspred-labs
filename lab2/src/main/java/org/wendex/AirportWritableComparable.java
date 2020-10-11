@@ -10,6 +10,11 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     int id;
     boolean flightFlag;
 
+    public AirportWritableComparable(int id, boolean flightFlag) {
+        this.id = id;
+        this.flightFlag = flightFlag;
+    }
+
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeInt(id);
