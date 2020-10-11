@@ -30,6 +30,12 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
             if (!o.flightFlag) {
                 return 1;
             }
+        } else {
+            if (o.flightFlag) {
+                return -1;
+            }
         }
+
+        return id - o.id;
     }
 }
