@@ -20,8 +20,8 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 		double cnt = 0;
 		double max = Double.NEGATIVE_INFINITY;
 		double min = Double.POSITIVE_INFINITY;
-		for (Double delay = Double.parseDouble(it.next().toString()); it.hasNext();
-			 delay = Double.parseDouble(it.next().toString())) {
+		while (it.hasNext()) {
+			Double delay = Double.parseDouble(it.next().toString());
 			cnt++;
 			sum += delay;
 			if (delay < min) {
