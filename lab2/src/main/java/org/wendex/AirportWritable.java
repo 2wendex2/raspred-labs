@@ -40,6 +40,7 @@ public class AirportWritable implements Writable {
 	public void write(DataOutput dataOutput) throws IOException {
 		dataOutput.writeInt(id);
 		dataOutput.writeChars(name);
+		dataOutput.writeChar('\n');
 	}
 
 	@Override
