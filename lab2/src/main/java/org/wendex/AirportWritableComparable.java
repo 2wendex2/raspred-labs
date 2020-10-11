@@ -23,4 +23,13 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
         dataInput.readChar();
         flightFlag = dataInput.readBoolean();
     }
+
+    @Override
+    public int compareTo(AirportWritableComparable o) {
+        if (flightFlag) {
+            if (!o.flightFlag) {
+                return 1;
+            }
+        }
+    }
 }
