@@ -10,6 +10,6 @@ public class AirportComparator extends WritableComparator {
     }
 
     public AirportComparator() {
-        super();
+        super(AirportWritableComparable.class, true);
     }
 }
