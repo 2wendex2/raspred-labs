@@ -1,14 +1,35 @@
 package org.wendex;
 
 public class CsvTools {
-    public static String[] read(String s) {
-        String[] arr = s.replaceAll("\"\"", "\"").split(",");
-        for (int i = 0; i < arr.length; i++) {
-            if (arr[i].charAt(0) == '\"') {
-                arr[i] = arr[i].substring(1, arr[i].length() - 1);
+    private String parseRow(String s, int index) {
+        StringBuilder sb = new StringBuilder();
+        boolean mark = false, inMark = false;
+        if (s.charAt(index) == '\"') {
+            inMark = true;
+        }
+
+        for (int i = index; i < s.length(); i++) {
+            if (s.charAt(i) == '\"') {
+                if (mark) {
+                    sb.append('\"');
+                    mark = false;
+                } else {
+                    mark = true;
+                }
+            } else {
+                
             }
         }
-        return arr;
+    }
+
+    public static String[] read(String s) {
+        String[] arr = new String[23];
+        int n = 0;
+        arr[0] = new String();
+        bool begi
+        for (int i = 0; i < s.length(); i++) {
+            if
+        }
     }
 
     public static StringBuilder writeFirst(String s) {
