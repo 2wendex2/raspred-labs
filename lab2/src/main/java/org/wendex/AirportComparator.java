@@ -9,7 +9,5 @@ public class AirportComparator extends WritableComparator {
         return ((AirportWritableComparable)a).getId() - ((AirportWritableComparable)b).getId();
     }
 
-    public AirportComparator() {
-        super();
-    }
+    public AirportComparator() {}
 }
