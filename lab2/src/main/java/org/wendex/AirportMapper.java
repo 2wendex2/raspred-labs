@@ -8,8 +8,9 @@ import java.io.IOException;
 
 public class AirportMapper extends Mapper<LongWritable, Text, AirportWritableComparable, AirportWritable> {
 	@Override
-	protected void map(LongWritable key, AirportWritable value, Context context)
+	protected void map(LongWritable key, Text value, Context context)
 			throws IOException, InterruptedException {
+
 		context.write(value.toAirportWritableComparable(), value);
 	}
 }

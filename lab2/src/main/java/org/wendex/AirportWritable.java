@@ -1,5 +1,6 @@
 package org.wendex;
 
+import org.apache.hadoop.io.Text;
 import org.apache.hadoop.io.Writable;
 
 import java.io.DataInput;
@@ -21,8 +22,8 @@ public class AirportWritable implements Writable {
 		name = arr[1];
 	}
 
-	public AirportWritable(String line) {
-		readFromLine(line);
+	public AirportWritable(Text text) {
+		readFromLine(text.toString());
 	}
 
 	@Override
