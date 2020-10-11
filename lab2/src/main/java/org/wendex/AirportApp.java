@@ -19,7 +19,7 @@ public class AirportApp {
 		job.setJarByClass(AirportApp.class);
 		job.setJobName("Airport");
 		MultipleInputs.addInputPath(job, new Path(args[0]), TextInputFormat.class, AirportMapper.class);
-		MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, FlightMapper.class);
+		//MultipleInputs.addInputPath(job, new Path(args[1]), TextInputFormat.class, FlightMapper.class);
 		FileOutputFormat.setOutputPath(job, new Path(args[2]));
 		job.setMapperClass(FlightMapper.class);
 		job.setReducerClass(AirportReducer.class);
