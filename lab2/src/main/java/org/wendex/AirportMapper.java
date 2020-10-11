@@ -13,8 +13,6 @@ public class AirportMapper extends Mapper<LongWritable, AirportWritable, Airport
 	@Override
 	protected void map(LongWritable key, AirportWritable value, Context context)
 			throws IOException, InterruptedException {
-		AirportWritableComparable airportWritableComparable = new AirportWritableComparable(va)
-		context.write(new Text(matcher.group().toLowerCase()), new IntWritable(1));
-		}
+		context.write(value.toAirportWritableComparable(), value);
 	}
 }
