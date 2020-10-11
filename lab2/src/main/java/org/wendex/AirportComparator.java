@@ -1,4 +1,7 @@
 package org.wendex;
 
-public class AirportComparator implements Ra {
+import org.apache.hadoop.io.WritableComparator;
+
+public class AirportComparator extends WritableComparator {
+    
 }
