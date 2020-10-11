@@ -12,7 +12,7 @@ public class CsvTools {
 
         for (; i < s.length(); i++) {
             if (s.charAt(i) == ',' && !inMark) {
-                return i;
+                return i + 1;
             } else if (s.charAt(i) == '\"') {
                 inMark = false;
             } else {
