@@ -25,7 +25,7 @@ public class AirportApp {
 		job.setReducerClass(AirportReducer.class);
 		job.setOutputKeyClass(AirportWritableComparable.class);
 		job.setOutputValueClass(Text.class);
-		job.setNumReduceTasks(3);
+		job.setNumReduceTasks(2);
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}
 }
