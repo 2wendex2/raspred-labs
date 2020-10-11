@@ -20,14 +20,12 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     @Override
     public void write(DataOutput dataOutput) throws IOException {
         dataOutput.writeInt(id);
-        dataOutput.writeChar(',');
         dataOutput.writeBoolean(flightFlag);
     }
 
     @Override
     public void readFields(DataInput dataInput) throws IOException {
         id = dataInput.readInt();
-        dataInput.readChar();
         flightFlag = dataInput.readBoolean();
     }
 
