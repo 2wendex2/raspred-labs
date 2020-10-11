@@ -1,0 +1,160 @@
+10135	Allentown/Bethlehem/Easton, PA: Lehigh Valley International		11.0	16.0	23.0
+10141	Aberdeen, SD: Aberdeen Regional		4.0	4.0	4.0
+10155	Waco, TX: Waco Regional		4.0	28.5	74.0
+10157	Arcata/Eureka, CA: Arcata		11.0	49.0	87.0
+10185	Alexandria, LA: Alexandria International		3.0	17.714285714285715	55.0
+10257	Albany, NY: Albany International		1.0	33.7037037037037	241.0
+10279	Amarillo, TX: Rick Husband Amarillo International		1.0	33.57142857142857	95.0
+10299	Anchorage, AK: Ted Stevens Anchorage International		1.0	40.8	375.0
+10397	Atlanta, GA: Hartsfield-Jackson Atlanta International		1.0	33.43325791855204	653.0
+10423	Austin, TX: Austin - Bergstrom International		1.0	29.80392156862745	340.0
+10431	Asheville, NC: Asheville Regional		1.0	47.6	152.0
+10469	Kalamazoo, MI: Kalamazoo/Battle Creek International		1.0	59.42857142857143	122.0
+10529	Hartford, CT: Bradley International		1.0	33.21621621621622	293.0
+10551	Bethel, AK: Bethel Airport		Infinity	NaN	-Infinity
+10561	Bakersfield, CA: Meadows Field		3.0	40.166666666666664	141.0
+10599	Birmingham, AL: Birmingham-Shuttlesworth International		1.0	30.209302325581394	154.0
+10627	Bismarck/Mandan, ND: Bismarck Municipal		2.0	19.11111111111111	90.0
+10631	Bemidji, MN: Bemidji Regional		2.0	2.0	2.0
+10685	Bloomington/Normal, IL: Central Illinois Regional		3.0	54.81818181818182	241.0
+10693	Nashville, TN: Nashville International		1.0	31.97972972972973	391.0
+10713	Boise, ID: Boise Air Terminal		1.0	28.0	122.0
+10721	Boston, MA: Logan International		1.0	34.487031700288185	292.0
+10731	Brunswick, GA: Brunswick Golden Isles		1.0	1.0	1.0
+10739	Brainerd, MN: Brainerd Lakes Regional		Infinity	NaN	-Infinity
+10747	Brownsville, TX: Brownsville South Padre Island International		8.0	25.8	51.0
+10779	Butte, MT: Bert Mooney		12.0	12.0	12.0
+10781	Baton Rouge, LA: Baton Rouge Metropolitan/Ryan Field		1.0	43.125	200.0
+10785	Burlington, VT: Burlington International		2.0	44.5	89.0
+10821	Baltimore, MD: Baltimore/Washington International Thurgood Marshall		1.0	30.74721189591078	475.0
+10849	Bozeman, MT: Bozeman Yellowstone International		1.0	37.7	182.0
+11003	Cedar Rapids/Iowa City, IA: The Eastern Iowa		3.0	45.94285714285714	206.0
+11013	Sault Ste. Marie, MI: Chippewa County International		3.0	63.0	123.0
+11041	Carlsbad, CA: McClellan-Palomar		1.0	11.833333333333334	24.0
+11049	College Station/Bryan, TX: Easterwood Field		1.0	16.9	40.0
+11057	Charlotte, NC: Charlotte Douglas International		1.0	25.775	263.0
+11067	Champaign/Urbana, IL: University of Illinois/Willard		1.0	43.69230769230769	129.0
+11097	Cody, WY: Yellowstone Regional		1.0	13.0	25.0
+11109	Colorado Springs, CO: City of Colorado Springs Municipal		3.0	44.21621621621622	224.0
+11111	Columbia, MO: Columbia Regional		3.0	140.66666666666666	380.0
+11193	Cincinnati, OH: Cincinnati/Northern Kentucky International		1.0	32.3125	179.0
+11203	Mosinee, WI: Central Wisconsin		2.0	30.2	89.0
+11259	Dallas, TX: Dallas Love Field		1.0	27.48404255319149	278.0
+11267	Dayton, OH: James M Cox/Dayton International		2.0	22.714285714285715	101.0
+11315	Dickinson, ND: Dickinson - Theodore Roosevelt Regional		5.0	69.66666666666667	175.0
+11337	Duluth, MN: Duluth International		28.0	85.75	177.0
+11413	Durango, CO: Durango La Plata County		4.0	33.333333333333336	122.0
+11423	Des Moines, IA: Des Moines International		1.0	35.073170731707314	167.0
+11433	Detroit, MI: Detroit Metro Wayne County		1.0	34.923312883435585	514.0
+11447	Devils Lake, ND: Devils Lake Regional		114.0	114.0	114.0
+11471	Eau Claire, WI: Chippewa Valley Regional		3.0	143.66666666666666	264.0
+11481	Panama City, FL: Northwest Florida Beaches International		2.0	13.142857142857142	31.0
+11503	Eagle, CO: Eagle County Regional		1.0	45.36363636363637	124.0
+11525	Elko, NV: Elko Regional		10.0	10.5	11.0
+11537	Elmira/Corning, NY: Elmira/Corning Regional		1.0	27.75	50.0
+11577	Erie, PA: Erie International/Tom Ridge Field		4.0	28.25	70.0
+11587	Escanaba, MI: Delta County		245.0	245.0	245.0
+11603	Eugene, OR: Mahlon Sweet Field		3.0	25.833333333333332	94.0
+11637	Fargo, ND: Hector International		1.0	28.76923076923077	127.0
+11641	Fayetteville, NC: Fayetteville Regional/Grannis Field		4.0	7.666666666666667	10.0
+11695	Flagstaff, AZ: Flagstaff Pulliam		3.0	57.5	112.0
+11697	Fort Lauderdale, FL: Fort Lauderdale-Hollywood International		1.0	32.657407407407405	269.0
+11721	Flint, MI: Bishop International		1.0	53.5	171.0
+11775	Sioux Falls, SD: Joe Foss Field		1.0	41.67741935483871	165.0
+11823	Fort Wayne, IN: Fort Wayne International		7.0	41.6	129.0
+11865	Gillette, WY: Gillette Campbell County		8.0	33.5	56.0
+11867	Garden City, KS: Garden City Regional		Infinity	NaN	-Infinity
+11905	Longview, TX: East Texas Regional		42.0	67.0	92.0
+11921	Grand Junction, CO: Grand Junction Regional		1.0	13.857142857142858	39.0
+11953	Gainesville, FL: Gainesville Regional		2.0	8.555555555555555	38.0
+11973	Gulfport/Biloxi, MS: Gulfport-Biloxi International		2.0	35.45454545454545	113.0
+11977	Green Bay, WI: Austin Straubel International		1.0	25.863636363636363	113.0
+11995	Greensboro/High Point, NC: Piedmont Triad International		1.0	36.166666666666664	307.0
+12003	Great Falls, MT: Great Falls International		1.0	27.77777777777778	89.0
+12007	Columbus, MS: Golden Triangle Regional		11.0	11.0	11.0
+12129	Hibbing, MN: Range Regional		18.0	29.333333333333332	51.0
+12173	Honolulu, HI: Honolulu International		1.0	25.09090909090909	1013.0
+12177	Hobbs, NM: Lea County Regional		5.0	39.0	73.0
+12191	Houston, TX: William P Hobby		1.0	25.930817610062892	171.0
+12197	White Plains, NY: Westchester County		1.0	41.629629629629626	233.0
+12217	Huntsville, AL: Huntsville International-Carl T Jones Field		1.0	47.8421052631579	159.0
+12255	Hays, KS: Hays Regional		15.0	15.0	15.0
+12265	Niagara Falls, NY: Niagara Falls International		38.0	38.0	38.0
+12323	Wilmington, NC: Wilmington International		Infinity	NaN	-Infinity
+12335	Iron Mountain/Kingsfd, MI: Ford		114.0	114.0	114.0
+12339	Indianapolis, IN: Indianapolis International		1.0	30.385416666666668	262.0
+12343	International Falls, MN: Falls International Einarson Field		Infinity	NaN	-Infinity
+12389	Williston, ND: Sloulin Field International		2.0	31.333333333333332	89.0
+12391	Islip, NY: Long Island MacArthur		1.0	43.76923076923077	240.0
+12441	Jackson, WY: Jackson Hole		1.0	40.95454545454545	320.0
+12451	Jacksonville, FL: Jacksonville International		1.0	30.51923076923077	142.0
+12511	Joplin, MO: Joplin Regional		12.0	29.5	47.0
+12519	Jamestown, ND: Jamestown Regional		5.0	67.5	104.0
+12523	Juneau, AK: Juneau International		1.0	3.0	5.0
+12819	Ketchikan, AK: Ketchikan International		4.0	19.555555555555557	43.0
+12889	Las Vegas, NV: McCarran International		1.0	30.0387811634349	251.0
+12891	Lawton/Fort Sill, OK: Lawton-Fort Sill Regional		12.0	32.75	45.0
+12915	Lake Charles, LA: Lake Charles Regional		7.0	17.8	43.0
+12945	Lexington, KY: Blue Grass		1.0	29.52173913043478	136.0
+12951	Lafayette, LA: Lafayette Regional Paul Fournet Field		1.0	25.3	92.0
+12953	New York, NY: LaGuardia		1.0	38.85167464114833	331.0
+13029	Lincoln, NE: Lincoln Airport		3.0	42.142857142857146	123.0
+13061	Laredo, TX: Laredo International		2.0	36.666666666666664	172.0
+13241	Meridian, MS: Key Field		11.0	128.5	246.0
+13277	Montgomery, AL: Montgomery Regional		3.0	31.0	60.0
+13303	Miami, FL: Miami International		1.0	30.91726618705036	237.0
+13367	Moline, IL: Quad City International		1.0	46.578947368421055	205.0
+13377	Monroe, LA: Monroe Regional		9.0	59.1	161.0
+13433	Minot, ND: Minot International		2.0	22.666666666666668	61.0
+13459	Marquette, MI: Sawyer International		Infinity	NaN	-Infinity
+13485	Madison, WI: Dane County Regional-Truax Field		2.0	48.58064516129032	251.0
+13487	Minneapolis, MN: Minneapolis-St Paul International		1.0	29.384858044164037	371.0
+13495	New Orleans, LA: Louis Armstrong New Orleans International		1.0	27.527272727272727	199.0
+13577	Myrtle Beach, SC: Myrtle Beach International		6.0	27.625	87.0
+13795	Jacksonville/Camp Lejeune, NC: Albert J Ellis		2.0	14.75	33.0
+13851	Oklahoma City, OK: Will Rogers World		1.0	34.48275862068966	150.0
+13871	Omaha, NE: Eppley Airfield		1.0	27.836363636363636	140.0
+13873	Nome, AK: Nome Airport		14.0	14.0	14.0
+13891	Ontario, CA: Ontario International		1.0	23.033898305084747	97.0
+13931	Norfolk, VA: Norfolk International		1.0	29.727272727272727	166.0
+14025	Plattsburgh, NY: Plattsburgh International		13.0	22.5	32.0
+14027	West Palm Beach/Palm Beach, FL: Palm Beach International		1.0	30.8876404494382	141.0
+14057	Portland, OR: Portland International		1.0	26.834532374100718	185.0
+14107	Phoenix, AZ: Phoenix Sky Harbor International		1.0	30.308855291576673	498.0
+14109	Hattiesburg/Laurel, MS: Hattiesburg-Laurel Regional		Infinity	NaN	-Infinity
+14113	Pocatello, ID: Pocatello Regional		2.0	3.5	5.0
+14193	Pensacola, FL: Pensacola International		1.0	26.8	176.0
+14307	Providence, RI: Theodore Francis Green State		1.0	22.928571428571427	83.0
+14321	Portland, ME: Portland International Jetport		1.0	16.875	41.0
+14457	Rapid City, SD: Rapid City Regional		2.0	29.166666666666668	108.0
+14487	Redding, CA: Redding Municipal		4.0	62.333333333333336	134.0
+14489	Bend/Redmond, OR: Roberts Field		2.0	35.77777777777778	131.0
+14543	Rock Springs, WY: Rock Springs Sweetwater County		12.0	75.0	138.0
+14633	Rochester, MN: Rochester International		1.0	37.44444444444444	179.0
+14635	Fort Myers, FL: Southwest Florida International		1.0	38.123711340206185	484.0
+14679	San Diego, CA: San Diego International		1.0	21.228699551569505	267.0
+14683	San Antonio, TX: San Antonio International		1.0	33.452991452991455	391.0
+14685	Savannah, GA: Savannah/Hilton Head International		3.0	33.05	201.0
+14689	Santa Barbara, CA: Santa Barbara Municipal		1.0	32.84615384615385	152.0
+14709	Deadhorse, AK: Deadhorse Airport		11.0	11.5	12.0
+14711	State College, PA: University Park		3.0	14.0	33.0
+14747	Seattle, WA: Seattle/Tacoma International		1.0	32.126543209876544	531.0
+14771	San Francisco, CA: San Francisco International		1.0	44.23943661971831	556.0
+14783	Springfield, MO: Springfield-Branson National		3.0	56.95238095238095	223.0
+14831	San Jose, CA: Norman Y. Mineta San Jose International		1.0	27.299212598425196	206.0
+14843	San Juan, PR: Luis Munoz Marin International		1.0	32.38461538461539	209.0
+14869	Salt Lake City, UT: Salt Lake City International		1.0	27.511811023622048	475.0
+14893	Sacramento, CA: Sacramento International		1.0	26.570247933884296	135.0
+14905	Santa Maria, CA: Santa Maria Public/Capt. G. Allan Hancock Field		Infinity	NaN	-Infinity
+15027	Christiansted, VI: Henry E. Rohlsen		12.0	12.0	12.0
+15041	Sun Valley/Hailey/Ketchum, ID: Friedman Memorial		13.0	21.666666666666668	27.0
+15249	Tallahassee, FL: Tallahassee International		1.0	18.444444444444443	55.0
+15295	Toledo, OH: Toledo Express		7.0	27.25	40.0
+15323	Bristol/Johnson City/Kingsport, TN: Tri-Cities Regional TN/VA		1.0	22.333333333333332	56.0
+15389	Twin Falls, ID: Joslin Field - Magic Valley Regional		1.0	8.0	18.0
+15401	Texarkana, AR: Texarkana Regional-Webb Field		Infinity	NaN	-Infinity
+15411	Tyler, TX: Tyler Pounds Regional		4.0	39.22222222222222	130.0
+15607	Valdosta, GA: Valdosta Regional		20.0	20.0	20.0
+15841	Wrangell, AK: Wrangell Airport		Infinity	NaN	-Infinity
+15919	Fayetteville, AR: Northwest Arkansas Regional		1.0	33.142857142857146	119.0
+15991	Yakutat, AK: Yakutat Airport		3.0	11.5	20.0
