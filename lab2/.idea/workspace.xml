@@ -23,7 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51f76cb-4583-4d0d-9bb3-d0df8646dbbd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportReducer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportWritableComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportWritableComparable.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
