@@ -12,10 +12,10 @@ public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 	protected void reduce(AirportWritableComparable key, Iterable<Text> values, Context context)
 			throws IOException, InterruptedException {
 		Iterator<Text> it = values.iterator();
+		String airportName = it.next().toString();
 		if (!it.hasNext()) {
 			return;
 		}
-		String airportName = it.next().toString();
 		double sum = 0;
 		double cnt = 0;
 		double max = Double.NEGATIVE_INFINITY;
