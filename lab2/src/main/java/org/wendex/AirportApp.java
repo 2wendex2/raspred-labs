@@ -9,7 +9,7 @@ import org.apache.hadoop.fs.Path;
 
 public class AirportApp {
 	public static void main(String[] args) throws Exception {
-		if (args.length != 2) {
+		if (args.length != 3) {
 			System.err.println("Usage: AirportApp <input path> <output path>");
 			System.exit(-1);
 		}
