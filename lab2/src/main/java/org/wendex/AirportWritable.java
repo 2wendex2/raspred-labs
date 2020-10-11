@@ -32,6 +32,6 @@ public class AirportWritable implements Writable {
 	}
 
 	public AirportWritableComparable toAirportWritableComparable() {
-		return new AirportWritableComparable(id, 0);
+		return new AirportWritableComparable(id, false);
 	}
 }
