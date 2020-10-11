@@ -3,7 +3,7 @@ package org.wendex;
 public class CsvTools {
     static final int MAX_ROWS = 23;
 
-    private int parseRow(String s, int i, StringBuilder sb) {
+    private static int parseRow(String s, int i, StringBuilder sb) {
         boolean inMark = false;
         if (s.charAt(i) == '\"') {
             inMark = true;
@@ -19,6 +19,7 @@ public class CsvTools {
                 sb.append(s.charAt(i));
             }
         }
+        return i;
     }
 
     public static String[] read(String s) {
@@ -28,6 +29,8 @@ public class CsvTools {
         int i = 0;
         for (int k = 0; k < MAX_ROWS; k++) {
             StringBuilder sb = new StringBuilder();
+            i = parseRow(s, sb, i);
+
         }
 
 
