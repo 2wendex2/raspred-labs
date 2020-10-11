@@ -1,0 +1,5 @@
+org/wendex/AirportWritable.class
+org/wendex/AirportMapper.class
+org/wendex/AirportReducer.class
+org/wendex/AirportApp.class
+org/wendex/AirportWritableComparable.class
