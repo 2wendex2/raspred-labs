@@ -10,6 +10,8 @@ public class AirportWritableComparable implements WritableComparable<AirportWrit
     int id;
     boolean flightFlag;
 
+    public AirportWritableComparable() {}
+
     public AirportWritableComparable(int id, boolean flightFlag) {
         this.id = id;
         this.flightFlag = flightFlag;
