@@ -1,15 +1,16 @@
 package org.wendex;
 
 public class CsvTools {
-    private String parseRow(String s, int index) {
-        StringBuilder sb = new StringBuilder();
+    static final int MAX_ROWS = 23;
+
+    private String parseRow(String s, int index, StringBuilder sb) {
         boolean inMark = false;
         if (s.charAt(index) == '\"') {
             inMark = true;
             index++;
         }
 
-        for (int i = index; i < s.length(); i++) {
+        for (; i < s.length(); i++) {
             if (s.charAt(i) == ',' && !inMark) {
                 return sb.toString();
             } else if (s.charAt(i) == '\"') {
@@ -21,9 +22,15 @@ public class CsvTools {
     }
 
     public static String[] read(String s) {
-        String[] arr = new String[23];
+        String[] arr = new String[MAX_ROWS];
         int n = 0;
-        arr[0] = new String();
+
+        int i = 0;
+        for (int k = 0; k < MAX_ROWS; k++) {
+
+        }
+
+
         bool begi
         for (int i = 0; i < s.length(); i++) {
             if
