@@ -12,8 +12,10 @@ public class FlightMapper extends Mapper<LongWritable, Text, AirportWritableComp
             throws IOException, InterruptedException {
         String[] arr = CsvTools.read(value.toString());
         int id;
+        double delay;
         try {
-            id = Integer.parseInt(arr[0]);
+            id = Integer.parseInt(arr[14]);
+            delay = Double.parseDouble()
         } catch (NumberFormatException exception) {
             return;
         }
