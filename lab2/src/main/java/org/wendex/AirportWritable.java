@@ -24,7 +24,7 @@ public class AirportWritable implements Writable {
 		String[] a = s.replaceAll("\"\"", "\"").split(",");
 		for (int i = 0; i < a.length; i++) {
 			if (a[i].charAt(0) == '\"') {
-				a[i] = a[i].substring(1, a[i].length() - 1);\
+				a[i] = a[i].substring(1, a[i].length() - 1);
 			}
 		}
 		id = Integer.parseInt(a[0]);
