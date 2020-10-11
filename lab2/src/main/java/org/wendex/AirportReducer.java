@@ -7,7 +7,7 @@ import org.apache.hadoop.io.IntWritable;
 import java.io.IOException;
 import java.util.Iterator;
 
-public class AirportReducer extends Reducer<AirportWritableComparable, AirportWritable,
+public class AirportReducer extends Reducer<AirportWritableComparable, Text,
 		AirportWritableComparable, AirportWritable> {
 	@Override
 	protected void reduce(AirportWritableComparable key, Iterable<AirportWritable> values, Context context)
