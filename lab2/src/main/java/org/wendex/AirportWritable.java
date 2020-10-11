@@ -18,8 +18,16 @@ public class AirportWritable implements Writable {
 				arr[i] = arr[i].substring(1, arr[i].length() - 1);
 			}
 		}
-		id = Integer.parseInt(arr[0]);
-		name = arr[1];
+		try {
+			id = Integer.parseInt(arr[0]);
+			name = arr[1];
+		} catch (NumberFormatException exception) {
+			id = -1;
+		}
+	}
+
+	public boolean isValid() {
+		return id >= 0;
 	}
 
 	public AirportWritable(Text text) {
