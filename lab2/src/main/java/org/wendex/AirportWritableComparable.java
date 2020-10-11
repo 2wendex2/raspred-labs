@@ -1,2 +1,4 @@
-package org.wendex;public class AirportWritableComparable {
+package org.wendex;
+
+public class AirportWritableComparable {
 }
