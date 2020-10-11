@@ -10,7 +10,7 @@ public class AirportWritable implements Writable {
 	private int id;
 	private String name;
 
-	public void readFromLine(String line) {
+	private void readFromLine(String line) {
 		String[] arr = line.replaceAll("\"\"", "\"").split(",");
 		for (int i = 0; i < arr.length; i++) {
 			if (arr[i].charAt(0) == '\"') {
@@ -19,6 +19,10 @@ public class AirportWritable implements Writable {
 		}
 		id = Integer.parseInt(arr[0]);
 		name = arr[1];
+	}
+
+	public AirportWritable(String line) {
+		readFromLine(line);
 	}
 
 	@Override
