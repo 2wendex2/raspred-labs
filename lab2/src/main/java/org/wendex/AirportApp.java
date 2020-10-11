@@ -20,8 +20,8 @@ public class AirportApp {
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
 		job.setMapperClass(AirportMapper.class);
 		job.setReducerClass(AirportReducer.class);
-		job.setOutputKeyClass(AirportWritableComparable.class);
-		job.setOutputValueClass(AirportWritable.class);
+		job.setOutputKeyClass(IntWritable.class);
+		job.setOutputValueClass(Text.class);
 		job.setNumReduceTasks(2);
 		System.exit(job.waitForCompletion(true) ? 0 : 1);
 	}

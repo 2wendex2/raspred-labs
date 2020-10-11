@@ -23,9 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c51f76cb-4583-4d0d-9bb3-d0df8646dbbd" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportReducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportReducer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportWritableComparable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportWritableComparable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportApp.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,5 +79,11 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1602434344905">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.985@0.27.1920.985" timestamp="1602434344905" />
   </component>
 </project>
