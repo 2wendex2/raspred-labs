@@ -1,6 +1,8 @@
 org/wendex/AirportMapper.class
 org/wendex/AirportReducer.class
-org/wendex/FlightMapper.class
-org/wendex/CsvTools.class
+org/wendex/AirportPartitioner.class
 org/wendex/AirportApp.class
 org/wendex/AirportWritableComparable.class
+org/wendex/AirportComparator.class
+org/wendex/FlightMapper.class
+org/wendex/CsvTools.class
