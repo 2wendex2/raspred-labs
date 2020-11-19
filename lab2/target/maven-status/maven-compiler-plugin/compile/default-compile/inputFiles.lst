@@ -1,6 +1,8 @@
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/FlightMapper.java
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportReducer.java
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/CsvTools.java
+/home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportPartitioner.java
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportWritableComparable.java
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportMapper.java
+/home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportComparator.java
 /home/wendex/labs/rsp/lab2/src/main/java/org/wendex/AirportApp.java
