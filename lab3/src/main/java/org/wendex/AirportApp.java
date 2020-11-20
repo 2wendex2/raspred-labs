@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
 import java.util.Map;
@@ -28,15 +29,14 @@ public class AirportApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> AirportRDD = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String> FlightRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
-
-        Map<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
+        Map<Integer, String> airportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
                    return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
                 }).filter(t -> t._1 != null)
                 .collectAsMap();
+
+        final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportsNames);
 
         JavaPairRDD<Tuple2<Integer, Integer>, FlightData> Flights = sc
                 .textFile("664600583_T_ONTIME_sample.csv")
@@ -53,7 +53,6 @@ public class AirportApp {
                 }).filter(t -> t._1 != null)
                 .reduceByKey(FlightData::product);
 
-        final Broadcast<Map<String, AirportData>> airportsBroadcasted =
-                sc.broadcast(stringAirportDataMap);
+
     }
 }
