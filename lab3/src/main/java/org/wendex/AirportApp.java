@@ -18,7 +18,13 @@ public class AirportApp {
         }
     }
 
-
+    private static Double safeParseDouble(String s) {
+        try {
+            return Double.parseDouble(s);
+        } catch (NumberFormatException e) {Integer
+            return null;
+        }
+    }
 
     private static final int AIRPORT_ID_INDEX = 0;
     private static final int AIRPORT_NAME_INDEX = 1;
@@ -45,8 +51,8 @@ public class AirportApp {
                     String[] strs = CsvTools.read(s);
                     Integer origin = safeParseInt(strs[FLIGHT_ORIGIN_ID_INDEX]);
                     Integer dest = safeParseInt(strs[FLIGHT_DEST_ID_INDEX]);
-                    double delay = Double.parseDouble(strs[FLIGHT_DELAY_INDEX]);
-                    double cancelled = Double.parseDouble(strs[FLIGHT_CANCELLED_INDEX]);
+                    Double delay = safeParseDouble(strs[FLIGHT_DELAY_INDEX]);
+                    Double cancelled = safeParseDouble(strs[FLIGHT_CANCELLED_INDEX]);
                     if (origin == null) {
                         return new Tuple2<>(null, null);
                     }
