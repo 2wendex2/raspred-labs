@@ -1,4 +1,4 @@
-export HADOOP_CLASSPATH=target/lab2-1.0-SNAPSHOT.jar
+export HADOOP_CLASSPATH=target/lab3-1.0-SNAPSHOT.jar
 rm -r output
 mvn package
 hadoop fs -rm -r output
