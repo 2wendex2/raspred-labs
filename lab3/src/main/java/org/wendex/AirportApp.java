@@ -25,8 +25,7 @@ public class AirportApp {
         JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
-                   Integer id = safeParseInt(strs[0]);
-                   return new Tuple2<>(id, strs[1]);
+                   return new Tuple2<>(safeParseInt(strs[0]), strs[1]);
                 }).filter(t -> t._1 >= 0);
     }
 }
