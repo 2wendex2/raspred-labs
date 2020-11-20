@@ -26,7 +26,11 @@ public class FlightData implements Serializable {
         return r;
     }
 
-    public double percent() {
+    public double getPercent() {
         return (double)cancelledDelayCount / (double)flightCount * 100;
+    }
+
+    public double getMaxDelay () {
+        return maxDelay;
     }
 }
