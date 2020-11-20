@@ -35,7 +35,7 @@ public class AirportApp {
                    return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
                 }).filter(t -> t._1 != null);
 
-        JavaPairRDD<JavaPairRDD<Integer, Integer>, JavaPairRDD<Double, Boolean>> Flights = sc
+        JavaPairRDD<Tuple2<Integer, Integer>, Tuple2<Double, Boolean>> Flights = sc
                 .textFile("664600583_T_ONTIME_sample.csv")
                 .mapToPair(s -> {
                     String[] strs = CsvTools.read(s);
@@ -43,7 +43,11 @@ public class AirportApp {
                     Integer dest = safeParseInt(strs[FLIGHT_DEST_ID_INDEX]);
                     Double delay = Double.parseDouble(strs[FLIGHT_DELAY_INDEX]);
                     Double cancelled = Double.parseDouble(strs[FLIGHT_CANCELLED_INDEX]);
-                    
-                })
+                    if (origin == null) {
+                        return new Tuple2<>(null, null);
+                    }
+                    return new Tuple2<>(new Tuple2<>(origin, dest), new Tuple2<>(delay, cancelled > 0));
+                }).filter(t -> t._1 != null)
+                .
     }
 }
