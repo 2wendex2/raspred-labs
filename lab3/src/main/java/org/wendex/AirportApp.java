@@ -41,15 +41,13 @@ public class AirportApp {
                     String[] strs = CsvTools.read(s);
                     Integer origin = safeParseInt(strs[FLIGHT_ORIGIN_ID_INDEX]);
                     Integer dest = safeParseInt(strs[FLIGHT_DEST_ID_INDEX]);
-                    Double delay = Double.parseDouble(strs[FLIGHT_DELAY_INDEX]);
-                    Double cancelled = Double.parseDouble(strs[FLIGHT_CANCELLED_INDEX]);
+                    double delay = Double.parseDouble(strs[FLIGHT_DELAY_INDEX]);
+                    double cancelled = Double.parseDouble(strs[FLIGHT_CANCELLED_INDEX]);
                     if (origin == null) {
                         return new Tuple2<>(null, null);
                     }
                     return new Tuple2<>(new Tuple2<>(origin, dest), new FlightData(delay, cancelled > 0));
                 }).filter(t -> t._1 != null)
-                .reduceByKey((a, b) -> {
-
-                })
+                .reduceByKey(FlightData::product);
     }
 }
