@@ -27,6 +27,6 @@ public class AirportApp {
                    String[] strs = CsvTools.read(s);
                    int id = safeParseInt(strs[0]);
                    return new Tuple2<>(id, strs[1]);
-                }).filter(t -);
+                }).filter(t -> t._1 >= 0);
     }
 }
