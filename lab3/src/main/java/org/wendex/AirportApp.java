@@ -20,7 +20,7 @@ public class AirportApp {
     private static final int FLIGHT_ORIGIN_ID_INDEX = 11;
     private static final int FLIGHT_DEST_ID_INDEX = 14;
     private static final int FLIGHT_DELAY_INDEX = 18;
-    
+    private static final int FLIGHT_CANCELLED_INDEX = 19;
 
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
