@@ -48,6 +48,6 @@ public class AirportApp {
                     }
                     return new Tuple2<>(new Tuple2<>(origin, dest), new Tuple2<>(delay, cancelled > 0));
                 }).filter(t -> t._1 != null)
-                .
+                .reduceByKey()
     }
 }

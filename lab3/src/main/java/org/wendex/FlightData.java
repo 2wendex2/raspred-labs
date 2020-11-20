@@ -1,2 +1,7 @@
-package org.wendex;public class FlightData {
+package org.wendex;
+
+import java.io.Serializable;
+
+public class FlightData implements Serializable {
+    
 }
