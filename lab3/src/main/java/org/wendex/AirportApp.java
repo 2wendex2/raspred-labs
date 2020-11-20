@@ -67,7 +67,7 @@ public class AirportApp {
                     return t._1._1.toString() + "," + map.get(t._1._1) + "," +
                             t._1._2.toString() + "," + map.get(t._1._2) + "," +
                             t._2.getMaxDelay() + "," + t._2.getPercent() + ",";
-                }).saveAsTextFile("output.csv");
+                }).saveAsTextFile("output");
 
     }
 }
