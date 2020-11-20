@@ -7,11 +7,12 @@ import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
 public class AirportApp {
-    private static int safeParseInt(String s) {
+    @org.jetbrains.annotations.Nullable
+    private static Integer safeParseInt(String s) {
         try {
             return Integer.parseInt(s);
         } catch (NumberFormatException e) {
-            return -1;
+            return null;
         }
     }
 
