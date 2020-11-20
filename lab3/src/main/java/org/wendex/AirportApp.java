@@ -18,6 +18,8 @@ public class AirportApp {
         }
     }
 
+
+
     private static final int AIRPORT_ID_INDEX = 0;
     private static final int AIRPORT_NAME_INDEX = 1;
     private static final int FLIGHT_ORIGIN_ID_INDEX = 11;
