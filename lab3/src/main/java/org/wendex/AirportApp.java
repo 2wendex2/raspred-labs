@@ -19,6 +19,7 @@ public class AirportApp {
     private static final int AIRPORT_NAME_INDEX = 1;
     private static final int FLIGHT_ORIGIN_ID_INDEX = 11;
     private static final int FLIGHT_DEST_ID_INDEX = 14;
+    private static final int FLIGHT_DELAY_INDEX = 18;
     
 
     public static void main(String[] args) {
