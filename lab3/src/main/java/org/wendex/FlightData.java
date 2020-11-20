@@ -25,4 +25,8 @@ public class FlightData implements Serializable {
         r.maxDelay = Double.max(this.maxDelay, flightData.maxDelay);
         return r;
     }
+
+    public double percent() {
+        return (double)cancelledDelayCount / (double)flightCount * 100;
+    }
 }

@@ -52,7 +52,10 @@ public class AirportApp {
                 }).filter(t -> t._1 != null)
                 .reduceByKey(FlightData::product)
                 .map(t -> {
-                    return t._1.toString() + "," +
+                    Map<Integer, String> map = airportsBroadcasted.value();
+                    return t._1._1.toString() + "," + map.get(t._1._1) + "," +
+                            t._1._2.toString() + "," + map.get(t._1._2) + "," +
+
                 })
 
     }
