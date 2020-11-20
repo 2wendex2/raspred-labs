@@ -39,6 +39,11 @@ public class AirportApp {
                 .textFile("664600583_T_ONTIME_sample.csv")
                 .mapToPair(s -> {
                     String[] strs = CsvTools.read(s);
+                    Integer origin = safeParseInt(strs[FLIGHT_ORIGIN_ID_INDEX]);
+                    Integer dest = safeParseInt(strs[FLIGHT_DEST_ID_INDEX]);
+                    Double delay = Double.parseDouble(strs[FLIGHT_DELAY_INDEX]);
+                    Double cancelled = Double.parseDouble(strs[FLIGHT_CANCELLED_INDEX]);
+                    
                 })
     }
 }
