@@ -52,5 +52,8 @@ public class AirportApp {
                     return new Tuple2<>(new Tuple2<>(origin, dest), new FlightData(delay, cancelled > 0));
                 }).filter(t -> t._1 != null)
                 .reduceByKey(FlightData::product);
+
+        final Broadcast<Map<String, AirportData>> airportsBroadcasted =
+                sc.broadcast(stringAirportDataMap);
     }
 }
