@@ -38,8 +38,7 @@ public class AirportApp {
 
         final Broadcast<Map<Integer, String>> airportsBroadcasted = sc.broadcast(airportsNames);
 
-        JavaPairRDD<Tuple2<Integer, Integer>, FlightData> Flights = sc
-                .textFile("664600583_T_ONTIME_sample.csv")
+        sc.textFile("664600583_T_ONTIME_sample.csv")
                 .mapToPair(s -> {
                     String[] strs = CsvTools.read(s);
                     Integer origin = safeParseInt(strs[FLIGHT_ORIGIN_ID_INDEX]);
@@ -51,8 +50,8 @@ public class AirportApp {
                     }
                     return new Tuple2<>(new Tuple2<>(origin, dest), new FlightData(delay, cancelled > 0));
                 }).filter(t -> t._1 != null)
-                .reduceByKey(FlightData::product);
-
+                .reduceByKey(FlightData::product)
+                .map()
 
     }
 }
