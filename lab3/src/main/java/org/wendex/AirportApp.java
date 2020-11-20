@@ -23,7 +23,8 @@ public class AirportApp {
 
         JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
-                   String[] ssrt = CsvTools.read()
+                   String[] strs = CsvTools.read(s);
+                   return Tuple2<>
                 });
     }
 }
