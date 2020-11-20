@@ -35,7 +35,7 @@ public class AirportApp {
                    return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
                 }).filter(t -> t._1 != null);
 
-        JavaPairRDD<JavaPairRDD<Integer, Integer>, JavaPairRDD<Integer, Boolean>> Flights = sc
+        JavaPairRDD<JavaPairRDD<Integer, Integer>, JavaPairRDD<Double, Boolean>> Flights = sc
                 .textFile("664600583_T_ONTIME_sample.csv")
                 .mapToPair(s -> {
                     String[] strs = CsvTools.read(s);
