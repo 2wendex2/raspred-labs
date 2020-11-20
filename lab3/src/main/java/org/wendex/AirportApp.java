@@ -6,6 +6,8 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 import scala.Tuple2;
 
+import java.util.Map;
+
 public class AirportApp {
     private static Integer safeParseInt(String s) {
         try {
@@ -29,11 +31,12 @@ public class AirportApp {
         JavaRDD<String> AirportRDD = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> FlightRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
 
-        JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
+        Map<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
                    return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
-                }).filter(t -> t._1 != null);
+                }).filter(t -> t._1 != null)
+                .collectAsMap();
 
         JavaPairRDD<Tuple2<Integer, Integer>, FlightData> Flights = sc
                 .textFile("664600583_T_ONTIME_sample.csv")
