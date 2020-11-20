@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4aa27a82-cfa5-48a9-8757-00a159507498" name="Default Changelist" comment="" />
+    <list default="true" id="4aa27a82-cfa5-48a9-8757-00a159507498" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AirportApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AirportApp.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -76,5 +78,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
