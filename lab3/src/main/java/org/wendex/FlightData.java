@@ -19,9 +19,10 @@ public class FlightData implements Serializable {
     private FlightData() {}
 
     public FlightData product(FlightData flightData) {
-        FlightData r;
+        FlightData r = new FlightData();
         r.flightCount = this.flightCount + flightData.flightCount;
         r.cancelledDelayCount = this.cancelledDelayCount + flightData.cancelledDelayCount;
         r.maxDelay = Double.max(this.maxDelay, flightData.maxDelay);
+        return r;
     }
 }
