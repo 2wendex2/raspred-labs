@@ -64,9 +64,9 @@ public class AirportApp {
                 .reduceByKey(FlightData::product)
                 .map(t -> {
                     Map<Integer, String> map = airportsBroadcasted.value();
-                    return t._1._1.toString() + "," + map.get(t._1._1) + "," +
-                            t._1._2.toString() + "," + map.get(t._1._2) + "," +
-                            t._2.getMaxDelay() + "," + t._2.getPercent() + ",";
+                    return t._1._1.toString() + "\t" + map.get(t._1._1) + "\t\t\t" +
+                            t._1._2.toString() + "\t" + map.get(t._1._2) + "\t\t\t" +
+                            t._2.getMaxDelay() + "\t\t" + t._2.getPercent();
                 }).saveAsTextFile("output");
 
     }
