@@ -15,6 +15,10 @@ public class AirportApp {
         }
     }
 
+    private static final int AIRPORT_ID_INDEX = 0;
+    private static final int AIRPORT_NAME_INDEX = 1;
+    private static final int FLIGHT_ID_INDEX = 0;
+
     public static void main(String[] args) {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
@@ -25,7 +29,7 @@ public class AirportApp {
         JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
-                   return new Tuple2<>(safeParseInt(strs[0]), strs[1]);
+                   return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
                 }).filter(t -> t._1 >= 0);
     }
 }
