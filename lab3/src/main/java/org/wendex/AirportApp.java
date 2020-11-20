@@ -10,6 +10,6 @@ public class AirportApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> AirportRDD = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String> FlightRDD = sc.textFile("L_AIRPORT_ID.csv");
+        JavaRDD<String> FlightRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
     }
 }
