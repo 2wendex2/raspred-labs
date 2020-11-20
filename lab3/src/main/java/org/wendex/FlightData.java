@@ -9,7 +9,7 @@ public class FlightData implements Serializable {
 
     public FlightData(double delay, boolean cancelled) {
         maxDelay = delay;
-        if (cancelled || delay >= 0)
+        if (cancelled || delay > 0)
             cancelledDelayCount = 1;
         else
             cancelledDelayCount = 0;
