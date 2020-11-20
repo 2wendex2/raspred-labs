@@ -13,6 +13,7 @@ public class AirportApp {
         JavaRDD<String> AirportRDD = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> FlightRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
 
-        JavaPairRDD<Integer, >
+        JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
+                .mapToPair(())
     }
 }
