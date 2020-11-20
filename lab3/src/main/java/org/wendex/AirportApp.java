@@ -33,6 +33,8 @@ public class AirportApp {
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
                    return new Tuple2<>(safeParseInt(strs[AIRPORT_ID_INDEX]), strs[AIRPORT_NAME_INDEX]);
-                }).filter(t -> t._1 >= 0);
+                }).filter(t -> t._1 != null);
+
+        JavaPairRDD<JavaPairRDD<Integer, Integer>, JavaPairRDD<Integer, Boolean>>
     }
 }
