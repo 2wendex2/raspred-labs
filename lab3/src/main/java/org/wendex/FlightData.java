@@ -3,7 +3,7 @@ package org.wendex;
 import java.io.Serializable;
 
 public class FlightData implements Serializable {
-    private int flightCount = 1;
+    private int flightCount;
     private int cancelledDelayCount;
     private double maxDelay;
 
@@ -13,15 +13,15 @@ public class FlightData implements Serializable {
             cancelledDelayCount = 1;
         else
             cancelledDelayCount = 0;
+        flightCount = 1;
     }
 
-    public void addFlight(boolean cancelled, double delay) {
-        if (delay > maxDelay) {
-            maxDelay = delay;
-        }
-        flightCount++;
-        if (cancelled || delay > 0) {
-            cancelledDelayCount++;
-        }
+    private FlightData() {}
+
+    public FlightData product(FlightData flightData) {
+        FlightData r;
+        r.flightCount = this.flightCount + flightData.flightCount;
+        r.cancelledDelayCount = this.cancelledDelayCount + flightData.cancelledDelayCount;
+        r.maxDelay = Double.max(this.maxDelay, flightData.maxDelay);
     }
 }

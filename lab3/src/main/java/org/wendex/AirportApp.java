@@ -46,8 +46,10 @@ public class AirportApp {
                     if (origin == null) {
                         return new Tuple2<>(null, null);
                     }
-                    return new Tuple2<>(new Tuple2<>(origin, dest), new FlightData());
+                    return new Tuple2<>(new Tuple2<>(origin, dest), new FlightData(delay, cancelled > 0));
                 }).filter(t -> t._1 != null)
-                .reduceByKey()
+                .reduceByKey((a, b) -> {
+
+                })
     }
 }
