@@ -21,7 +21,7 @@ public class AirportApp {
     private static Double safeParseDouble(String s) {
         try {
             return Double.parseDouble(s);
-        } catch (NumberFormatException e) {Integer
+        } catch (NumberFormatException e) {
             return null;
         }
     }
