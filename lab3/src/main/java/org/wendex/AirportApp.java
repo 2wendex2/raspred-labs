@@ -4,6 +4,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 public class AirportApp {
     private static int safeParseInt(String s) {
@@ -24,7 +25,8 @@ public class AirportApp {
         JavaPairRDD<Integer, String> AirportsNames = sc.textFile("L_AIRPORT_ID.csv")
                 .mapToPair(s -> {
                    String[] strs = CsvTools.read(s);
-                   return Tuple2<>
-                });
+                   int id = safeParseInt(strs[0]);
+                   return new Tuple2<>(id, strs[1]);
+                }).filter(t -);
     }
 }
