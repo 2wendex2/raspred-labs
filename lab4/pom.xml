@@ -97,7 +97,7 @@
   	  <configuration>
     	    <mainClass>org.wendex.JSTest</mainClass>
   	  </configuration>
-</plugin>
+	</plugin>
       </plugins>
     </pluginManagement>
     <plugins>
