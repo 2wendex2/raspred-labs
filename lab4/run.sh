@@ -1,1 +1,1 @@
-java -cp ./target/classes org.wendex.JSTest
+java -jar ./target/lab4-1.0-SNAPSHOT.jar
