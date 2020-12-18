@@ -10,7 +10,8 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor extends AbstractActor {
-    private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class, ))
+    private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
+    
 
     public TestRouterActor() {
 
