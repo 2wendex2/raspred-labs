@@ -17,7 +17,7 @@ public class TestRunnerActor {
                     ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
                     scriptEngine.eval(m.getJsString());
                     Invokable invokable = (Invokable)scriptEngine;
-                    
+
                 }).build();
     }
 }
