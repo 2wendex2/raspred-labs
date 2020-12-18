@@ -8,7 +8,7 @@ import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-public class TestRouterActor  {
+public class TestRouterActor extends AbstractActor {
     private ActorRef storageActor = system.a
 
     public TestRouterActor() {
