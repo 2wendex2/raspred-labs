@@ -1,2 +1,4 @@
-package org.wendex;public class TestRouter {
+package org.wendex;
+
+public class TestRouter {
 }
