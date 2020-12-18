@@ -16,7 +16,8 @@ public class TestRunnerActor {
                 .match(TestRunMessage.class, m -> {
                     ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
                     scriptEngine.eval(m.getJsString());
-                    Invokable invokable = 
+                    Invokable invokable = (Invokable)scriptEngine;
+                    
                 }).build();
     }
 }
