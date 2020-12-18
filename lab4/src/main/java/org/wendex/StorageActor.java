@@ -12,7 +12,7 @@ public class StorageActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(TestResultMessage.class, m -> {
                     HashMap<String, Object> h = store.get(m.getPackageId());
-                    
+                    h.put(m.getTestName(), m.getTestResult());
         });
     }
 }
