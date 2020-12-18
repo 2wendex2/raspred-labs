@@ -12,7 +12,7 @@ import javax.script.ScriptEngineManager;
 
 public class TestRouterActor extends AbstractActor {
     private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
-    private RoundRobinPool testRunnerPool = 
+    private RoundRobinPool testRunnerPool = getContext().actorOf()
 
     public TestRouterActor() {
 
