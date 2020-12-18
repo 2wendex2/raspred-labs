@@ -11,8 +11,10 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor extends AbstractActor {
+    static final int ROUTER_INSTANCE_NUMBER = 1;
+
     //private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
-    private ActorRef testRunnerPool = getContext().actorOf(new RoundRobinPool(5)
+    private ActorRef testRunnerPool = getContext().actorOf(new RoundRobinPool(ROUTER_INSTANCE_NUMBER)
             .props(Props.create(TestRouterActor.class)));
 
     public AbstractActor.Receive createReceive() {
