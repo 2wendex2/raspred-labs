@@ -1,2 +1,4 @@
-package org.wendex;public class TestResultMessage {
+package org.wendex;
+
+public class TestResultMessage {
 }
