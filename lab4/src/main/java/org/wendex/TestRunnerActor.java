@@ -1,2 +1,4 @@
-package org.wendex;public class TestRunnerActor {
+package org.wendex;
+
+public class TestRunnerActor {
 }
