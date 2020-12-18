@@ -12,7 +12,7 @@ import javax.script.ScriptEngine;
 public class JSTest {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test");
-        ActorRef storageActor = actorSystem.actorOf(Props.create(TestRouterActor.class));
+        ActorRef storageActor = actorSystem.actorOf(Props.create(TestRunnerActor.class));
         storageActor.tell(new TestRunMessage(1, "divideFn",
                 "var divideFn = function(a,b) { return a/b}", "[4,2]"), ActorRef.noSender());
     }
