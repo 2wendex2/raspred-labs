@@ -4,7 +4,7 @@ public class TestRunMessage {
     private int packageId;
     private String functionName;
     private String jsString;
-    private String params;
+    private Object[] params;
 
     public int getPackageId() {
         return packageId;
@@ -18,11 +18,11 @@ public class TestRunMessage {
         return jsString;
     }
 
-    public String getParams() {
+    public Object[] getParams() {
         return params;
     }
 
-    public TestRunMessage(int packageId, String functionName, String jsString, String params) {
+    public TestRunMessage(int packageId, String functionName, String jsString, Object[] params) {
         this.packageId = packageId;
         this.functionName = functionName;
         this.jsString = jsString;
