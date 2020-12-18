@@ -4,6 +4,7 @@ public class TestRunMessage {
     private int packageId;
     private String functionName;
     private String jsString;
+    private
 
     public int getPackageId() {
         return packageId;
