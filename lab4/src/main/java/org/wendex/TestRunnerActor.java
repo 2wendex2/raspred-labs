@@ -8,10 +8,12 @@ import javax.script.ScriptEngineManager;
 import java.util.HashMap;
 
 public class TestRunnerActor {
+    static final String JS_ENGINE_NAME = "nashorn";
+
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
-                    ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName("nashorn");
+                    ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
                     
                 }).build();
     }
