@@ -1,6 +1,7 @@
 package org.wendex;
 
 import akka.actor.AbstractActor;
+import akka.actor.ActorRef;
 import akka.japi.pf.ReceiveBuilder;
 
 import javax.script.Invocable;
@@ -8,7 +9,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor  {
-    
+    private ActorRef storageActor = 
 
     public TestRouterActor() {
 
