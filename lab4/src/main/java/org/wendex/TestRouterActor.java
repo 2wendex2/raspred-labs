@@ -2,6 +2,7 @@ package org.wendex;
 
 import akka.actor.AbstractActor;
 import akka.actor.ActorRef;
+import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 
 import javax.script.Invocable;
@@ -9,7 +10,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor extends AbstractActor {
-    private ActorRef storageActor = getContext().
+    private ActorRef storageActor = getContext().actorOf(Props.create())
 
     public TestRouterActor() {
 
