@@ -10,6 +10,7 @@ public class JSTest {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test");
         ActorRef storageActor = actorSystem.actorOf(Props.create(TestRouterActor.class));
-        storageActor.tell(new TestRunMessage(1, ""))
+        storageActor.tell(new TestRunMessage(1, "divideFn",
+                ""))
     }
 }
