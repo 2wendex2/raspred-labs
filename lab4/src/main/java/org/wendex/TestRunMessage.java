@@ -19,6 +19,10 @@ public class TestRunMessage {
         return params;
     }
 
+    public String getFunctionName() {
+        return functionName;
+    }
+
     public TestRunMessage(int packageId, String functionName, String jsString, Object[] params, String testName) {
         this.packageId = packageId;
         this.functionName = functionName;

@@ -18,7 +18,7 @@ public class TestRunnerActor extends  AbstractActor{
                     scriptEngine.eval(m.getJsString());
                     Invocable invocable = (Invocable)scriptEngine;
                     Object o = invocable.invokeFunction(m.getFunctionName(), m.getParams());
-                    sender().tell(new TestResultMessage(m.getPackageId(), m.));
+                    sender().tell(m.toTestResultMessage(o), self());
                 }).build();
     }
 }
