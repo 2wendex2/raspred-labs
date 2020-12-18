@@ -12,20 +12,18 @@ import javax.script.ScriptEngineManager;
 
 public class TestRouterActor extends AbstractActor {
     private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
-    private RoundRobinPool testRunnerPool = getContext().actorOf(new RoundRobinPool(5)
-            .props(Props.create(TestRouterActor.class)))
-
-    public TestRouterActor() {
-
-    }
+    private ActorRef testRunnerPool = getContext().actorOf(new RoundRobinPool(5)
+            .props(Props.create(TestRouterActor.class)));
 
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
-                    /*ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName("p");
-                    scriptEngine.eval(m.getJsString());
-                    Invocable invocable = (Invocable)scriptEngine;
-                    System.out.println(invocable.invokeFunction(m.getFunctionName(), m.getParams()));*/
-                }).build();
+                    testRunnerPool.tell(m, self());
+                }).match(TestQueryMessage.class, m -> {
+                    storageActor.tell(m, self());
+                }).match(PackageTestsMessage.class, m -> {
+                    storageActor.tell(m, self());
+                })
+                .build();
     }
 }
