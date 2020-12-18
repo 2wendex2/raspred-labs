@@ -5,13 +5,10 @@ public class TestRunMessage {
     private String functionName;
     private String jsString;
     private Object[] params;
+    private String testName;
 
-    public int getPackageId() {
-        return packageId;
-    }
-
-    public String getFunctionName() {
-        return functionName;
+    public TestResultMessage toTestResultMessage(Object testResult) {
+        return new TestResultMessage(packageId, testName, testResult);
     }
 
     public String getJsString() {
@@ -22,10 +19,11 @@ public class TestRunMessage {
         return params;
     }
 
-    public TestRunMessage(int packageId, String functionName, String jsString, Object[] params) {
+    public TestRunMessage(int packageId, String functionName, String jsString, Object[] params, String testName) {
         this.packageId = packageId;
         this.functionName = functionName;
         this.jsString = jsString;
         this.params = params;
+        this.testName = testName;
     }
 }
