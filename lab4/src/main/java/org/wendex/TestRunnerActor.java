@@ -2,9 +2,9 @@ package org.wendex;
 
 import akka.actor.AbstractActor;
 import akka.japi.pf.ReceiveBuilder;
-import org.graalvm.compiler.nodes.Invokable;
 
 import javax.script.ScriptEngine;
+import javax.script.Invocable;
 import javax.script.ScriptEngineManager;
 import java.util.HashMap;
 
@@ -16,8 +16,8 @@ public class TestRunnerActor extends  AbstractActor{
                 .match(TestRunMessage.class, m -> {
                     ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
                     scriptEngine.eval(m.getJsString());
-                    Invokable invokable = (Invokable)scriptEngine;
-                    sender().tell(invokable.in);
+                    Invocable invocable = (Invocable)scriptEngine;
+                    sender().tell(invocable.invokeFunction());
                 }).build();
     }
 }
