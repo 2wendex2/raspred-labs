@@ -12,11 +12,6 @@ import javax.script.ScriptEngine;
 public class JSTest {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test");
-        ActorRef storageActor = actorSystem.actorOf(Props.create(TestRunnerActor.class));
-        Integer[] a = new Integer[2];
-        a[0] = 1;
-        a[1] = 2;
-        storageActor.tell(new TestRunMessage(1, "divideFn",
-                "var divideFn = function(a,b) { return a/b}", a), ActorRef.noSender());
+        ActorRef testRouterActor = actorSystem.actorOf(Props.create(TestRouterActor.class));
     }
 }
