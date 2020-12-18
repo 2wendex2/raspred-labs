@@ -8,6 +8,12 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor  {
+    
+
+    public TestRouterActor() {
+
+    }
+
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
