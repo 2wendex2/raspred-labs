@@ -7,7 +7,7 @@ import javax.script.Invocable;
 import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
-public class TestRouterActor extends AbstractActor {
+public class TestRouterActor  {
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
