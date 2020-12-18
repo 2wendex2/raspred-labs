@@ -93,7 +93,6 @@
         <plugin>
   	  <groupId>org.codehaus.mojo</groupId>
   	  <artifactId>exec-maven-plugin</artifactId>
-  	  <version>1.4</version>
   	  <configuration>
     	    <mainClass>org.wendex.JSTest</mainClass>
   	  </configuration>
