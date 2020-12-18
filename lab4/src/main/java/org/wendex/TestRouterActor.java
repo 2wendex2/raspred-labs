@@ -9,7 +9,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 
 public class TestRouterActor  {
-    private ActorRef storageActor = 
+    private ActorRef storageActor = system.a
 
     public TestRouterActor() {
 
