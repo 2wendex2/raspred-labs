@@ -14,6 +14,7 @@ public class TestRunnerActor {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
                     ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
+                    scriptEngine.eval(m.getJsString());
                     
                 }).build();
     }
