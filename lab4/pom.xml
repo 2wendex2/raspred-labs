@@ -90,6 +90,14 @@
           <artifactId>maven-project-info-reports-plugin</artifactId>
           <version>3.0.0</version>
         </plugin>
+        <plugin>
+  	  <groupId>org.codehaus.mojo</groupId>
+  	  <artifactId>exec-maven-plugin</artifactId>
+  	  <version>1.4</version>
+  	  <configuration>
+    	    <mainClass>org.wendex.JSTest</mainClass>
+  	  </configuration>
+</plugin>
       </plugins>
     </pluginManagement>
     <plugins>
