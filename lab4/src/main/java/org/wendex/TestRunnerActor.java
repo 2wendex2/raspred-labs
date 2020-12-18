@@ -18,7 +18,7 @@ public class TestRunnerActor extends  AbstractActor{
                     scriptEngine.eval(m.getJsString());
                     Invocable invocable = (Invocable)scriptEngine;
                     Object o = invocable.invokeFunction(m.getFunctionName(), m.getParams());
-                    System.out.println(o);
+                    throw RuntimeException
                 }).build();
     }
 }
