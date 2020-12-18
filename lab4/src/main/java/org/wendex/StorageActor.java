@@ -13,6 +13,8 @@ public class StorageActor extends AbstractActor {
                 .match(TestResultMessage.class, m -> {
                     HashMap<String, Object> h = store.get(m.getPackageId());
                     h.put(m.getTestName(), m.getTestResult());
-        });
+                }).match(TestQueryMessage.class, m -> {
+                    
+                }).build();
     }
 }
