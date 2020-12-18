@@ -10,7 +10,8 @@ public class StorageActor extends AbstractActor {
 
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(TestResultMessage.class, m ->. {
+                .match(TestResultMessage.class, m -> {
+                    HashMap<String, Object> h = store.get(m.getPackageId());
                     
         });
     }
