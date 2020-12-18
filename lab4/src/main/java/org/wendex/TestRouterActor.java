@@ -1,4 +1,7 @@
 package org.wendex;
 
-public class TestRouter {
+import akka.actor.AbstractActor;
+
+public class TestRouterActor extends AbstractActor {
+    
 }

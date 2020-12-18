@@ -8,7 +8,7 @@ import javax.script.ScriptEngine;
 import javax.script.ScriptEngineManager;
 import java.util.HashMap;
 
-public class TestRunnerActor {
+public class TestRunnerActor extends  AbstractActor{
     static final String JS_ENGINE_NAME = "nashorn";
 
     public AbstractActor.Receive createReceive() {
