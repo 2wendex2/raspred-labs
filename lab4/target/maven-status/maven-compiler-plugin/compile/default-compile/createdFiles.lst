@@ -1,3 +1,8 @@
 org/wendex/StorageActor.class
 org/wendex/TestQueryMessage.class
+org/wendex/TestResultMessage.class
+org/wendex/PackageTestsMessage.class
+org/wendex/TestRunnerActor.class
+org/wendex/JSTest.class
 org/wendex/TestRunMessage.class
+org/wendex/TestRouterActor.class
