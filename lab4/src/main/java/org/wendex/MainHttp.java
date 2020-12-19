@@ -19,7 +19,8 @@ public class MainHttp {
             }
             return complete("SUCCESS");
         })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
-            Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT);
+            Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT)
+                    .onComplete();
 
         })));
     }
