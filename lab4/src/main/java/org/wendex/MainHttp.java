@@ -6,6 +6,6 @@ import static akka.http.javadsl.server.Directives.*;
 
 public class MainHttp {
     public Route getRoute() {
-        return post(()-> entity(Jackson.unmarshaller()));
+        return post(()-> entity(Jackson.unmarshaller(HttpQuery.class, )));
     }
 }
