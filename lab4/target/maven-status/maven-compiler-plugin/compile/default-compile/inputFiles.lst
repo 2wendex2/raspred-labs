@@ -4,5 +4,8 @@
 /home/wendex/labs/rsp/lab4/src/main/java/org/wendex/JSTest.java
 /home/wendex/labs/rsp/lab4/src/main/java/org/wendex/TestRunnerActor.java
 /home/wendex/labs/rsp/lab4/src/main/java/org/wendex/TestResultMessage.java
+/home/wendex/labs/rsp/lab4/src/main/java/org/wendex/HttpQuery.java
+/home/wendex/labs/rsp/lab4/src/main/java/org/wendex/Test.java
 /home/wendex/labs/rsp/lab4/src/main/java/org/wendex/TestRouterActor.java
+/home/wendex/labs/rsp/lab4/src/main/java/org/wendex/TestException.java
 /home/wendex/labs/rsp/lab4/src/main/java/org/wendex/PackageTestsMessage.java
