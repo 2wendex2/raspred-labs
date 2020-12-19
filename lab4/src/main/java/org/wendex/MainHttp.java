@@ -13,6 +13,6 @@ public class MainHttp {
                         t.getParams(), t.getTestName(), t.getExpectedResult()), ActorRef.noSender());
             }
             return complete("SUCCESS");
-        }));
+        })).orElse(get() -> );
     }
 }
