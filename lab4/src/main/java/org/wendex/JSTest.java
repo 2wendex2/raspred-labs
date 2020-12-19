@@ -33,6 +33,7 @@ public class JSTest {
             }
             return complete("SUCCESS");
         })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
+            System.out.println("pinus");
             return completeOKWithFuture(Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT),
                     Jackson.marshaller());
         })));
