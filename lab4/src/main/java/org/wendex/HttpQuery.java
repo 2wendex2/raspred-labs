@@ -1,2 +1,4 @@
-package org.wendex;public class HttpQuery {
+package org.wendex;
+
+public class HttpQuery {
 }
