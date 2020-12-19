@@ -24,8 +24,7 @@ public class TestRunMessage {
     public String getFunctionName() {
         return functionName;
     }
-
-
+    
     public TestRunMessage(int packageId, String functionName, String jsString, Object[] params, String testName,
                           Object testResult) {
         this.packageId = packageId;
