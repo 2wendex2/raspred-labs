@@ -7,6 +7,7 @@ import akka.stream.ActorMaterializer;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.NotUsed;
 
 
 public class JSTest {
