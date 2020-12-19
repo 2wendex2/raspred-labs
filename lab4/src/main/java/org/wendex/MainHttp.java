@@ -26,7 +26,7 @@ public class MainHttp {
                         public void onComplete(Throwable failure, TestResultMessage success) throws Throwable {
 
                         }
-                    }, );
+                    }, actor.);
 
         })));
     }
