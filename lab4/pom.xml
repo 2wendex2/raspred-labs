@@ -55,36 +55,36 @@
       <dependency>
           <groupId>com.typesafe.akka</groupId>
           <artifactId>akka-http-core_2.12</artifactId>
-          <version>10.2.2</version>
+          <version>10.1.10</version>
       </dependency>
       <dependency>
           <groupId>com.typesafe.akka</groupId>
           <artifactId>akka-http_2.12</artifactId>
-          <version>10.2.2</version>
+          <version>10.1.10</version>
       </dependency>
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-http-testkit_2.12</artifactId>
-            <version>10.2.2</version>
+            <version>10.1.10</version>
         </dependency>
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-http-spray-json_2.12</artifactId>
-            <version>10.2.2</version>
+            <version>10.1.10</version>
         </dependency>
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-http-jackson_2.12</artifactId>
-            <version>10.2.2</version>
+            <version>10.1.10</version>
         </dependency>
 
         <dependency>
             <groupId>com.typesafe.akka</groupId>
             <artifactId>akka-http-xml_2.12</artifactId>
-            <version>10.2.2</version>
+            <version>10.1.10</version>
         </dependency>
 
     <dependency>
