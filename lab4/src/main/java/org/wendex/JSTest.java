@@ -25,7 +25,7 @@ public class JSTest {
     private static final String PROPERTY_PACKAGE_ID = "packageId";
     private static final int QUERY_TIMEOUT = 10000;
 
-    public static Route createRoute(ActorRef actor, ActorSystem actorSystem) {
+    public static Route createRoute(ActorRef actor) {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
@@ -44,7 +44,7 @@ public class JSTest {
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(testRouterActor, actorSystem).flow(actorSystem, materializer);
+                createRoute(testRouterActor).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow, ConnectHttp.toHost("localhost", 8080), materializer);
     }
