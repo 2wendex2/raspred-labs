@@ -7,8 +7,9 @@ public class TestRunMessage {
     private String jsString;
     private Object[] params;
     private String testName;
+    private Object testResult;
 
-    public TestResultMessage toTestResultMessage(Object testResult) {
+    public TestResultMessage toTestResultMessage() {
         return new TestResultMessage(packageId, testName, testResult);
     }
 
@@ -24,11 +25,14 @@ public class TestRunMessage {
         return functionName;
     }
 
-    public TestRunMessage(int packageId, String functionName, String jsString, Object[] params, String testName) {
+
+    public TestRunMessage(int packageId, String functionName, String jsString, Object[] params, String testName,
+                          Object testResult) {
         this.packageId = packageId;
         this.functionName = functionName;
         this.jsString = jsString;
         this.params = params;
         this.testName = testName;
+        this.testResult = testResult;
     }
 }
