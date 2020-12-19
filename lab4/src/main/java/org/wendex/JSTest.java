@@ -15,6 +15,7 @@ import akka.http.javadsl.model.HttpResponse;
 import akka.NotUsed;
 import akka.stream.javadsl.Flow;
 
+import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.*;
@@ -38,7 +39,7 @@ public class JSTest {
         })));
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         ActorSystem actorSystem = ActorSystem.create("test");
         ActorRef testRouterActor = actorSystem.actorOf(Props.create(TestRouterActor.class));
         final Http http = Http.get(actorSystem);
@@ -47,5 +48,8 @@ public class JSTest {
                 createRoute(testRouterActor).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow, ConnectHttp.toHost("localhost", 8080), materializer);
+        System.in.read();
+        binding.thenCompose(ServerBinding::unbind)
+                .thenAccept(unbound -> actorSystem.terminate());
     }
 }
