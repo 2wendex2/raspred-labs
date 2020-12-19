@@ -26,8 +26,8 @@ public class HttpQuery {
         return jsScript;
     }
 
-    public static String getPropertyFunctionName() {
-        return PROPERTY_FUNCTION_NAME;
+    public Test[] getTests() {
+        return tests;
     }
 
     @JsonCreator public HttpQuery(@JsonProperty(PROPERTY_PACKAGE_ID)          int packageId,
