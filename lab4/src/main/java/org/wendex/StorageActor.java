@@ -17,7 +17,7 @@ public class StorageActor extends AbstractActor {
                     HashMap<String, Boolean> h = store.get(m.getPackageId());
                     if (h == null)
                         throw new TestException("Package with specified id not found");
-                    sender().tell(new PackageTestsMessage(store.get(m.getPackageId())), self());
+                    sender().tell(new PackageTestsMessage(h), self());
                 }).build();
     }
 }
