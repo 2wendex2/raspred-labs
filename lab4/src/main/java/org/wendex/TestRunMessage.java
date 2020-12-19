@@ -9,8 +9,8 @@ public class TestRunMessage {
     private String testName;
     private Object testResult;
 
-    public TestResultMessage toTestResultMessage() {
-        return new TestResultMessage(packageId, testName, testResult);
+    public TestResultMessage toTestResultMessage(Object o) {
+        return new TestResultMessage(packageId, testName, testResult.equals(o));
     }
 
     public String getJsString() {
