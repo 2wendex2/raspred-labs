@@ -3,9 +3,9 @@ package org.wendex;
 public class TestResultMessage {
     private int packageId;
     private String testName;
-    private Object testResult;
+    private boolean testResult;
 
-    public TestResultMessage(int packageId, String testName, Object testResult) {
+    public TestResultMessage(int packageId, String testName, boolean testResult) {
         this.packageId = packageId;
         this.testName = testName;
         this.testResult = testResult;
@@ -19,7 +19,7 @@ public class TestResultMessage {
         return testName;
     }
 
-    public Object getTestResult() {
+    public boolean getTestResult() {
         return testResult;
     }
 }
