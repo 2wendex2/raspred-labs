@@ -8,5 +8,4 @@ org/wendex/TestException.class
 org/wendex/TestRunMessage.class
 org/wendex/Test.class
 org/wendex/TestRouterActor.class
-org/wendex/MainHttp.class
 org/wendex/HttpQuery.class
