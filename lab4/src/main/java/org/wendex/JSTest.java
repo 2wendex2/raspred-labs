@@ -6,7 +6,7 @@ import akka.actor.ActorSystem;
 import akka.actor.Props;
 import org.wendex.TestRouterActor;
 import org.wendex.TestRunMessage;
-import akka.http.scaladsl.Http;
+import akka.http.scaladsl.Htt;
 
 import javax.script.ScriptEngine;
 
