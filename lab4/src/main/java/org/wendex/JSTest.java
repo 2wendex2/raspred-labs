@@ -1,21 +1,17 @@
 package org.wendex;
 
-import akka.actor.Actor;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
 import akka.stream.ActorMaterializer;
-import org.wendex.TestRouterActor;
-import org.wendex.TestRunMessage;
-import akka.http.scaladsl.Http;
-import javax.script.ScriptEngine;
-import akka.NotUsed;
+import akka.http.javadsl.Http;
+import a
 
 public class JSTest {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test");
         final Http http = Http.get(actorSystem);
-        final ActorMaterializer materializer = ActorMaterializer.create(system);
+        final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         MainHttp instance = new MainHttp(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute(system).flow(system, materializer);
