@@ -16,7 +16,7 @@ public class MainHttp {
             }
             return complete("SUCCESS");
         })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
-            
+            actor.tell(new TestQueryMessage(Integer.parseInt(m)), ActorRef.noSender())
         })));
     }
 }
