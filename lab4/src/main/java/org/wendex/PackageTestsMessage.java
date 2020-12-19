@@ -3,6 +3,8 @@ package org.wendex;
 import java.util.HashMap;
 
 public class PackageTestsMessage {
+    PackageTestsMessage
+
     private HashMap<String, Boolean> testsResults;
 
     public HashMap<String, Boolean> getTestsResults() {
