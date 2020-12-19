@@ -1,6 +1,7 @@
 package org.wendex;
 
 import akka.actor.ActorRef;
+import akka.dispatch.OnComplete;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.Route;
 import akka.pattern.Patterns;
@@ -20,7 +21,8 @@ public class MainHttp {
             return complete("SUCCESS");
         })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
             Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT)
-                    .onComplete();
+                    .onComplete(new OnComplete<Object>() {
+                    });
 
         })));
     }
