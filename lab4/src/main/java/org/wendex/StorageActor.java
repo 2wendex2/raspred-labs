@@ -6,7 +6,7 @@ import akka.japi.pf.ReceiveBuilder;
 import java.util.HashMap;
 
 public class StorageActor extends AbstractActor {
-    private HashMap<Integer, HashMap<String, Boolean>> store;
+    private HashMap<Integer, HashMap<String, Boolean>> store = new HashMap<>();
 
     public Receive createReceive() {
         return ReceiveBuilder.create()
@@ -15,8 +15,6 @@ public class StorageActor extends AbstractActor {
                     h.put(m.getTestName(), m.getTestResult());
                 }).match(TestQueryMessage.class, m -> {
                     HashMap<String, Boolean> h = store.get(m.getPackageId());
-                    if (h == null)
-                        throw new TestException("Package with specified id not found");
                     sender().tell(new PackageTestsMessage(h), self());
                 }).build();
     }
