@@ -50,6 +50,6 @@ public class JSTest {
                 routeFlow, ConnectHttp.toHost("localhost", 8080), materializer);
         System.in.read();
         binding.thenCompose(ServerBinding::unbind)
-                .thenAccept(unbound -> actorSystem.terminate());
+               .thenAccept(unbound -> actorSystem.terminate());
     }
 }
