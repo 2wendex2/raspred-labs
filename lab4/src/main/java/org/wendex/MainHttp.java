@@ -8,6 +8,7 @@ public class MainHttp {
     public Route getRoute() {
         return post(()-> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
 
+            return complete("SUCCESS");
         })));
     }
 }
