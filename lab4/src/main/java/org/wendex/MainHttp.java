@@ -9,6 +9,7 @@ import static akka.http.javadsl.server.Directives.*;
 
 public class MainHttp {
     private static final String PROPERTY_PACKAGE_ID = "packageId";
+    private static final int QUERY_TIMEOUT = 10000;
 
     public Route getRoute(ActorRef actor) {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
