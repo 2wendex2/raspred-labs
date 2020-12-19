@@ -1,2 +1,4 @@
-package org.wendex;public class Test {
+package org.wendex;
+
+public class Test {
 }
