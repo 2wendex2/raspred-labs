@@ -8,6 +8,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.NotUsed;
+import akka.stream.javadsl.Flow;
 
 
 public class JSTest {
