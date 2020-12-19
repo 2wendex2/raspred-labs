@@ -10,7 +10,7 @@ public class MainHttp {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
-                        t.getParams(), t.getTestName()), );
+                        t.getParams(), t.getTestName(), t.getExpectedResult()), );
             }
             return complete("SUCCESS");
         }));
