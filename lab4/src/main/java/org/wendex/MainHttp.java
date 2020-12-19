@@ -3,6 +3,8 @@ package org.wendex;
 import akka.actor.ActorRef;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
+
 import static akka.http.javadsl.server.Directives.*;
 
 public class MainHttp {
@@ -16,7 +18,8 @@ public class MainHttp {
             }
             return complete("SUCCESS");
         })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
-            actor.tell(new TestQueryMessage(Integer.parseInt(m)), ActorRef.noSender())
+            Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), )
+            actor.tell(, ActorRef.noSender())
         })));
     }
 }
