@@ -6,7 +6,6 @@ import akka.japi.pf.ReceiveBuilder;
 import javax.script.ScriptEngine;
 import javax.script.Invocable;
 import javax.script.ScriptEngineManager;
-import java.util.HashMap;
 
 public class TestRunnerActor extends  AbstractActor{
     static final String JS_ENGINE_NAME = "nashorn";
