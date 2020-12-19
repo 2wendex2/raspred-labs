@@ -6,7 +6,6 @@ public class HttpQuery {
     @JsonProperty("packageId")          private int packageId;
     @JsonProperty("functionName")       private String functionName;
     @JsonProperty("jsScript")           private String jsScript;
-    @JsonProperty("params")             private Object[] params;
     @JsonProperty("tests")              private Test[] tests;
 
 }
