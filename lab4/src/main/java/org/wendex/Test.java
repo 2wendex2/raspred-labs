@@ -4,6 +4,8 @@ import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class Test {
+    static final String PROPERTY_TEST_NAME =
+
     @JsonProperty("testName")           private String testName;
     @JsonProperty("params")             private Object[] params;
     @JsonProperty("expectedResult")     private Object expectedResult;
@@ -20,5 +22,11 @@ public class Test {
         return params;
     }
 
-    @JsonCreator public Test()
+    @JsonCreator public Test(@JsonProperty("testName")          String testName,
+                             @JsonProperty("params")            Object[] params,
+                             @JsonProperty("expectedResult")    Object expectedResult) {
+        this.testName = testName;
+        this.params = params;
+        this.expectedResult = expectedResult;
+    }
 }
