@@ -1,13 +1,12 @@
 package org.wendex;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 
 public class TestRunMessage {
-    @JsonProperty("packageId")          private int packageId;
-    @JsonProperty("functionName")       private String functionName;
-    @JsonProperty("jsScript")           private String jsString;
-    @JsonProperty("params")             private Object[] params;
-    @JsonProperty("testName")           private String testName;
+    private int packageId;
+    private String functionName;
+    private String jsString;
+    private Object[] params;
+    private String testName;
 
     public TestResultMessage toTestResultMessage(Object testResult) {
         return new TestResultMessage(packageId, testName, testResult);
