@@ -6,8 +6,8 @@ public class TestRunMessage {
     @JsonProperty("packageId")          private int packageId;
     @JsonProperty("functionName")       private String functionName;
     @JsonProperty("jsScript")           private String jsString;
-    @JsonProperty("packageId")          private Object[] params;
-    private String testName;
+    @JsonProperty("params")             private Object[] params;
+    @JsonProperty("testName")           private String testName;
 
     public TestResultMessage toTestResultMessage(Object testResult) {
         return new TestResultMessage(packageId, testName, testResult);
