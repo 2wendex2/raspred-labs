@@ -1,6 +1,7 @@
 package org.wendex;
 
 import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
 import akka.dispatch.OnComplete;
 import akka.http.javadsl.marshallers.jackson.Jackson;
 import akka.http.javadsl.server.Route;
@@ -12,7 +13,7 @@ public class MainHttp {
     private static final String PROPERTY_PACKAGE_ID = "packageId";
     private static final int QUERY_TIMEOUT = 10000;
 
-    public Route getRoute(ActorRef actor) {
+    public Route getRoute(ActorRef actor, ActorSystem actorSystem) {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
@@ -26,7 +27,7 @@ public class MainHttp {
                         public void onComplete(Throwable failure, TestResultMessage success) throws Throwable {
 
                         }
-                    }, actor.);
+                    }, actorSystem.getDispatcher());
 
         })));
     }
