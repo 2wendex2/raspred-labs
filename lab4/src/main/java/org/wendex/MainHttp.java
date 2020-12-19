@@ -28,7 +28,8 @@ public class MainHttp {
 
                         }
                     }, actorSystem.getDispatcher());
-            return completeOKWithFuture()
+            return completeOKWithFuture(Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT),
+                    )
         })));
     }
 }
