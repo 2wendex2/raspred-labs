@@ -7,5 +7,5 @@ public class HttpQuery {
     @JsonProperty("functionName")       private String functionName;
     @JsonProperty("jsScript")           private String jsScript;
     @JsonProperty("params")             private Object[] params;
-    @JsonProperty("testName")           private String testName;
+    @JsonProperty("tests")           private String testName;
 }
