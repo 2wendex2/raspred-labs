@@ -13,5 +13,6 @@ public class JSTest {
     public static void main(String[] args) {
         ActorSystem actorSystem = ActorSystem.create("test");
         ActorRef testRouterActor = actorSystem.actorOf(Props.create(TestRouterActor.class));
+        testRouterActor
     }
 }
