@@ -24,6 +24,7 @@ public class TestRouterActor extends AbstractActor {
                 }).match(TestQueryMessage.class, m -> {
                     storageActor.tell(m, self());
                 }).match(PackageTestsMessage.class, m -> {
+                    System.out.println("qqq");
                     sender().tell(m, self());
                 }).match(TestResultMessage.class, m -> {
                     storageActor.tell(m, self());
