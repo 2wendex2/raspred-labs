@@ -12,7 +12,7 @@ public class JSTest {
         ActorSystem actorSystem = ActorSystem.create("test");
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
-        MainHttp instance = new MainHttp(system);
+        //MainHttp instance = new MainHttp(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 instance.createRoute(system).flow(system, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
