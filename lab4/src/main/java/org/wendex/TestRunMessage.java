@@ -1,6 +1,9 @@
 package org.wendex;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class TestRunMessage {
+    @JsonProperty
     private int packageId;
     private String functionName;
     private String jsString;
