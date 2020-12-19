@@ -5,8 +5,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class TestRunMessage {
     @JsonProperty("packageId")          private int packageId;
     @JsonProperty("functionName")       private String functionName;
-    private String jsString;
-    private Object[] params;
+    @JsonProperty("jsScript")           private String jsString;
+    @JsonProperty("packageId")          private Object[] params;
     private String testName;
 
     public TestResultMessage toTestResultMessage(Object testResult) {
