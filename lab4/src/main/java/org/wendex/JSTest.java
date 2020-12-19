@@ -9,6 +9,7 @@ import org.wendex.TestRouterActor;
 import org.wendex.TestRunMessage;
 import akka.http.scaladsl.Http;
 import javax.script.ScriptEngine;
+import akka.NotUsed;
 
 public class JSTest {
     public static void main(String[] args) {
