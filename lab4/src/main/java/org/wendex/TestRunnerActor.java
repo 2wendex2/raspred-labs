@@ -13,7 +13,6 @@ public class TestRunnerActor extends  AbstractActor{
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
-                    System.out.println("pun");
                     ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
                     scriptEngine.eval(m.getJsString());
                     Invocable invocable = (Invocable)scriptEngine;
