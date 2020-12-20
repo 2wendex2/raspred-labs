@@ -1,4 +1,4 @@
 package org.wendex;
 
-public class LoadTestApp {
+public class LoadTestApp {\
 }
