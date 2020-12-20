@@ -47,7 +47,6 @@ public class LoadTestApp {
                     .thenCompose(s -> {
                         ResultMessage r = (ResultMessage)s;
                         if (r.getTime() != null) {
-                            System.out.println("gggf");
                             return CompletableFuture.completedFuture(r.getTime());
                         }
 
