@@ -16,12 +16,16 @@ import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class LoadTestApp {
+    static final int MAP_ASYNC_PARALLELISM = 1;
+
     private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
                                                                          ActorMaterializer actorMaterializer) {
         Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
-        }).mapAsync();
+        }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
+            
+        });
     }
 
     public static void main(String[] args) throws IOException {
