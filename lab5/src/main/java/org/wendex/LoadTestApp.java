@@ -46,6 +46,7 @@ public class LoadTestApp {
                         ResultMessage r = (ResultMessage)s;
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
+
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
                     })
