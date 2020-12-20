@@ -16,7 +16,7 @@ import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class LoadTestApp {
-    private static
+    private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow()
 
     public static void main(String[] args) throws IOException {
         System.out.println("start!");
