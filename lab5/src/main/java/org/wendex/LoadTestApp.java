@@ -26,6 +26,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.completeOKWithFuture;
+import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class LoadTestApp {
     static final int MAP_ASYNC_PARALLELISM = 1;
@@ -36,7 +37,7 @@ public class LoadTestApp {
     private static final int PORT = 8080;
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
-                                                                         ActorMaterializer actorMaterializer) {
+                                ActorMaterializer actorMaterializer, AsyncHttpClient client) {
         ActorRef actor = actorSystem.actorOf(Props.create(StoreActor.class));
         Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
