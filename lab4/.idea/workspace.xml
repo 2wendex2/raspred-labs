@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d11d1a7a-b1bd-495f-8171-39a43f5caae7" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/TestRunMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/TestRunMessage.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/TestRunnerActor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/TestRunnerActor.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

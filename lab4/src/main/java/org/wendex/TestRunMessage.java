@@ -9,16 +9,24 @@ public class TestRunMessage {
     private String testName;
     private Object testResult;
 
-    public TestResultMessage toTestResultMessage(Object o) {
-        return new TestResultMessage(packageId, testName, testResult.equals(o));
-    }
-
     public String getJsString() {
         return jsString;
     }
 
     public Object[] getParams() {
         return params;
+    }
+
+    public int getPackageId() {
+        return packageId;
+    }
+
+    public String getTestName() {
+        return testName;
+    }
+
+    public Object getTestResult() {
+        return testResult;
     }
 
     public String getFunctionName() {
