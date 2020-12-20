@@ -18,6 +18,7 @@ public class TestRunnerActor extends  AbstractActor{
                     Invocable invocable = (Invocable)scriptEngine;
                     Object o = invocable.invokeFunction(m.getFunctionName(), m.getParams());
                     sender().tell(m.toTestResultMessage(o), self());
+                    System.out.println("pun");
                 }).build();
     }
 }
