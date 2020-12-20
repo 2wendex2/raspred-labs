@@ -1,2 +1,4 @@
-package org.wendex;public class LoadTestApp {
+package org.wendex;
+
+public class LoadTestApp {
 }
