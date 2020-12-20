@@ -1,0 +1,4 @@
+org/wendex/StoreActor.class
+org/wendex/ResultMessage.class
+org/wendex/QueryMessage.class
+org/wendex/LoadTestApp.class
