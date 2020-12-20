@@ -25,7 +25,6 @@ import java.util.Collections;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
-import static akka.http.javadsl.server.Directives.completeOKWithFuture;
 import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 public class LoadTestApp {
