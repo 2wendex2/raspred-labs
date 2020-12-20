@@ -1,6 +1,6 @@
 POST / HTTP/1.0
 Host: localhost
-Content-Type: application/jsom; charset=utf-8
+Content-Type: application/json; charset=utf-8
 Content-Length: 200
 
 {
