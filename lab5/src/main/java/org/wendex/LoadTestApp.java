@@ -46,8 +46,10 @@ public class LoadTestApp {
             return Patterns.ask(actor, new QueryMessage(x), Duration.ofMillis(QUERY_TIMEOUT))
                     .thenCompose(s -> {
                         ResultMessage r = (ResultMessage)s;
-                        if (r.getTime() != null)
+                        if (r.getTime() != null) {
+                            System.out.println("gggf");
                             return CompletableFuture.completedFuture(r.getTime());
+                        }
 
                         Sink<Long, CompletionStage<Long>> fold = Sink.fold(0L, Long::sum);
 
