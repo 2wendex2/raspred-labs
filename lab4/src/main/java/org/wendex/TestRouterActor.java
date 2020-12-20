@@ -15,7 +15,7 @@ public class TestRouterActor extends AbstractActor {
 
     private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
     private ActorRef testRunnerPool = getContext().actorOf(new RoundRobinPool(ROUTER_INSTANCE_NUMBER)
-            .props(Props.create(TestRouterActor.class)));
+            .props(Props.create(TestRunnerActor.class)));
 
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
