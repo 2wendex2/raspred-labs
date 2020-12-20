@@ -4,7 +4,6 @@ org/wendex/TestResultMessage.class
 org/wendex/PackageTestsMessage.class
 org/wendex/TestRunnerActor.class
 org/wendex/JSTest.class
-org/wendex/TestException.class
 org/wendex/TestRunMessage.class
 org/wendex/Test.class
 org/wendex/TestRouterActor.class
