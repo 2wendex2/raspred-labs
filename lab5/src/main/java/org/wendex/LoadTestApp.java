@@ -48,8 +48,8 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
-                        Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow
-                                .<Pair<String, Integer>>create()
+                        Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
+                                .<QueryMessage>create()
                                 .mapConcat()
 
                         Source.from(Collections.singletonList(r))
