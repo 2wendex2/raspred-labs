@@ -21,7 +21,7 @@ public class LoadTestApp {
         Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
-        });
+        }).mapAsync;
     }
 
     public static void main(String[] args) throws IOException {
