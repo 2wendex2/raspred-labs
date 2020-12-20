@@ -38,7 +38,9 @@ public class LoadTestApp {
                     Integer.parseInt(q.get(PROPERTY_COUNT).get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
             Patterns.ask(actor, new QueryMessage(x), Duration.ofMillis(QUERY_TIMEOUT))
-                    .thenCompose()
+                    .thenCompose(s -> {
+                        
+                    })
         });
     }
 
