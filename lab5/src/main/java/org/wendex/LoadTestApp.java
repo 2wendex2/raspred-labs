@@ -61,6 +61,8 @@ public class LoadTestApp {
                                             .toCompletableFuture()
                                             .thenCompose(q -> {
                                                 long endTime = System.currentTimeMillis();
+                                                actor.tell(new ResultMessage(endTime - startTime, r.getPair()),
+                                                        ActorRef.noSender());
                                                 return CompletableFuture.completedFuture(endTime - startTime);
                                             });
                                 }).toMat(fold, Keep.right());
