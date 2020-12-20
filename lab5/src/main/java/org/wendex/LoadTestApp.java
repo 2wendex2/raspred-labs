@@ -43,7 +43,7 @@ public class LoadTestApp {
             return new Pair<String, Integer>(q.get(PROPERTY_TEST_URL).get(),
                     Integer.parseInt(q.get(PROPERTY_COUNT).get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            Patterns.ask(actor, new QueryMessage(x), Duration.ofMillis(QUERY_TIMEOUT))
+            return Patterns.ask(actor, new QueryMessage(x), Duration.ofMillis(QUERY_TIMEOUT))
                     .thenCompose(s -> {
                         ResultMessage r = (ResultMessage)s;
                         if (r.getTime() != null)
@@ -67,12 +67,12 @@ public class LoadTestApp {
                                             });
                                 }).toMat(fold, Keep.right());
 
-                        Source.from(Collections.singletonList(r))
+                        return Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right())
                                 .run(actorMaterializer)
-                                .thenCompose(t -> t / r.getCount());
-                    })
-        });
+                                .thenCompose(t -> CompletableFuture.completedFuture(t / r.getCount()));
+                    });
+        }).map;
     }
 
     public static void main(String[] args) throws IOException {
