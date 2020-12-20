@@ -12,6 +12,10 @@ public class StorageActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(TestResultMessage.class, m -> {
                     HashMap<String, Boolean> h = store.get(m.getPackageId());
+                    if (h == null) {
+                        h = new HashMap<>();
+                        store.put(m.getPackageId(), h);
+                    }
                     h.put(m.getTestName(), m.getTestResult());
                 }).match(TestQueryMessage.class, m -> {
                     HashMap<String, Boolean> h = store.get(m.getPackageId());
