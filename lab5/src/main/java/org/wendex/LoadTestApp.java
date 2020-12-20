@@ -29,7 +29,7 @@ import static org.asynchttpclient.Dsl.asyncHttpClient;
 
 
 public class LoadTestApp {
-    static final int MAP_ASYNC_PARALLELISM = 1;
+    static final int MAP_ASYNC_PARALLELISM = 5;
     private static final int QUERY_TIMEOUT = 10000;
     private static final String PROPERTY_TEST_URL = "testUrl";
     private static final String PROPERTY_COUNT = "count";
