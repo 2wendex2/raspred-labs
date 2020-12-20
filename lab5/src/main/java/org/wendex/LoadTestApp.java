@@ -20,6 +20,7 @@ import java.util.concurrent.CompletionStage;
 
 public class LoadTestApp {
     static final int MAP_ASYNC_PARALLELISM = 1;
+    private static final int QUERY_TIMEOUT = 10000;
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
                                                                          ActorMaterializer actorMaterializer) {
@@ -28,7 +29,7 @@ public class LoadTestApp {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            Patterns.ask(actor, new QueryMessage(x), )
+            Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT)
         });
     }
 
