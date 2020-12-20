@@ -50,7 +50,7 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
-                        Sink<Long, CompletionStage<Long>> fold = Sink.fold(0, (a, b) -> Long.sum(a, b))
+                        Sink<Long, CompletionStage<Long>> fold = Sink.fold(0, (a, b) -> a.add)
 
                         Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
                                 .<QueryMessage>create()
