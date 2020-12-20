@@ -49,8 +49,8 @@ public class LoadTestApp {
                         ResultMessage r = (ResultMessage)s;
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
-                        
-                        Sink<Long, CompletionStage<Long>> fold = Sink.fold(0,)
+
+                        Sink<Long, CompletionStage<Long>> fold = Sink.fold(0L, Long::sum);
 
                         Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
                                 .<QueryMessage>create()
