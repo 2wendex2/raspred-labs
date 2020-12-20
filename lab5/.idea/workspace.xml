@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6d7779ce-2fe9-4335-87bb-14620001a113" name="Default Changelist" comment="" />
+    <list default="true" id="6d7779ce-2fe9-4335-87bb-14620001a113" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/ResultMessage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/ResultMessage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
