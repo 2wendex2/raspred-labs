@@ -31,6 +31,7 @@ public class JSTest {
             System.out.println(m.getFunctionName());
             System.out.println(m.getJsScript());
             System.out.println(m.getPackageId());
+            System.out.println(m.getTests()[0].getExpectedResult());
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
                         t.getParams(), t.getTestName(), t.getExpectedResult()), ActorRef.noSender());
