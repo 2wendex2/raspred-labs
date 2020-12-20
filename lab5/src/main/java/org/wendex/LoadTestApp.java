@@ -48,7 +48,9 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
-                        Sink<ResultMessage, CompletionStage<Long>> testSink =
+                        Sink<Pair<String, Integer>, CompletionStage<Long>> testSink = Flow
+                                .<Pair<String, Integer>>create()
+                                .mapConcat()
 
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
