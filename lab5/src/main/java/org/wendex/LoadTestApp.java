@@ -52,7 +52,8 @@ public class LoadTestApp {
                                 .<QueryMessage>create()
                                 .mapConcat(t -> Collections.nCopies(t.getCount(), t.getTestUrl()))
                                 .mapAsync(MAP_ASYNC_PARALLELISM, t -> {
-                                    long startTime = System
+                                    long startTime = System.currentTimeMillis();
+                                    
                                 })
 
                         Source.from(Collections.singletonList(r))
