@@ -18,6 +18,8 @@ import akka.stream.javadsl.Flow;
 import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
+import static akka.http.javadsl.server.Directives.completeOKWithFuture;
+
 public class LoadTestApp {
     static final int MAP_ASYNC_PARALLELISM = 1;
     private static final int QUERY_TIMEOUT = 10000;
@@ -34,8 +36,8 @@ public class LoadTestApp {
             return new Pair<String, Integer>(q.get(PROPERTY_TEST_URL).get(),
                     Integer.parseInt(q.get(PROPERTY_COUNT).get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            compl Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT)
-                    .th
+            completeOKWithFuture(Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT))
+                    
         });
     }
 
