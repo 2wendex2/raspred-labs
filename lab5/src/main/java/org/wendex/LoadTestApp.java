@@ -76,7 +76,7 @@ public class LoadTestApp {
                                     return CompletableFuture.completedFuture(t / r.getCount());
                                 });
                     });
-        }).map(x -> HttpResponse.create().withEntity(Long.toString(x)));
+        }).map(x -> HttpResponse.create().withEntity(Long.toString(x)).withStatus(200));
     }
 
     public static void main(String[] args) throws IOException {
