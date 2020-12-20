@@ -36,7 +36,7 @@ public class LoadTestApp {
             return new Pair<String, Integer>(q.get(PROPERTY_TEST_URL).get(),
                     Integer.parseInt(q.get(PROPERTY_COUNT).get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT).
+            Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT)
 
         });
     }
