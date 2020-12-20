@@ -17,6 +17,7 @@ import akka.stream.javadsl.Flow;
 
 import java.io.IOException;
 import java.time.Duration;
+import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static akka.http.javadsl.server.Directives.completeOKWithFuture;
@@ -39,6 +40,9 @@ public class LoadTestApp {
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
             Patterns.ask(actor, new QueryMessage(x), Duration.ofMillis(QUERY_TIMEOUT))
                     .thenCompose(s -> {
+                        ResultMessage r = (ResultMessage)s;
+                        if (r.getTime() != null)
+                            return CompletableFuture.completedFuture(r.getTime());
                         
                     })
         });
