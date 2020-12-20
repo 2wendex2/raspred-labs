@@ -7,7 +7,7 @@ import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
 public class TestRouterActor extends AbstractActor {
-    static final int ROUTER_INSTANCE_NUMBER = 1;
+    static final int ROUTER_INSTANCE_NUMBER = 5;
 
     private ActorRef storageActor = getContext().actorOf(Props.create(StorageActor.class));
     private ActorRef testRunnerPool = getContext().actorOf(new RoundRobinPool(ROUTER_INSTANCE_NUMBER)
