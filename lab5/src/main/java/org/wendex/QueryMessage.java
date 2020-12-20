@@ -1,19 +1,27 @@
 package org.wendex;
 
+import akka.japi.Pair;
+
 public class QueryMessage {
-    private String testUrl;
-    private int count;
+    private Pair<String, Integer> p;
 
     public int getCount() {
-        return count;
+        return p.second();
     }
 
     public String getTestUrl() {
-        return testUrl;
+        return p.first();
+    }
+
+    public Pair<String, Integer> getPair() {
+        return p;
+    }
+
+    public QueryMessage(Pair<String, Integer> p) {
+        this.p = p;
     }
 
     public QueryMessage(String testUrl, int count) {
-        this.testUrl = testUrl;
-        this.count = count;
+        p = new Pair<>(testUrl, count);
     }
 }

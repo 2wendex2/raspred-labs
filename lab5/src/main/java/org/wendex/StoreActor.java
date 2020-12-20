@@ -1,13 +1,20 @@
 package org.wendex;
 
 import akka.actor.AbstractActor;
+import akka.japi.Pair;
 import akka.japi.pf.ReceiveBuilder;
 
+import java.util.HashMap;
+
 public class StoreActor extends AbstractActor {
+    private HashMap<Pair<String, Integer>, Long> store;
+
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match()
+                .match(ResultMessage.class, m -> {
+
+                })
                 .build();
     }
 }
