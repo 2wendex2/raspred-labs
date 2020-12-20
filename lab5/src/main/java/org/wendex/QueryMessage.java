@@ -16,5 +16,4 @@ public class QueryMessage {
         this.testUrl = testUrl;
         this.count = count;
     }
-
 }
