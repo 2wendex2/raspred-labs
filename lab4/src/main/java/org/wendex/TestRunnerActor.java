@@ -8,7 +8,14 @@ import javax.script.Invocable;
 import javax.script.ScriptEngineManager;
 
 public class TestRunnerActor extends  AbstractActor{
-    static final String JS_ENGINE_NAME = "nashorn";
+    private static final String JS_ENGINE_NAME = "nashorn";
+    private static Invocable equaller;
+
+    static {
+        ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
+        scriptEngine.eval("var eq = ");
+        Invocable invocable = (Invocable)scriptEngine;
+    }
 
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
