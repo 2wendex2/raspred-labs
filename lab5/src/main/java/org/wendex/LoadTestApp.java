@@ -72,7 +72,9 @@ public class LoadTestApp {
                                 .run(actorMaterializer)
                                 .thenCompose(t -> CompletableFuture.completedFuture(t / r.getCount()));
                     });
-        }).map;
+        }).map(x -> {
+            
+        });
     }
 
     public static void main(String[] args) throws IOException {
