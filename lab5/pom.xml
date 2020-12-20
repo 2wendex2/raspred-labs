@@ -142,7 +142,7 @@
   	  <groupId>org.codehaus.mojo</groupId>
   	  <artifactId>exec-maven-plugin</artifactId>
   	  <configuration>
-    	    <mainClass>org.wendex.JSTest</mainClass>
+    	    <mainClass>org.wendex.LoadTestApp</mainClass>
   	  </configuration>
 	</plugin>
       </plugins>
