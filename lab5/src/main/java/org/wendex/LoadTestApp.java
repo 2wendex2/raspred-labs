@@ -16,17 +16,20 @@ import java.io.IOException;
 import java.util.concurrent.CompletionStage;
 
 public class LoadTestApp {
-    private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, )
+    private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
+                                                                         ActorMaterializer actorMaterializer) {
+        Flow.of(HttpRequest.class).map(x -> {
+            Query q = x.getUri().query();
+            return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
+        });
+    }
 
     public static void main(String[] args) throws IOException {
         System.out.println("start!");
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(x -> {
-            Query q = x.getUri().query();
-            return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
-        });
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
