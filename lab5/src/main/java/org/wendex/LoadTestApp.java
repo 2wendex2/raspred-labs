@@ -21,15 +21,21 @@ import java.util.concurrent.CompletionStage;
 public class LoadTestApp {
     static final int MAP_ASYNC_PARALLELISM = 1;
     private static final int QUERY_TIMEOUT = 10000;
+    private static final String PROPERTY_TEST_URL = "testUrl";
+    private static final String PROPERTY_COUNT = "count";
+    private static final String HOST_NAME = "localhost";
+    private static final int PORT = 8080;
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
                                                                          ActorMaterializer actorMaterializer) {
         ActorRef actor = actorSystem.actorOf(Props.create(StoreActor.class));
         Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
-            return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
+            return new Pair<String, Integer>(q.get(PROPERTY_TEST_URL).get(),
+                    Integer.parseInt(q.get(PROPERTY_COUNT).get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT)
+            compl Patterns.ask(actor, new QueryMessage(x), QUERY_TIMEOUT)
+                    .th
         });
     }
 
@@ -42,7 +48,7 @@ public class LoadTestApp {
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
-                ConnectHttp.toHost("localhost", 8080),
+                ConnectHttp.toHost(HOST_NAME, PORT),
                 materializer
         );
         System.out.println("Server online at http://localhost:8080/\nPress RETURN to stop...");
