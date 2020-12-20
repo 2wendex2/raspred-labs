@@ -10,6 +10,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
+import akka.http.javadsl.model.ResponseEntity;
 import akka.japi.Pair;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
@@ -26,6 +27,7 @@ import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.CompletionStage;
 
 import static org.asynchttpclient.Dsl.asyncHttpClient;
+import static org.asynchttpclient.Dsl.get;
 
 public class LoadTestApp {
     static final int MAP_ASYNC_PARALLELISM = 1;
@@ -35,10 +37,9 @@ public class LoadTestApp {
     private static final String HOST_NAME = "localhost";
     private static final int PORT = 8080;
 
-    private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
-                                ActorMaterializer actorMaterializer, AsyncHttpClient client) {
-        ActorRef actor = actorSystem.actorOf(Props.create(StoreActor.class));
-        Flow.of(HttpRequest.class).map(x -> {
+    private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(ActorSystem actorSystem,
+                                ActorMaterializer actorMaterializer, AsyncHttpClient client, ActorRef actor) {
+        return Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get(PROPERTY_TEST_URL).get(),
                     Integer.parseInt(q.get(PROPERTY_COUNT).get()));
@@ -72,9 +73,7 @@ public class LoadTestApp {
                                 .run(actorMaterializer)
                                 .thenCompose(t -> CompletableFuture.completedFuture(t / r.getCount()));
                     });
-        }).map(x -> {
-            
-        });
+        }).map(x -> HttpResponse.create().withEntity(Long.toString(x)));
     }
 
     public static void main(String[] args) throws IOException {
@@ -83,7 +82,9 @@ public class LoadTestApp {
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final AsyncHttpClient asyncHttpClient = asyncHttpClient();
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+        ActorRef actor = system.actorOf(Props.create(StoreActor.class));
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = getRouteFlow(system, materializer, asyncHttpClient,
+                actor);
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
