@@ -68,7 +68,9 @@ public class LoadTestApp {
                                 }).toMat(fold, Keep.right());
 
                         Source.from(Collections.singletonList(r))
-                                .toMat(testSink, Keep.right()).run(actorMaterializer);
+                                .toMat(testSink, Keep.right())
+                                .run(actorMaterializer)
+                                .thenCompose(t -> t / r.getCount());
                     })
         });
     }
