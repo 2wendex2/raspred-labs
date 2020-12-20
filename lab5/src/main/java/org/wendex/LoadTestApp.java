@@ -53,7 +53,7 @@ public class LoadTestApp {
                                 .mapConcat(t -> Collections.nCopies(t.getCount(), t.getTestUrl()))
                                 .mapAsync(MAP_ASYNC_PARALLELISM, t -> {
                                     long startTime = System.currentTimeMillis();
-                                    
+
                                 })
 
                         Source.from(Collections.singletonList(r))
@@ -67,6 +67,7 @@ public class LoadTestApp {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
+        
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
