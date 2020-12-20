@@ -1,3 +1,3 @@
-GET /?testUrl=http://rambler.ru&count=7 HTTP/1.0
+GET /?testUrl=http://rambler.ru&count=9 HTTP/1.0
 Host: localhost
 
