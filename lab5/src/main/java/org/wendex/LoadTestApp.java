@@ -1,7 +1,9 @@
 package org.wendex;
 
 import akka.NotUsed;
+import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
+import akka.actor.Props;
 import akka.http.javadsl.ConnectHttp;
 import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
@@ -9,6 +11,7 @@ import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.model.Query;
 import akka.japi.Pair;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 
@@ -20,11 +23,12 @@ public class LoadTestApp {
 
     private static Flow<HttpRequest, HttpResponse, NotUsed> getRouteFlow(Http http, ActorSystem actorSystem,
                                                                          ActorMaterializer actorMaterializer) {
+        ActorRef actor = actorSystem.actorOf(Props.create(StoreActor.class));
         Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            
+            Patterns.ask(actor, new QueryMessage())
         });
     }
 
