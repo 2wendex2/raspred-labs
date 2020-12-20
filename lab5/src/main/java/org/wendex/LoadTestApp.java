@@ -47,6 +47,8 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
+                        Sink<Result>
+
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
                     })
