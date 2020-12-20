@@ -7,7 +7,7 @@ Content-Length: 200
 "packageId":"11",
 "jsScript":"eee",
 "functionName":"pp",
-"tests":[{"expectedResult":"4"}]
+"tests":[{"testName":"4"}]
 }
                                                                                                                                                                                                         
 
