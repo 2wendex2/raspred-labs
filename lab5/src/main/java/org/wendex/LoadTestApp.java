@@ -50,7 +50,7 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
-                        
+
 
                         Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
                                 .<QueryMessage>create()
@@ -90,5 +90,7 @@ public class LoadTestApp {
         binding
                 .thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> system.terminate());
+
+        asyncHttpClient.close();
     }
 }
