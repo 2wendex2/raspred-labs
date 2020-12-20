@@ -28,12 +28,6 @@ public class JSTest {
 
     public static Route createRoute(ActorRef actor) {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
-            System.out.println(m.getFunctionName());
-            System.out.println(m.getJsScript());
-            System.out.println(m.getPackageId());
-            System.out.println(m.getTests()[0].getTestName());
-            System.out.println(m.getTests()[0].getExpectedResult());
-            System.out.println(m.getTests()[0].getParams());
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
                         t.getParams(), t.getTestName(), t.getExpectedResult()), ActorRef.noSender());
