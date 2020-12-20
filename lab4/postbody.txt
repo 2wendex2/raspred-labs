@@ -4,7 +4,9 @@ Content-Type: application/json; charset=utf-8
 Content-Length: 200
 
 {
-"packageId":"11"
+"packageId":"11",
+"jsScript":"eee",
+"functionName":"pp"
 }
                                                                                                                                                                                                         
 
