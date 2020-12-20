@@ -61,8 +61,6 @@ public class LoadTestApp {
                                             .toCompletableFuture()
                                             .thenCompose(q -> {
                                                 long endTime = System.currentTimeMillis();
-                                                actor.tell(new ResultMessage(endTime - startTime, r.getPair()),
-                                                        ActorRef.noSender());
                                                 return CompletableFuture.completedFuture(endTime - startTime);
                                             });
                                 }).toMat(fold, Keep.right());
@@ -70,7 +68,11 @@ public class LoadTestApp {
                         return Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right())
                                 .run(actorMaterializer)
-                                .thenCompose(t -> CompletableFuture.completedFuture(t / r.getCount()));
+                                .thenCompose(t -> {
+                                    actor.tell(new ResultMessage(t / r.getCount(), r.getPair()),
+                                            ActorRef.noSender());
+                                    return CompletableFuture.completedFuture(t / r.getCount());
+                                });
                     });
         }).map(x -> HttpResponse.create().withEntity(Long.toString(x)));
     }
