@@ -14,6 +14,7 @@ import akka.japi.Pair;
 import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
+import akka.stream.javadsl.Keep;
 
 import java.io.IOException;
 import java.time.Duration;
@@ -43,7 +44,8 @@ public class LoadTestApp {
                         ResultMessage r = (ResultMessage)s;
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
-                        
+                        Source.from(Collections.singletonList(r))
+                                .toMat(testSink, Keep.right()).run(actorMaterializer);
                     })
         });
     }
