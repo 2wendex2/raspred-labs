@@ -50,7 +50,7 @@ public class LoadTestApp {
 
                         Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
                                 .<QueryMessage>create()
-                                .mapConcat()
+                                .mapConcat(t -> Collections.nCopies(t.getCount(), ))
 
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
