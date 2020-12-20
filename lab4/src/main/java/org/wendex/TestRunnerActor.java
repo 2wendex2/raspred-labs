@@ -10,12 +10,13 @@ import javax.script.ScriptEngineManager;
 public class TestRunnerActor extends  AbstractActor{
     private static final String JS_ENGINE_NAME = "nashorn";
     private static final String EQUALLER_FUNCTION_NAME = "eq";
+    private static final String EQUALLER_SCRIPT = "var " + EQUALLER_FUNCTION_NAME + " = function(a, b) {return a == b}";
     private static Invocable equaller;
 
     static {
         ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
         try {
-            scriptEngine.eval("var " + EQUALLER_FUNCTION_NAME + " = function(a, b) {return a == b}");
+            scriptEngine.eval(EQUALLER_SCRIPT);
         } catch (Exception ex) {
             throw new RuntimeException("equal function eval error", ex);
         }
