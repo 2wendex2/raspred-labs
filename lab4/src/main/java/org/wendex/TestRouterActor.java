@@ -20,14 +20,11 @@ public class TestRouterActor extends AbstractActor {
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
-                    testRunnerPool.tell(m, self());
+                    testRunnerPool.tell(m, sender());
                 }).match(TestQueryMessage.class, m -> {
-                    storageActor.tell(m, self());
-                }).match(PackageTestsMessage.class, m -> {
-                    sender().tell(m, self());
-                    System.out.println("qqq");
+                    storageActor.tell(m, sender());
                 }).match(TestResultMessage.class, m -> {
-                    storageActor.tell(m, self());
+                    storageActor.tell(m, sender());
                 }).build();
     }
 }
