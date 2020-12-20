@@ -15,8 +15,7 @@ public class StoreActor extends AbstractActor {
                 .match(ResultMessage.class, m -> {
                     store.put(m.getPair(), m.getTime());
                 }).match(QueryMessage.class, m -> {
-                    
-                })
-                .build();
+                    sender().tell(new ResultMessage(store.get(m.getPair()), m.getPair()), self());
+                }).build();
     }
 }
