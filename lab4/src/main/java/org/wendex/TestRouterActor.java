@@ -6,10 +6,6 @@ import akka.actor.Props;
 import akka.japi.pf.ReceiveBuilder;
 import akka.routing.RoundRobinPool;
 
-import javax.script.Invocable;
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
-
 public class TestRouterActor extends AbstractActor {
     static final int ROUTER_INSTANCE_NUMBER = 1;
 
@@ -20,7 +16,6 @@ public class TestRouterActor extends AbstractActor {
     public AbstractActor.Receive createReceive() {
         return ReceiveBuilder.create()
                 .match(TestRunMessage.class, m -> {
-                    System.out.println("pun");
                     testRunnerPool.tell(m, storageActor);
                 }).match(TestQueryMessage.class, m -> {
                     storageActor.tell(m, sender());
