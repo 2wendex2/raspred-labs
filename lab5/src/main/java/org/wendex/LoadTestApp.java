@@ -55,8 +55,14 @@ public class LoadTestApp {
                                 .mapConcat(t -> Collections.nCopies(t.getCount(), t.getTestUrl()))
                                 .mapAsync(MAP_ASYNC_PARALLELISM, t -> {
                                     long startTime = System.currentTimeMillis();
-
-                                })
+                                    return client.prepareGet(t)
+                                            .execute()
+                                            .toCompletableFuture()
+                                            .thenCompose(q -> {
+                                                long endTime = System.currentTimeMillis();
+                                                return CompletableFuture.completedFuture(endTime - startTime);
+                                            });
+                                }).map()
 
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
