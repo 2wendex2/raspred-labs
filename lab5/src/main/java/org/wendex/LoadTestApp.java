@@ -19,7 +19,9 @@ public class LoadTestApp {
         ActorSystem system = ActorSystem.create("routes");
         final Http http = Http.get(system);
         final ActorMaterializer materializer = ActorMaterializer.create(system);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest).map()
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(x -> {
+
+        });
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow,
