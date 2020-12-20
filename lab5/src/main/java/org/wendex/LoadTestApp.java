@@ -28,7 +28,7 @@ public class LoadTestApp {
             Query q = x.getUri().query();
             return new Pair<String, Integer>(q.get("testUrl").get(), Integer.parseInt(q.get("count").get()));
         }).mapAsync(MAP_ASYNC_PARALLELISM, x -> {
-            Patterns.ask(actor, new QueryMessage())
+            Patterns.ask(actor, new QueryMessage(x), )
         });
     }
 
