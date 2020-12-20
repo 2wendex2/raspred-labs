@@ -50,6 +50,8 @@ public class LoadTestApp {
                         if (r.getTime() != null)
                             return CompletableFuture.completedFuture(r.getTime());
 
+                        
+
                         Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
                                 .<QueryMessage>create()
                                 .mapConcat(t -> Collections.nCopies(t.getCount(), t.getTestUrl()))
@@ -62,7 +64,7 @@ public class LoadTestApp {
                                                 long endTime = System.currentTimeMillis();
                                                 return CompletableFuture.completedFuture(endTime - startTime);
                                             });
-                                }).map()
+                                }).toMat(fold, Keep.right());
 
                         Source.from(Collections.singletonList(r))
                                 .toMat(testSink, Keep.right()).run(actorMaterializer);
