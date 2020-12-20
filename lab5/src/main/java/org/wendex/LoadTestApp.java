@@ -51,8 +51,8 @@ public class LoadTestApp {
 
                         Sink<Long, CompletionStage<Long>> fold = Sink.fold(0L, Long::sum);
 
-                        Sink<QueryMessage, CompletionStage<Long>> testSink = Flow
-                                .<QueryMessage>create()
+                        Sink<ResultMessage, CompletionStage<Long>> testSink = Flow
+                                .<ResultMessage>create()
                                 .mapConcat(t -> Collections.nCopies(t.getCount(), t.getTestUrl()))
                                 .mapAsync(MAP_ASYNC_PARALLELISM, t -> {
                                     long startTime = System.currentTimeMillis();
