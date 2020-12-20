@@ -23,7 +23,7 @@ public class LoadTestApp {
         final ActorMaterializer materializer = ActorMaterializer.create(system);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow = Flow.of(HttpRequest.class).map(x -> {
             Query q = x.getUri().query();
-            return new Pair<>(q.get("testUrl"), Integer.parseInt())
+            return new Pair<>(q.get("testUrl"), Integer.parseInt(q.get("")))
         });
 
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
