@@ -6,8 +6,8 @@ Content-Length: 200
 {
 "packageId":"11",
 "jsScript":"var divideFn = function(a,b) {return a/b}",
-"functionName":"pp",
-"tests":[{"testName":"4", "expectedResult":"8", "params":["r", 7]}]
+"functionName":"divideFn",
+"tests":[{"testName":"test1", "expectedResult":"2.0", "params":["r", 7]}]
 }
                                                                                                                                                                                                         
 
