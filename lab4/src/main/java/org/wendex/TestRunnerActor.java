@@ -15,7 +15,7 @@ public class TestRunnerActor extends  AbstractActor{
     static {
         ScriptEngine scriptEngine = new ScriptEngineManager().getEngineByName(JS_ENGINE_NAME);
         try {
-            scriptEngine.eval("var " + EQUALLER_FUNCTION_NAME + " = function(a, b) {a == b}");
+            scriptEngine.eval("var " + EQUALLER_FUNCTION_NAME + " = function(a, b) {return a == b}");
         } catch (Exception ex) {
             throw new RuntimeException("equal function eval error", ex);
         }
