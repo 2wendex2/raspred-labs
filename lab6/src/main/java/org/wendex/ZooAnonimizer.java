@@ -23,12 +23,13 @@ import java.util.List;
 import java.util.concurrent.CompletionStage;
 
 public class ZooAnonimizer implements Watcher {
-    static final int PORT_MAX = 65535;
-    static final int ZOO_PORT = 2181;
-    static final String PROPERTY_URL = "url";
-    static final String PROPERTY_COUNT = "count";
-    static final Http http = Http.get(context().system());
+    private static final int PORT_MAX = 65535;
+    private static final int ZOO_PORT = 2181;
+    private static final String PROPERTY_URL = "url";
+    private static final String PROPERTY_COUNT = "count";
+    private static final Http http = Http.get(context().system());
     private static final int QUERY_TIMEOUT = 10000;
+    private static final String SERVERS_PATH = "/servers";
 
     public static Route createRoute(ActorRef actor) {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
@@ -89,16 +90,16 @@ public class ZooAnonimizer implements Watcher {
     public ZooAnonimizer(int port) throws Exception {
         this.port = port;
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
-        this.path = "/servers/s" + port;
+        this.path = SERVERS_PATH + "/s" + port;
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
     }
 
     private int[] getPortsList() throws Exception {
-        List<String> servers = zoo.getChildren("/servers", this);
+        List<String> servers = zoo.getChildren(SERVERS_PATH, this);
         int[] prts = new int[servers.size()];
         int i = 0;
         for (String s : servers) {
-            prts[i] = bytesToPort(zoo.getData("/servers/" + s, false, null));
+            prts[i] = bytesToPort(zoo.getData(SERVERS_PATH + "/" + s, false, null));
             i++;
         }
         return prts;
@@ -106,6 +107,6 @@ public class ZooAnonimizer implements Watcher {
 
     @Override
     public void process(WatchedEvent watchedEvent) {
-
+        if (watchedEvent.getPath().equals(SERVERS_PATH) && watchedEvent.getType() == )
     }
 }
