@@ -9,6 +9,7 @@ public class ZooActor extends AbstractActor {
     @Override
     public Receive createReceive() {
         return ReceiveBuilder.create()
-                .match(ServerListMessage.class,)
+                .match(ServerListMessage.class, m -> ports = m.getPorts())
+                .match(ServerQueryMessage.class, )
     }
 }
