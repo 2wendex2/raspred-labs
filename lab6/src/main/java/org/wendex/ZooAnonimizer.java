@@ -85,7 +85,6 @@ public class ZooAnonimizer implements Watcher {
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         actorSystem = ActorSystem.create("anonimizer");
         actor = actorSystem.actorOf(Props.create(ZooActor.class, getPortsList()));
-
     }
 
     private int[] getPortsList() throws Exception {
