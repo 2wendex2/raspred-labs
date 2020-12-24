@@ -23,7 +23,5 @@ public class ZooActor extends AbstractActor {
 
     public ZooActor(int[] ports) {
         this.ports = ports;
-        for (int i : ports)
-            System.out.println(i);
     }
 }
