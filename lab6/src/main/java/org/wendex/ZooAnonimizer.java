@@ -13,6 +13,8 @@ import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
+
+import static akka.actor.TypedActor.context;
 import static akka.http.javadsl.server.Directives.*;
 
 import java.util.List;
@@ -23,6 +25,7 @@ public class ZooAnonimizer implements Watcher {
     static final int ZOO_PORT = 2181;
     static final String PROPERTY_URL = "url";
     static final String PROPERTY_COUNT = "count";
+    static final Http http = Http.get(context().system());
 
     public static Route createRoute(ActorRef actor) {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, count -> {
