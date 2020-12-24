@@ -59,6 +59,7 @@ public class ZooAnonimizer implements Watcher {
             throw new IllegalArgumentException("Port must be less then " + PORT_MAX);
 
         ZooAnonimizer anonimizer = new ZooAnonimizer(port);
+        anonimizer.start();
     }
 
     private ZooKeeper zoo;
@@ -78,7 +79,7 @@ public class ZooAnonimizer implements Watcher {
         return bytes[0] | (bytes[1] << 8);
     }
 
-    public ZooAnonimizer(int port, ActorSystem actorSystem) throws Exception {
+    public ZooAnonimizer(int port) throws Exception {
         this.port = port;
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
         this.path = SERVERS_PATH + "/s" + port;
@@ -102,7 +103,7 @@ public class ZooAnonimizer implements Watcher {
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(zooActor).flow(actorSystem, materializer);
+                createRoute(actor).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow, ConnectHttp.toHost("localhost", port), materializer);
         System.in.read();
