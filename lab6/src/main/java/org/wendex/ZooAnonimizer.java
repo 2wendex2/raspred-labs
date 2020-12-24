@@ -41,7 +41,7 @@ public class ZooAnonimizer implements Watcher {
             else {
                 return completeWithFuture(Patterns.ask(actor, new ServerQueryMessage(), Duration.ofMillis(QUERY_TIMEOUT))
                         .thenCompose(m -> {
-                            ServerUrlMessage urlMessage = (ServerUrlMessage) m;
+                            ServerUrlMessage urlMessage = (ServerUrlMessage)m;
                             return http.singleRequest(HttpRequest.create(urlMessage.getUrl()));
                         }));
             }
