@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccac6630-dae8-4d75-a30f-8976569bf213" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AnonimizerWatcher.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/AnonimizerWatcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

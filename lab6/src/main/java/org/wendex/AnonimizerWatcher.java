@@ -1,2 +1,4 @@
-package org.wendex;public class AnonimizerWatcher {
+package org.wendex;
+
+public class AnonimizerWatcher {
 }
