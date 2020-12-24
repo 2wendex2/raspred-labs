@@ -1,15 +1,26 @@
 package org.wendex;
 
+import akka.NotUsed;
 import akka.actor.ActorRef;
 import akka.actor.ActorSystem;
 import akka.actor.Props;
+import akka.http.javadsl.ConnectHttp;
+import akka.http.javadsl.Http;
+import akka.http.javadsl.ServerBinding;
+import akka.http.javadsl.model.HttpRequest;
+import akka.http.javadsl.model.HttpResponse;
+import akka.stream.ActorMaterializer;
+import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
 
 import java.util.List;
+import java.util.concurrent.CompletionStage;
 
 public class ZooAnonimizer implements Watcher {
     static final int PORT_MAX = 65535;
     static final int ZOO_PORT = 2181;
+
+    private statci 
 
     public static void main(String[] args) throws Exception {
         if (args.length != 1)
