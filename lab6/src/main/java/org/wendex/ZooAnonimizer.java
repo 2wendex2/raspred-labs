@@ -4,9 +4,7 @@ import org.apache.zookeeper.*;
 
 import java.util.List;
 
-public class ZooAnonimizer extends Watcher{
-
-
+public class ZooAnonimizer implements Watcher {
     public static void main(String[] args) throws Exception {
         ZooAnonimizer anonimizer = new ZooAnonimizer();
         System.in.read();
@@ -26,6 +24,6 @@ public class ZooAnonimizer extends Watcher{
 
     @Override
     public void process(WatchedEvent watchedEvent) {
-        
+
     }
 }
