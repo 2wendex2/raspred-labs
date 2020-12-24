@@ -50,13 +50,13 @@ public class ZooAnonimizer implements Watcher {
                                 URL oldUrl = new URL(url);
                                 URL serverUrl = new URL(urlMessage.getUrl());
                                 URL newUrl = new URL(serverUrl.getProtocol(), serverUrl.getHost(), serverUrl.getPort(),
-                                        oldUrl.getFile())
+                                        oldUrl.getFile());
+                                nextUrl = newUrl.toString();
                             } catch (Exception e) {
                                 throw new RuntimeException("bad url", e);
                             }
 
-                            newUrl.
-                            return http.singleRequest(HttpRequest.create(urlMessage.getUrl()));
+                            return http.singleRequest(HttpRequest.create(nextUrl));
                         }));
             }
         })));
