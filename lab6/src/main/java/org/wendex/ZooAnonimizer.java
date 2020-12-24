@@ -27,7 +27,6 @@ public class ZooAnonimizer implements Watcher {
     private static final int ZOO_PORT = 2181;
     private static final String PROPERTY_URL = "url";
     private static final String PROPERTY_COUNT = "count";
-    private static final Http http = Http.get(context().system());
     private static final int QUERY_TIMEOUT = 10000;
     private static final String SERVERS_PATH = "/servers";
 
@@ -73,6 +72,7 @@ public class ZooAnonimizer implements Watcher {
     private String path;
     private ActorRef actor;
     private ActorSystem actorSystem;
+    private Http http;
 
     private static byte[] portToBytes(int port) {
         byte[] bytes = new byte[2];
@@ -92,6 +92,7 @@ public class ZooAnonimizer implements Watcher {
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
         actorSystem = ActorSystem.create("anonimizer");
         actor = actorSystem.actorOf(Props.create(ZooActor.class, getPortsList()));
+        http = Http.get(actorSystem);
     }
 
     private int[] getPortsList() throws Exception {
@@ -106,7 +107,6 @@ public class ZooAnonimizer implements Watcher {
     }
 
     private void start() throws Exception {
-        final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
                 createRoute(actor, port).flow(actorSystem, materializer);
