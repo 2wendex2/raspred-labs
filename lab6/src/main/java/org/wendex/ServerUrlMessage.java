@@ -1,13 +1,13 @@
 package org.wendex;
 
 public class ServerUrlMessage {
-    private String[] url;
+    private String url;
 
-    public String[] getUrl() {
+    public String getUrl() {
         return url;
     }
 
-    public ServerUrlMessage(String[] url) {
+    public ServerUrlMessage(String url) {
         this.url = url;
     }
 }
