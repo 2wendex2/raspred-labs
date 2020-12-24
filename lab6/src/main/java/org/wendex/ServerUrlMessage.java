@@ -1,2 +1,4 @@
-package org.wendex;public class ServerUrlMessage {
+package org.wendex;
+
+public class ServerUrlMessage {
 }
