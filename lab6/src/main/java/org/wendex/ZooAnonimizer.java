@@ -34,14 +34,13 @@ public class ZooAnonimizer implements Watcher {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
             int count = Integer.parseInt(countStr);
             if (count == 0)
-                return http.singleRequest(HttpRequest.create(url));
+                return completeWithFuture(http.singleRequest(HttpRequest.create(url)));
             else {
-                CompletionStage<HttpResponse> c = Patterns.ask(actor, new ServerQueryMessage(), Duration.ofMillis(QUERY_TIMEOUT))
+                return completeWithFuture(Patterns.ask(actor, new ServerQueryMessage(), Duration.ofMillis(QUERY_TIMEOUT))
                         .thenCompose(m -> {
                             ServerUrlMessage urlMessage = (ServerUrlMessage) m;
                             return http.singleRequest(HttpRequest.create(urlMessage.getUrl()));
-                        });
-                return c;
+                        }));
             }
         })));
     }
@@ -64,13 +63,12 @@ public class ZooAnonimizer implements Watcher {
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(testRouterActor).flow(actorSystem, materializer);
+                createRoute(zooActor).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
-                routeFlow, ConnectHttp.toHost("localhost", 8080), materializer);
+                routeFlow, ConnectHttp.toHost("localhost", port), materializer);
         System.in.read();
         binding.thenCompose(ServerBinding::unbind)
                 .thenAccept(unbound -> actorSystem.terminate());
-        System.in.read();
     }
 
     private ZooKeeper zoo;
