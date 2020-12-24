@@ -24,7 +24,8 @@ public class ZooAnonimizer implements Watcher {
     static final String PROPERTY_COUNT = "count";
 
     public static Route createRoute(ActorRef actor) {
-        return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
+        return get(())
+                post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
             for (Test t : m.getTests()) {
                 actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
                         t.getParams(), t.getTestName(), t.getExpectedResult()), ActorRef.noSender());
