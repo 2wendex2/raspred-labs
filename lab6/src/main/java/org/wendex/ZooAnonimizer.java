@@ -46,10 +46,9 @@ public class ZooAnonimizer implements Watcher {
                             System.out.println("COUNT " + count);
                             System.out.println();
                             ServerUrlMessage urlMessage = (ServerUrlMessage)m;
-                            URIBuilder uriBuilder = URIBuilder.fromString(urlMessage.getUrl());
-                            uriBuilder.addParameter(PROPERTY_URL, url);
-                            uriBuilder.addParameter(PROPERTY_COUNT, Integer.toString(count - 1));
-                            return http.singleRequest(HttpRequest.create(uriBuilder.toString()));
+                            String nextUrl = "http://" + urlMessage.getUrl() + "/?" + PROPERTY_URL +
+                                    "=" + url + "&" + PROPERTY_COUNT + "=" + (count - 1);
+                            return http.singleRequest(HttpRequest.create(nextUrl));
                         }));
             }
         })));
