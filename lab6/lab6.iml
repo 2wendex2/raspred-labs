@@ -40,5 +40,6 @@
     <orderEntry type="library" name="Maven: io.netty:netty-all:4.1.29.Final" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-log4j12:1.7.25" level="project" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
+    <orderEntry type="library" name="Maven: org.codehaus.httpcache4j.uribuilder:uribuilder:2.0.0" level="project" />
   </component>
 </module>
