@@ -4,11 +4,14 @@ import org.apache.zookeeper.*;
 
 import java.util.List;
 
-public class ZooAnonimizer {
+public class ZooAnonimizer extends Watcher{
 
 
     public static void main(String[] args) throws Exception {
-        AnonimizerWatcher watcher = new AnonimizerWatcher();
+
+    }
+
+    public ZooAnonimizer() {
         ZooKeeper zoo = new ZooKeeper("127.0.0.1:2181", 3000, watcher);
         zoo.create("/servers/s", "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE , CreateMode.EPHEMERAL_SEQUENTIAL);
         List<String> servers = zoo.getChildren("/servers", watcher);
