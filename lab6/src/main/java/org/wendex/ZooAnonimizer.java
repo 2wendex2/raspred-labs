@@ -46,7 +46,7 @@ public class ZooAnonimizer implements Watcher {
                             System.out.println("COUNT " + count);
                             System.out.println();
                             ServerUrlMessage urlMessage = (ServerUrlMessage)m;
-                            String nextUrl = "http://" + urlMessage.getUrl() + "/?" + PROPERTY_URL +
+                            String nextUrl = urlMessage.getUrl() + "/?" + PROPERTY_URL +
                                     "=" + url + "&" + PROPERTY_COUNT + "=" + (count - 1);
                             return http.singleRequest(HttpRequest.create(nextUrl));
                         }));
