@@ -12,7 +12,7 @@ public class ZooAnonimizer implements Watcher {
             throw new IllegalArgumentException("Wrong arguments count");
         int port;
         try {
-            port = Integer.parseInt(args[2]);
+            port = Integer.parseInt(args[0]);
         } catch (NumberFormatException e) {
             throw new IllegalArgumentException("Port must be number", e);
         }
