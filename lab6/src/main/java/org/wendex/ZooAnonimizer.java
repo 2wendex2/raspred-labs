@@ -20,7 +20,8 @@ import java.util.concurrent.CompletionStage;
 public class ZooAnonimizer implements Watcher {
     static final int PORT_MAX = 65535;
     static final int ZOO_PORT = 2181;
-    
+    static final String PROPERTY_URL = "url";
+    static final String PROPERTY_COUNT = "count";
 
     public static Route createRoute(ActorRef actor) {
         return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
