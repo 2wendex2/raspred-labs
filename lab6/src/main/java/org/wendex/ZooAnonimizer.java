@@ -45,9 +45,10 @@ public class ZooAnonimizer implements Watcher {
                             System.out.println("COUNT " + count);
                             System.out.println();
                             ServerUrlMessage urlMessage = (ServerUrlMessage)m;
-                            URL newUrl;
+                            String nextUrl;
                             try {
-                                newUrl = new URL(url);
+                                URL oldUrl = new URL(url);
+                                URL newUrl = new URL()
                             } catch (Exception e) {
                                 throw new RuntimeException("bad url", e);
                             }
