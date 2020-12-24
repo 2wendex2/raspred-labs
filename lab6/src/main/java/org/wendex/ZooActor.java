@@ -14,8 +14,6 @@ public class ZooActor extends AbstractActor {
         return ReceiveBuilder.create()
                 .match(ServerListMessage.class, m -> {
                         ports = m.getPorts();
-                        for (int i : m.getPorts())
-                            System.out.println(i);
                 })
                 .match(ServerQueryMessage.class, m -> {
                     int index = random.nextInt(ports.length);
@@ -25,5 +23,7 @@ public class ZooActor extends AbstractActor {
 
     public ZooActor(int[] ports) {
         this.ports = ports;
+        for (int i : ports)
+            System.out.println(i);
     }
 }
