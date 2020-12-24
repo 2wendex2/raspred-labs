@@ -5,7 +5,7 @@ import org.apache.zookeeper.*;
 import java.util.List;
 
 public class ZooAnonimizer extends Watcher{
-
+    
 
     public static void main(String[] args) throws Exception {
         ZooAnonimizer anonimizer = new ZooAnonimizer();
