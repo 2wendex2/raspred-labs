@@ -17,7 +17,6 @@ import org.apache.zookeeper.*;
 
 import static akka.http.javadsl.server.Directives.*;
 
-import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
