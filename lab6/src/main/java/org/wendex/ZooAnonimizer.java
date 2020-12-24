@@ -14,7 +14,7 @@ import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
-import org.codehaus.httpcache4j.uri;
+import org.codehaus.httpcache4j.uri.URIBuilder;
 
 import static akka.http.javadsl.server.Directives.*;
 
@@ -46,10 +46,10 @@ public class ZooAnonimizer implements Watcher {
                             System.out.println("COUNT " + count);
                             System.out.println();
                             ServerUrlMessage urlMessage = (ServerUrlMessage)m;
-                            String nextUrl;
-                            URIBuilder uriBuilder;
-
-                            return http.singleRequest(HttpRequest.create(nextUrl));
+                            URIBuilder uriBuilder = URIBuilder.fromString(urlMessage.getUrl());
+                            uriBuilder.addParameter(PROPERTY_URL, url);
+                            uriBuilder.addParameter(PROPERTY_COUNT, Integer.toString(count - 1));
+                            return http.singleRequest(HttpRequest.create(uriBuilder.toString()));
                         }));
             }
         })));
