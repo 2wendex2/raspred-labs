@@ -17,6 +17,7 @@ import org.apache.zookeeper.*;
 
 import static akka.http.javadsl.server.Directives.*;
 
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
@@ -44,6 +45,14 @@ public class ZooAnonimizer implements Watcher {
                             System.out.println("COUNT " + count);
                             System.out.println();
                             ServerUrlMessage urlMessage = (ServerUrlMessage)m;
+                            URL newUrl;
+                            try {
+                                newUrl = new URL(url);
+                            } catch (Exception e) {
+                                throw new RuntimeException("bad url", e);
+                            }
+
+                            newUrl.
                             return http.singleRequest(HttpRequest.create(urlMessage.getUrl()));
                         }));
             }
