@@ -20,6 +20,8 @@ public class ZooAnonimizer implements Watcher {
         if (port > PORT_MAX)
             throw new IllegalArgumentException("Port must be less then " + PORT_MAX);
         ZooAnonimizer anonimizer = new ZooAnonimizer(port);
+
+        
         System.in.read();
     }
 
