@@ -28,7 +28,13 @@ public class ZooAnonimizer implements Watcher {
 
     private static byte[] portToBytes(int port) {
         byte[] bytes = new byte[2];
-        
+        bytes[0] = (byte)port;
+        bytes[1] = (byte)(port >>> 8);
+        return bytes;
+    }
+
+    private static int bytesToPort(byte[] bytes) {
+        return bytes[0] | (bytes[1] << 8);
     }
 
     public ZooAnonimizer(int port) throws Exception {
