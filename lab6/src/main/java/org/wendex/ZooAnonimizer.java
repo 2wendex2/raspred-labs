@@ -34,8 +34,10 @@ public class ZooAnonimizer implements Watcher {
     public static Route createRoute(ActorRef actor) {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
             int count = Integer.parseInt(countStr);
-            if (count == 0)
+            if (count == 0) {
+                System.out.println("RESULT FOR " + );
                 return completeWithFuture(http.singleRequest(HttpRequest.create(url)));
+            }
             else {
                 return completeWithFuture(Patterns.ask(actor, new ServerQueryMessage(), Duration.ofMillis(QUERY_TIMEOUT))
                         .thenCompose(m -> {
@@ -63,7 +65,7 @@ public class ZooAnonimizer implements Watcher {
     }
 
     private ZooKeeper zoo;
-    private int port;
+    private static int port;
     private String path;
     private ActorRef actor;
     private ActorSystem actorSystem;
@@ -99,7 +101,7 @@ public class ZooAnonimizer implements Watcher {
         return prts;
     }
 
-    private void start() {
+    private void start() throws Exception {
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
