@@ -6,7 +6,7 @@ import java.util.List;
 
 public class ZooAnonimizer implements Watcher {
     static final int PORT_MAX = 65535;
-    static final int ZOO_PORT = 2121;
+    static final int ZOO_PORT = 2181;
 
     public static void main(String[] args) throws Exception {
         if (args.length != 1)
