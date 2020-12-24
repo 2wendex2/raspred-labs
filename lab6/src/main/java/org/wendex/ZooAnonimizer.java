@@ -57,24 +57,14 @@ public class ZooAnonimizer implements Watcher {
         }
         if (port > PORT_MAX)
             throw new IllegalArgumentException("Port must be less then " + PORT_MAX);
-        ZooAnonimizer anonimizer = new ZooAnonimizer(port);
 
-        ActorSystem actorSystem = ActorSystem.create("test");
-        ActorRef zooActor = actorSystem.actorOf(Props.create(ZooActor.class, anonimizer.getPortsList()));
-        final Http http = Http.get(actorSystem);
-        final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
-        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(zooActor).flow(actorSystem, materializer);
-        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
-                routeFlow, ConnectHttp.toHost("localhost", port), materializer);
-        System.in.read();
-        binding.thenCompose(ServerBinding::unbind)
-                .thenAccept(unbound -> actorSystem.terminate());
+        ZooAnonimizer anonimizer = new ZooAnonimizer(port);
     }
 
     private ZooKeeper zoo;
     private int port;
     private String path;
+    private ActorRef actor;
 
     private static byte[] portToBytes(int port) {
         byte[] bytes = new byte[2];
@@ -87,11 +77,13 @@ public class ZooAnonimizer implements Watcher {
         return bytes[0] | (bytes[1] << 8);
     }
 
-    public ZooAnonimizer(int port) throws Exception {
+    public ZooAnonimizer(int port, ActorSystem actorSystem) throws Exception {
         this.port = port;
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
         this.path = SERVERS_PATH + "/s" + port;
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+        actor = actorSystem.actorOf(Props.create(ZooActor.class, getPortsList()));
+
     }
 
     private int[] getPortsList() throws Exception {
@@ -105,8 +97,22 @@ public class ZooAnonimizer implements Watcher {
         return prts;
     }
 
+    private void start() {
+        final Http http = Http.get(actorSystem);
+        final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+                createRoute(zooActor).flow(actorSystem, materializer);
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
+                routeFlow, ConnectHttp.toHost("localhost", port), materializer);
+        System.in.read();
+        binding.thenCompose(ServerBinding::unbind)
+                .thenAccept(unbound -> actorSystem.terminate());
+    }
+
     @Override
     public void process(WatchedEvent watchedEvent) {
-        if (watchedEvent.getPath().equals(SERVERS_PATH) && watchedEvent.getType() == )
+        if (watchedEvent.getPath().equals(SERVERS_PATH) && watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
+            actor
+        }
     }
 }
