@@ -28,7 +28,7 @@ public class ZooAnonimizer implements Watcher {
     private static final int ZOO_PORT = 2181;
     private static final String PROPERTY_URL = "url";
     private static final String PROPERTY_COUNT = "count";
-    private static final int QUERY_TIMEOUT = 10000;
+    private static final int QUERY_TIMEOUT = 1000000;
     private static final String SERVERS_PATH = "/servers";
 
     public static Route createRoute(ActorRef actor, int port, Http http) {
