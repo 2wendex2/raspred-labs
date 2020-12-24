@@ -1,5 +1,8 @@
 package org.wendex;
 
+import akka.actor.ActorRef;
+import akka.actor.ActorSystem;
+import akka.actor.Props;
 import org.apache.zookeeper.*;
 
 import java.util.List;
@@ -21,7 +24,17 @@ public class ZooAnonimizer implements Watcher {
             throw new IllegalArgumentException("Port must be less then " + PORT_MAX);
         ZooAnonimizer anonimizer = new ZooAnonimizer(port);
 
-        
+        ActorSystem actorSystem = ActorSystem.create("test");
+        ActorRef zooActor = actorSystem.actorOf(Props.create(ZooActor.class));
+        final Http http = Http.get(actorSystem);
+        final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
+        final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
+                createRoute(testRouterActor).flow(actorSystem, materializer);
+        final CompletionStage<ServerBinding> binding = http.bindAndHandle(
+                routeFlow, ConnectHttp.toHost("localhost", 8080), materializer);
+        System.in.read();
+        binding.thenCompose(ServerBinding::unbind)
+                .thenAccept(unbound -> actorSystem.terminate());
         System.in.read();
     }
 
