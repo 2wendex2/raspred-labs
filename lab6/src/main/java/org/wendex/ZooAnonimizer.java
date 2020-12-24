@@ -14,6 +14,7 @@ import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
+import org.apache.http.client.utils.URIBuilder;
 
 import static akka.http.javadsl.server.Directives.*;
 
