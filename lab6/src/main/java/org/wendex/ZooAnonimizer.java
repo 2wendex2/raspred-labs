@@ -108,7 +108,7 @@ public class ZooAnonimizer implements Watcher {
     private void start() throws Exception {
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(actor, port).flow(actorSystem, materializer);
+                createRoute(actor, port, http).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow, ConnectHttp.toHost("localhost", port), materializer);
         System.in.read();
