@@ -1,3 +1,5 @@
-org/wendex/ZooMonitor.class
-org/wendex/ZooServer.class
+org/wendex/ServerListMessage.class
+org/wendex/ZooActor.class
 org/wendex/ZooAnonimizer.class
+org/wendex/ServerQueryMessage.class
+org/wendex/ServerUrlMessage.class
