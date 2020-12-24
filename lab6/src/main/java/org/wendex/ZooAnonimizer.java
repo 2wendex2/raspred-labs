@@ -1,2 +1,4 @@
-package org.wendex;public class ZooAnonimizer {
+package org.wendex;
+
+public class ZooAnonimizer {
 }
