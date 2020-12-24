@@ -27,14 +27,14 @@ public class ZooAnonimizer implements Watcher {
     private int port;
 
     public ZooAnonimizer(int port) throws Exception {
-        zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
+        this.port = port;
+        this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
         zoo.create("/servers/s" + port, "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE , CreateMode.EPHEMERAL);
         List<String> servers = zoo.getChildren("/servers", this);
         for (String s : servers) {
             byte[] data = zoo.getData("/servers/" + s, false, null);
             System.out.println("server " + s + " data=" + new String(data));
         }
-        this.port = port;
     }
 
     @Override
