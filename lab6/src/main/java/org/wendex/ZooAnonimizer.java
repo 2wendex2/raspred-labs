@@ -28,10 +28,12 @@ public class ZooAnonimizer implements Watcher {
     static final Http http = Http.get(context().system());
 
     public static Route createRoute(ActorRef actor) {
-        return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, count -> {
-            return fetch(String url) {
+        return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
+            int count = Integer.parseInt(countStr);
+            if (count == 0)
                 return http.singleRequest(HttpRequest.create(url));
-            }
+            else
+
         })));
     }
 
