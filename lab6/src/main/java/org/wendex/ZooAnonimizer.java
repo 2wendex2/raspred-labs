@@ -5,16 +5,28 @@ import org.apache.zookeeper.*;
 import java.util.List;
 
 public class ZooAnonimizer implements Watcher {
+    static final int PORT_MAX = 65535;
+
     public static void main(String[] args) throws Exception {
-        ZooAnonimizer anonimizer = new ZooAnonimizer();
+        if (args.length != 3)
+            throw new IllegalArgumentException("Wrong arguments count");
+        int port;
+        try {
+            port = Integer.parseInt(args[2]);
+        } catch (NumberFormatException e) {
+            throw new IllegalArgumentException("Port must be number", e);
+        }
+        if (port > PORT_MAX)
+            throw new IllegalArgumentException("Port must be less then " + PORT_MAX);
+        ZooAnonimizer anonimizer = new ZooAnonimizer(port);
         System.in.read();
     }
 
-    ZooKeeper zoo;
+    private ZooKeeper zoo;
 
-    public ZooAnonimizer() throws Exception {
-        zoo = new ZooKeeper("127.0.0.1:2181", 3000, this);
-        zoo.create("/servers/s", "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE , CreateMode.EPHEMERAL);
+    public ZooAnonimizer(int port) throws Exception {
+        zoo = new ZooKeeper("127.0.0.1:" + port, 3000, this);
+        zoo.create("/servers/s" + port, "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE , CreateMode.EPHEMERAL);
         List<String> servers = zoo.getChildren("/servers", this);
         for (String s : servers) {
             byte[] data = zoo.getData("/servers/" + s, false, null);

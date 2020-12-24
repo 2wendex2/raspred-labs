@@ -1,2 +1,4 @@
-package org.wendex;public class ZooServer {
+package org.wendex;
+
+public class ZooServer {
 }
