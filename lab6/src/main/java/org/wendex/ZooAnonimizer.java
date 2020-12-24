@@ -43,7 +43,7 @@ public class ZooAnonimizer implements Watcher {
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
         this.path = "/servers/s" + port;
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
-
+        
     }
 
     private int[] getPortsList() throws Exception {
