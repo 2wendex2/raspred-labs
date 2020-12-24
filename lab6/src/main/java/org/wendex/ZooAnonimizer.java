@@ -31,7 +31,7 @@ public class ZooAnonimizer implements Watcher {
     private static final int QUERY_TIMEOUT = 10000;
     private static final String SERVERS_PATH = "/servers";
 
-    public static Route createRoute(ActorRef actor) {
+    public static Route createRoute(ActorRef actor, int port) {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
             int count = Integer.parseInt(countStr);
             if (count == 0) {
@@ -65,7 +65,7 @@ public class ZooAnonimizer implements Watcher {
     }
 
     private ZooKeeper zoo;
-    private static int port;
+    private int port;
     private String path;
     private ActorRef actor;
     private ActorSystem actorSystem;
@@ -105,7 +105,7 @@ public class ZooAnonimizer implements Watcher {
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
-                createRoute(actor).flow(actorSystem, materializer);
+                createRoute(actor, port).flow(actorSystem, materializer);
         final CompletionStage<ServerBinding> binding = http.bindAndHandle(
                 routeFlow, ConnectHttp.toHost("localhost", port), materializer);
         System.in.read();
