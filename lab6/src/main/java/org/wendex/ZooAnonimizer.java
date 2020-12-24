@@ -26,6 +26,11 @@ public class ZooAnonimizer implements Watcher {
     private ZooKeeper zoo;
     private int port;
 
+    private static byte[] portToBytes(int port) {
+        byte[] bytes = new byte[2];
+        
+    }
+
     public ZooAnonimizer(int port) throws Exception {
         this.port = port;
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
