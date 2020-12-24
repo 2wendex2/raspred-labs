@@ -9,6 +9,7 @@ import akka.http.javadsl.Http;
 import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
+import akka.http.javadsl.server.Route;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
@@ -19,8 +20,20 @@ import java.util.concurrent.CompletionStage;
 public class ZooAnonimizer implements Watcher {
     static final int PORT_MAX = 65535;
     static final int ZOO_PORT = 2181;
+    
 
-    private statci 
+    public static Route createRoute(ActorRef actor) {
+        return post(() -> entity(Jackson.unmarshaller(HttpQuery.class), m -> {
+            for (Test t : m.getTests()) {
+                actor.tell(new TestRunMessage(m.getPackageId(), m.getFunctionName(), m.getJsScript(),
+                        t.getParams(), t.getTestName(), t.getExpectedResult()), ActorRef.noSender());
+            }
+            return complete("SUCCESS");
+        })).orElse(get(() -> parameter(PROPERTY_PACKAGE_ID, m -> {
+            return completeOKWithFuture(Patterns.ask(actor, new TestQueryMessage(Integer.parseInt(m)), QUERY_TIMEOUT),
+                    Jackson.marshaller());
+        })));
+    }
 
     public static void main(String[] args) throws Exception {
         if (args.length != 1)
