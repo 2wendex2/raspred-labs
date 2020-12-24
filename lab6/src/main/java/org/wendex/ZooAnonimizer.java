@@ -59,7 +59,7 @@ public class ZooAnonimizer implements Watcher {
         ZooAnonimizer anonimizer = new ZooAnonimizer(port);
 
         ActorSystem actorSystem = ActorSystem.create("test");
-        ActorRef zooActor = actorSystem.actorOf(Props.create(ZooActor.class));
+        ActorRef zooActor = actorSystem.actorOf(Props.create(ZooActor.class, anonimizer.getPortsList()));
         final Http http = Http.get(actorSystem);
         final ActorMaterializer materializer = ActorMaterializer.create(actorSystem);
         final Flow<HttpRequest, HttpResponse, NotUsed> routeFlow =
