@@ -8,7 +8,8 @@ public class ZooAnonimizer extends Watcher{
 
 
     public static void main(String[] args) throws Exception {
-
+        ZooAnonimizer anonimizer = new ZooAnonimizer();
+        System.in.read();
     }
 
     ZooKeeper zoo;
@@ -23,5 +24,5 @@ public class ZooAnonimizer extends Watcher{
         }
     }
 
-    
+
 }
