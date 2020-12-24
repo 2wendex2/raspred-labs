@@ -18,6 +18,7 @@ import org.apache.zookeeper.*;
 import static akka.actor.TypedActor.context;
 import static akka.http.javadsl.server.Directives.*;
 
+import java.time.Duration;
 import java.util.List;
 import java.util.concurrent.CompletionStage;
 
@@ -35,7 +36,11 @@ public class ZooAnonimizer implements Watcher {
             if (count == 0)
                 return http.singleRequest(HttpRequest.create(url));
             else
-                return Patterns.ask(actor, )
+                return Patterns.ask(actor, new ServerQueryMessage(), Duration.ofMillis(QUERY_TIMEOUT))
+                    .thenCompose(m -> {
+                        ServerUrlMessage urlMessage = (ServerUrlMessage)m;
+                        return http.singleRequest(HttpRequest.create(urlMessage.getUrl()));
+                    });
         })));
     }
 
