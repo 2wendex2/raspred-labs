@@ -6,7 +6,7 @@ public class ZooAnonimizer {
 
 
     public static void main(String[] args) {
-        ZooKeeper zoo = new ZooKeeper("127.0.0.1:2181", 3000, this);
+        ZooKeeper zoo = new ZooKeeper("127.0.0.1:2181", 3000, new DummyWatcher());
         zoo.create("/servers/s",
                 “data”.getBytes(),
                 ZooDefs.Ids.OPEN_ACL_UNSAFE ,
