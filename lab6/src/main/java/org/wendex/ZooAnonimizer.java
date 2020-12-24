@@ -113,8 +113,12 @@ public class ZooAnonimizer implements Watcher {
 
     @Override
     public void process(WatchedEvent watchedEvent) {
-        if (watchedEvent.getPath().equals(SERVERS_PATH) && watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
-            actor
+        try {
+            if (watchedEvent.getPath().equals(SERVERS_PATH) && watchedEvent.getType() == Event.EventType.NodeChildrenChanged) {
+                actor.tell(new ServerListMessage(getPortsList()), ActorRef.noSender());
+            }
+        } catch (Exception e) {
+            throw new RuntimeException("Process exception", e);
         }
     }
 }
