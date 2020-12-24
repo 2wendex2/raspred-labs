@@ -65,6 +65,7 @@ public class ZooAnonimizer implements Watcher {
     private int port;
     private String path;
     private ActorRef actor;
+    private ActorSystem actorSystem;
 
     private static byte[] portToBytes(int port) {
         byte[] bytes = new byte[2];
@@ -82,6 +83,7 @@ public class ZooAnonimizer implements Watcher {
         this.zoo = new ZooKeeper("127.0.0.1:" + ZOO_PORT, 3000, this);
         this.path = SERVERS_PATH + "/s" + port;
         zoo.create(path, portToBytes(port), ZooDefs.Ids.OPEN_ACL_UNSAFE, CreateMode.EPHEMERAL);
+        actorSystem = ActorSystem.create("anonimizer");
         actor = actorSystem.actorOf(Props.create(ZooActor.class, getPortsList()));
 
     }
