@@ -1,2 +1,4 @@
-package org.wendex;public class ZooActor {
+package org.wendex;
+
+public class ZooActor {
 }
