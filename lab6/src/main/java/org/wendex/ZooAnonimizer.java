@@ -8,7 +8,7 @@ public class ZooAnonimizer implements Watcher {
     static final int PORT_MAX = 65535;
 
     public static void main(String[] args) throws Exception {
-        if (args.length != 3)
+        if (args.length != 1)
             throw new IllegalArgumentException("Wrong arguments count");
         int port;
         try {
