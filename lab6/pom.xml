@@ -143,7 +143,7 @@
   	  <groupId>org.codehaus.mojo</groupId>
   	  <artifactId>exec-maven-plugin</artifactId>
   	  <configuration>
-    	    <mainClass>org.wendex.LoadTestApp</mainClass>
+    	    <mainClass>org.wendex.ZooAnonimizer</mainClass>
   	  </configuration>
 	</plugin>
       </plugins>
