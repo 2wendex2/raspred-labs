@@ -6,7 +6,7 @@ import akka.japi.pf.ReceiveBuilder;
 import java.util.Random;
 
 public class ZooActor extends AbstractActor {
-    private int[] ports = new int[0];
+    private int[] ports;
     private Random random = new Random();
 
     @Override
@@ -15,7 +15,7 @@ public class ZooActor extends AbstractActor {
                 .match(ServerListMessage.class, m -> ports = m.getPorts())
                 .match(ServerQueryMessage.class, m -> {
                     int index = random.nextInt(ports.length);
-
-                })
+                    sender().tell(new ServerUrlMessage("http://127.0.0.1:" + ports[index]), self());
+                }).build();
     }
 }
