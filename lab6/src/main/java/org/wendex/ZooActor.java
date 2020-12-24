@@ -1,4 +1,7 @@
 package org.wendex;
 
-public class ZooActor {
+import akka.actor.AbstractActor;
+
+public class ZooActor extends AbstractActor {
+    
 }
