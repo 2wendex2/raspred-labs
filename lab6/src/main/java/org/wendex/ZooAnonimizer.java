@@ -20,4 +20,6 @@ public class ZooAnonimizer extends Watcher{
             System.out.println("server " + s + " data=" + new String(data));
         }
     }
+
+    p
 }

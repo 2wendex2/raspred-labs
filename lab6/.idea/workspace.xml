@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="ccac6630-dae8-4d75-a30f-8976569bf213" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/AnonimizerWatcher.java" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/org/wendex/ZooMonitor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -79,5 +79,11 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608784041162">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.985@0.27.1920.985" timestamp="1608784041162" />
   </component>
 </project>
