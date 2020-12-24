@@ -25,7 +25,7 @@ public class ZooAnonimizer implements Watcher {
     private ZooKeeper zoo;
 
     public ZooAnonimizer(int port) throws Exception {
-        zoo = new ZooKeeper("127.0.0.1:" + port, 3000, this);
+        zoo = new ZooKeeper("127.0.0.1:" + 2121, 3000, this);
         zoo.create("/servers/s" + port, "data".getBytes(), ZooDefs.Ids.OPEN_ACL_UNSAFE , CreateMode.EPHEMERAL);
         List<String> servers = zoo.getChildren("/servers", this);
         for (String s : servers) {
