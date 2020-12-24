@@ -10,6 +10,7 @@ import akka.http.javadsl.ServerBinding;
 import akka.http.javadsl.model.HttpRequest;
 import akka.http.javadsl.model.HttpResponse;
 import akka.http.javadsl.server.Route;
+import akka.pattern.Patterns;
 import akka.stream.ActorMaterializer;
 import akka.stream.javadsl.Flow;
 import org.apache.zookeeper.*;
@@ -26,6 +27,7 @@ public class ZooAnonimizer implements Watcher {
     static final String PROPERTY_URL = "url";
     static final String PROPERTY_COUNT = "count";
     static final Http http = Http.get(context().system());
+    private static final int QUERY_TIMEOUT = 10000;
 
     public static Route createRoute(ActorRef actor) {
         return get(() -> parameter(PROPERTY_URL, url -> parameter(PROPERTY_COUNT, countStr -> {
@@ -33,7 +35,7 @@ public class ZooAnonimizer implements Watcher {
             if (count == 0)
                 return http.singleRequest(HttpRequest.create(url));
             else
-
+                return Patterns.ask(actor, )
         })));
     }
 
