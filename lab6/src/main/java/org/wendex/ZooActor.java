@@ -18,4 +18,8 @@ public class ZooActor extends AbstractActor {
                     sender().tell(new ServerUrlMessage("http://127.0.0.1:" + ports[index]), self());
                 }).build();
     }
+
+    public ZooActor(int[] ports) {
+        this.ports = ports;
+    }
 }
