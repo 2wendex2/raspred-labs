@@ -11,8 +11,11 @@ public class CacheProxy {
     private static final String BACK_URL = "tcp://*:5560";
     private static final byte[] EMPTY_MESSAGE = new byte[0];
 
-    private static int FRONT_INDEX = 0;
-    private static int BACK_INDEX = 1;
+    private static final int FRONT_INDEX = 0;
+    private static final int BACK_INDEX = 1;
+    private static final int NOTIFY_MSG_LENTH = 8;
+    private static final int GETEND_MSG_LENTH = 4;
+    private static final int PUTEND_MSG_LENGTH = 1;
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
@@ -28,6 +31,7 @@ public class CacheProxy {
         byte[] message;
         byte[] storage;
         HashMap<byte[], Storage> storages = new HashMap<>();
+
 
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
@@ -46,12 +50,15 @@ public class CacheProxy {
                 storage = backend.recv(0);
                 backend.recv(0);
                 message = backend.recv();
-                int beginInterval = BytesTools.bytesToIntOff(message, 0);
-                int endInterval = BytesTools.bytesToIntOff(message, 4);
-                Storage s = storages.get(storage);
-                s.setBeginInterval(beginInterval);
-                s.setEndInterval(endInterval);
-                s.setNotificationTime(0);
+                switch (message.length) {
+                    case NOTIFY_MSG_LENTH:
+                    int beginInterval = BytesTools.bytesToIntOff(message, 0);
+                    int endInterval = BytesTools.bytesToIntOff(message, 4);
+                    Storage s = storages.get(storage);
+                    s.setBeginInterval(beginInterval);
+                    s.setEndInterval(endInterval);
+                    s.setNotificationTime(0);
+                }
             }
         }
 
