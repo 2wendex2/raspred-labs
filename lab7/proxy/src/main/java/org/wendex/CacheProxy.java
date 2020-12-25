@@ -2,6 +2,7 @@ package org.wendex;
 
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
+import org.zeromq.ZMQQueue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +31,7 @@ public class CacheProxy {
         boolean more = false;
         byte[] message;
         byte[] storage;
+        byte[] client;
         HashMap<byte[], Storage> storages = new HashMap<>();
 
 
@@ -47,17 +49,24 @@ public class CacheProxy {
                 } while (more);
             }
             if (items.pollin(BACK_INDEX)) {
-                storage = backend.recv(0);
-                backend.recv(0);
-                message = backend.recv();
                 switch (message.length) {
                     case NOTIFY_MSG_LENTH:
-                    int beginInterval = BytesTools.bytesToIntOff(message, 0);
-                    int endInterval = BytesTools.bytesToIntOff(message, 4);
-                    Storage s = storages.get(storage);
-                    s.setBeginInterval(beginInterval);
-                    s.setEndInterval(endInterval);
-                    s.setNotificationTime(0);
+                        storage = backend.recv(0);
+                        backend.recv(0);
+                        message = backend.recv();
+                        int beginInterval = BytesTools.bytesToIntOff(message, 0);
+                        int endInterval = BytesTools.bytesToIntOff(message, 4);
+                        Storage s = storages.get(storage);
+                        s.setBeginInterval(beginInterval);
+                        s.setEndInterval(endInterval);
+                        s.setNotificationTime(0);
+                        break;
+                    case GETEND_MSG_LENTH:
+                        backend.recv();
+                        backend.recv();
+                        frontend.send(backend.recv(), ZMQ.SNDMORE);
+                        frontend.send(backend.recv(), ZMQ.SNDMORE);
+                        frontend.send(backend.recv(), ZMQ.SNDMORE);
                 }
             }
         }
