@@ -58,12 +58,12 @@ public class CmdHandler {
             }
             if (request == null)
                 continue;
-            requester.send(request.toBytes());
+            requester.send(request.toBytes(), 0);
             System.out.println("dddd");
             if (request instanceof GetRequest)
-                System.out.println("GET: " + BytesTools.bytesToInt(requester.recv()));
+                System.out.println("GET: " + BytesTools.bytesToInt(requester.recv(0)));
             else {
-                boolean success = BytesTools.bytesToBool(requester.recv());
+                boolean success = BytesTools.bytesToBool(requester.recv(0));
                 if (success)
                     System.out.println("PUT: SUCCESS");
                 else
