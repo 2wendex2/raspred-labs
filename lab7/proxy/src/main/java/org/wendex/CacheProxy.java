@@ -30,7 +30,7 @@ public class CacheProxy {
         System.out.println(message[2]);
         System.out.println(message[3]);
         System.out.println(message[4]);
-        frontend.send(message);
+        frontend.send(message, ZMQ.SNDMORE);
 
         message = frontend.recv(0);
         System.out.println(message.length);
