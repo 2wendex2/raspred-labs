@@ -6,6 +6,7 @@ import org.zeromq.ZMQ;
 public class CacheStorage {
     private static final String PROXY_URL = "tcp://127.0.0.1:5560";
     private static final int NOTIFY_TIME = 10000;
+    private static final int RECIEVE_TIMEOUT = 5000;
 
     private int beginInterval;
     private int[] interval;
@@ -49,7 +50,9 @@ public class CacheStorage {
         System.out.println("launch and connect storage");
         boolean more = false;
         byte[] message;
+        long curTime = System.currentTimeMillis();
         while (!Thread.currentThread().isInterrupted()) {
+
                 do {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
