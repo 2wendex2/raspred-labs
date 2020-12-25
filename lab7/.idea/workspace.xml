@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/CacheStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/CacheStorage.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

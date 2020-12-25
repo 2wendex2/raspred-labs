@@ -2,17 +2,17 @@ package org.wendex;
 
 public class CacheStorage {
     private int intervalBegin;
-    private int intervalEnd;
+    private int[] interval;
 
     public int getIntervalBegin() {
         return intervalBegin;
     }
 
-    public int getIntervalEnd() {
-        return intervalEnd;
+    public int getLength() {
+        return interval.length;
     }
 
-    public int getLength() {
-        return intervalEnd - intervalEnd + 1;
+    public int get(int index) {
+        return interval[index - intervalBegin];
     }
 }
