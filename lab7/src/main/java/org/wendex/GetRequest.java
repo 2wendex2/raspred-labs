@@ -1,2 +1,4 @@
-package org.wendex;public class GetRequest {
+package org.wendex;
+
+public class GetRequest {
 }
