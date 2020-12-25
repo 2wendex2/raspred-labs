@@ -26,7 +26,7 @@ public class CacheProxy {
             items.poll();
             if (items.pollin(FRONT_INDEX)) {
                 do {
-                    DataRequest request = DataRequest.fromBytes(frontend.recv());
+                    DataRequest request = DataRequest.fromBytes(frontend.recv(0));
                     more = backend.hasReceiveMore();
                     if (request instanceof GetRequest)
                         frontend.send(BytesTools.intToBytes(4));
