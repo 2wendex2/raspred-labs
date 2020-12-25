@@ -14,15 +14,8 @@ public class PutRequest extends DataRequest {
 
     public byte[] toBytes() {
         byte[] bytes = new byte[8];
-        bytes[0] = (byte)cell;
-        bytes[1] = (byte)(cell >>> 8);
-        bytes[2] = (byte)(cell >>> 16);
-        bytes[3] = (byte)(cell >>> 24);
-
-        bytes[4] = (byte)value;
-        bytes[5] = (byte)(value >>> 8);
-        bytes[6] = (byte)(value >>> 16);
-        bytes[7] = (byte)(value >>> 24);
+        BytesTools.intToBytesOff(cell, bytes,0);
+        BytesTools.intToBytesOff(value, bytes,4);
         return bytes;
     }
 
