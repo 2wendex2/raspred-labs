@@ -22,7 +22,11 @@ public class CacheProxy {
         items.register(backend, ZMQ.Poller.POLLIN);
         boolean more = false;
         byte[] message;
-        while (!Thread.currentThread().isInterrupted()) {
+
+        frontend.recv(0);
+
+
+        /*while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
             items.pollin(FRONT_INDEX);
             frontend.recv(0);
@@ -47,8 +51,8 @@ public class CacheProxy {
                     more = backend.hasReceiveMore();
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
-            }*/
-        }
+            }
+        }*/
 
         items.close();
         backend.close();
