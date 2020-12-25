@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ccac6630-dae8-4d75-a30f-8976569bf213" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/ZooAnonimizer.java" afterDir="false" />
-    </list>
+    <list default="true" id="ccac6630-dae8-4d75-a30f-8976569bf213" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -56,7 +53,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/pom.xml" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../lab7/pom.xml" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,12 +76,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1608784041162">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
     <state x="693" y="268" width="524" height="509" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.985@0.27.1920.985" timestamp="1608784041162" />
+    <state x="743" y="277" width="424" height="491" key="FileChooserDialogImpl" timestamp="1608876393477">
+      <screen x="0" y="27" width="1920" height="985" />
+    </state>
+    <state x="743" y="277" width="424" height="491" key="FileChooserDialogImpl/0.27.1920.985@0.27.1920.985" timestamp="1608876393477" />
     <state x="623" y="242" width="672" height="678" key="search.everywhere.popup" timestamp="1608798917353">
       <screen x="0" y="27" width="1920" height="985" />
     </state>
