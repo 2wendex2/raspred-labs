@@ -23,8 +23,8 @@ public class CacheProxy {
         boolean more = false;
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
-            System.out.println("rrr");
             items.poll();
+            System.out.println("rrr");
             if (items.pollin(FRONT_INDEX)) {
                 do {
                     DataRequest request = DataRequest.fromBytes(frontend.recv(0));
