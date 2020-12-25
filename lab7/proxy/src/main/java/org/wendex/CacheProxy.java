@@ -14,8 +14,7 @@ public class CacheProxy {
     private static int FRONT_INDEX = 0;
     private static int BACK_INDEX = 1;
 
-    private ArrayList<Storage> storages = new ArrayList<>();
-    private HashMap<byte[], Long> notificationTime = new HashMap<>();
+    private HashMap<byte[], Storage> storages = new HashMap<>();
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
