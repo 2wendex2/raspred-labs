@@ -22,9 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/storage/src/main/java/org/wendex/CacheStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/org/wendex/CacheStorage.java" afterDir="false" />
-    </list>
+    <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
