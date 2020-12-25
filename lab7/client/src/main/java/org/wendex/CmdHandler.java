@@ -15,7 +15,24 @@ public class CmdHandler {
         this.scanner = new Scanner(source);
     }
 
-    public DataRequest dataRequest = new DataRequest() {
+    public DataRequest nextRequest() {
+        String line = scanner.nextLine();
+        String[] args = line.trim().split("\\s");
+        if (args.length == 0)
+            return null;
+        if (args[0].equals("PUT")) {
+            if (args.length != 3)
+                throw new IllegalArgumentException("Wrong argument number");
+            int cell = Integer.parseInt(args[1]);
+            int value = Integer.parseInt(args[2]);
+            return new PutRequest(cell, value);
+        } else if (args[1].equals("GET")) {
+            if (args.length != 2)
+                throw new IllegalArgumentException("Wrong argument number");
+            int cell = Integer.parseInt(args[1]);
+            return new GetRequest(cell);
+        }
+        throw new IllegalArgumentException("Unknown command");
     }
 
     public static void main(String[] args) {
