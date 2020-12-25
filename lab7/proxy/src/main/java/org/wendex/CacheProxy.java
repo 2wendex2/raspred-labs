@@ -31,6 +31,12 @@ public class CacheProxy {
         System.out.println(message[3]);
         System.out.println(message[4]);
 
+        message = frontend.recv(0);
+        System.out.println(message.length);
+        System.out.println(message[0]);
+        System.out.println(message[1]);
+        System.out.println(message[2]);
+        System.out.println(message[3]);
 
         /*while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
