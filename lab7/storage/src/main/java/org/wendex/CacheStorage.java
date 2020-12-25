@@ -65,6 +65,8 @@ public class CacheStorage {
                 socket.send(storage.intervalBoundsMsg());
                 curTime = System.currentTimeMillis();
             }
+            message = socket.recv(0);
+            if (message)
                 do {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
