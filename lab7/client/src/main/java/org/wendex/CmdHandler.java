@@ -10,6 +10,6 @@ public class CmdHandler {
             throw new IllegalArgumentException("Wrong arguments count");
 
         ZMQ.Context context = ZMQ.context(1);
-        ZMQ.Socket requester = 
+        ZMQ.Socket requester = context.socket()
     }
 }
