@@ -25,7 +25,7 @@ public class CacheProxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
             return;
-            if (items.pollin(FRONT_INDEX)) {
+            /*if (items.pollin(FRONT_INDEX)) {
                 do {
                     DataRequest request = DataRequest.fromBytes(frontend.recv(0));
                     more = frontend.hasReceiveMore();
@@ -41,7 +41,7 @@ public class CacheProxy {
                     more = backend.hasReceiveMore();
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
-            }
+            }*/
         }
     }
 }
