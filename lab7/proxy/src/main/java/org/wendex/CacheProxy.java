@@ -69,7 +69,7 @@ public class CacheProxy {
                     Storage s = storages.get(storage);
                     s.setBeginInterval(beginInterval);
                     s.setEndInterval(endInterval);
-                    s.setNotificationTime(0);
+                    s.setNotificationTime(System.currentTimeMillis());
                 }
                 else {
                     frontend.send(message, ZMQ.SNDMORE);
