@@ -24,7 +24,7 @@ public class CmdHandler {
     public DataRequest nextRequest() {
         String line = scanner.nextLine();
         String[] args = line.trim().split("\\s");
-        if (args.length == 0)
+        if (args.length == 1 && args[0].length() == 0)
             return null;
         if (args[0].equals(PUT_CMD)) {
             if (args.length != 3)
