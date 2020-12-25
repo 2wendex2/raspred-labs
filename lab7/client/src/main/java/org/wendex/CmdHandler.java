@@ -58,7 +58,8 @@ public class CmdHandler {
                 continue;
             }
             requester.send(request.toBytes());
-            
+            if (request instanceof GetRequest)
+                System.out.println(BytesTools.bytesToInt());
         }
     }
 }
