@@ -15,6 +15,10 @@ public class CmdHandler {
         this.scanner = new Scanner(source);
     }
 
+    public boolean hasNext() {
+        return scanner.hasNextLine();
+    }
+
     public DataRequest nextRequest() {
         String line = scanner.nextLine();
         String[] args = line.trim().split("\\s");
