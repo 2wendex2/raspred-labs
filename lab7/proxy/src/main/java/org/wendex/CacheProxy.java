@@ -23,7 +23,7 @@ public class CacheProxy {
         boolean more = false;
         byte[] message;
 
-        message = frontend.recv(0);
+        /*message = frontend.recv(0);
         System.out.println(message.length);
         System.out.println(message[0]);
         System.out.println(message[1]);
@@ -40,25 +40,20 @@ public class CacheProxy {
         //System.out.println(message[0]);
         //System.out.println(message[1]);
         //System.out.println(message[2]);
-        //System.out.println(message[3]);
+        //System.out.println(message[3]);*/
 
-        /*while (!Thread.currentThread().isInterrupted()) {
+        while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
             items.pollin(FRONT_INDEX);
             frontend.recv(0);
-            /*if (items.pollin(FRONT_INDEX)) {
+            if (items.pollin(FRONT_INDEX)) {
                 do {
-                    throw new IllegalStateException();
-                   // message = frontend.recv(0);
-
-                    //more = frontend.hasReceiveMore();
-                    //backend.send(message, more ? ZMQ.SNDMORE : 0);
-                    /*DataRequest request = DataRequest.fromBytes(frontend.recv(0));
+                    message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
-                    if (request instanceof GetRequest)
-                        frontend.send(BytesTools.intToBytes(4), more ? ZMQ.SNDMORE : 0);
+                    if (more)
+                        frontend.send(message, more ? ZMQ.SNDMORE : 0);
                     else
-                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);
+                        frontend.send(BytesTools.intToBytes(4), 0);
                 } while (more);
             }
             if (items.pollin(1)) {
@@ -68,7 +63,7 @@ public class CacheProxy {
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
             }
-        }*/
+        }
 
         items.close();
         backend.close();
