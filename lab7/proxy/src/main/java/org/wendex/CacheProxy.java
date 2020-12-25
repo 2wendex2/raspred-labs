@@ -24,16 +24,14 @@ public class CacheProxy {
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
-            frontend.send(BytesTools.intToBytes(4));
-            return;
-            /*if (items.pollin(FRONT_INDEX)) {
+            if (items.pollin(FRONT_INDEX)) {
                 do {
                     DataRequest request = DataRequest.fromBytes(frontend.recv(0));
                     more = frontend.hasReceiveMore();
                     if (request instanceof GetRequest)
-                        frontend.send(BytesTools.intToBytes(4));
+                        frontend.send(BytesTools.intToBytes(4), more ? ZMQ.SNDMORE : 0);
                     else
-                        frontend.send(BytesTools.boolToBytes(true));
+                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);
                 } while (more);
             }
             if (items.pollin(1)) {
@@ -42,7 +40,7 @@ public class CacheProxy {
                     more = backend.hasReceiveMore();
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
-            }*/
+            }
         }
     }
 }
