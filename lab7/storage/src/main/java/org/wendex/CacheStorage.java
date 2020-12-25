@@ -50,9 +50,6 @@ public class CacheStorage {
         byte[] message;
 
         while (!Thread.currentThread().isInterrupted()) {
-            items.poll(1000);
-            items.pollin(FRONT_INDEX);
-            if (items.pollin(FRONT_INDEX)) {
                 do {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
@@ -61,14 +58,6 @@ public class CacheStorage {
                     else
                         frontend.send(BytesTools.intToBytes(4), 0);
                 } while (more);
-            }
-            if (items.pollin(1)) {
-                do {
-                    message = backend.recv(0);
-                    more = backend.hasReceiveMore();
-                    frontend.send(message, more ? ZMQ.SNDMORE : 0);
-                } while (more);
-            }
         }
 
         items.close();
