@@ -70,18 +70,16 @@ public class CacheStorage {
                 curTime = System.currentTimeMillis();
             }
             message = socket.recv(0);
-            if (message != null)
-                do {
-                    DataRequest request = DataRequest.fromBytes(message);
-                    if (request instanceof GetRequest)
-                        socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
-                    else {
-                        PutRequest p = (PutRequest)request;
-                        storage.set(p.getCell(), p.getValue());
-                        socket.send(BytesTools.boolToBytes(true));
-                    }
-
-                } while (more);
+            if (message != null) {
+                DataRequest request = DataRequest.fromBytes(message);
+                if (request instanceof GetRequest)
+                    socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
+                else {
+                    PutRequest p = (PutRequest) request;
+                    storage.set(p.getCell(), p.getValue());
+                    socket.send(BytesTools.boolToBytes(true));
+                }
+            }
         }
 
         socket.close();
