@@ -48,6 +48,10 @@ public class CmdHandler {
         requester.connect(URL_HEAD + args[0]);
         System.out.println("Launch and connect client");
 
-        for (int )
+        CmdHandler handler = new CmdHandler(System.in);
+        while (handler.hasNext()){
+            DataRequest request = handler.nextRequest();
+            
+        }
     }
 }
