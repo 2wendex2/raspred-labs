@@ -6,6 +6,7 @@ import org.zeromq.ZMQQueue;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Map;
 
 public class CacheProxy {
@@ -22,10 +23,15 @@ public class CacheProxy {
 
     public static byte[] randomStorage(HashMap<byte[], Storage> storages, int index) {
         long curTime = System.currentTimeMillis();
-        for (Map.Entry<byte[], Storage> entry : storages.entrySet()) {
+        for (Iterator<Map.Entry<byte[], Storage>> it = storages.entrySet().iterator(); it.hasNext();) {
+            Map.Entry<byte[], Storage> entry = it.next();
             byte[] k = entry.getKey();
             Storage v = entry.getValue();
-            if (v.)
+            if (curTime - v.getNotificationTime() > STORAGE_TIMEOUT) {
+                it.remove();
+                continue;
+            }
+            
         }
     }
 
