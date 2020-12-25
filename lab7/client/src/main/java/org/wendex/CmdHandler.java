@@ -61,6 +61,8 @@ public class CmdHandler {
                 continue;
             byte[] b = request.toBytes();
             requester.send(request.toBytes(), 0);
+            if (requester.recv() == null)
+                return;
 
             if (request instanceof GetRequest)
                 System.out.println("GET: " + BytesTools.bytesToInt(requester.recv(0)));
