@@ -26,12 +26,13 @@ public class CacheProxy {
             items.poll();
             if (items.pollin(FRONT_INDEX)) {
                 do {
-                    DataRequest request = DataRequest.fromBytes(frontend.recv(0));
+
+                    /*DataRequest request = DataRequest.fromBytes(frontend.recv(0));
                     more = frontend.hasReceiveMore();
                     if (request instanceof GetRequest)
                         frontend.send(BytesTools.intToBytes(4), more ? ZMQ.SNDMORE : 0);
                     else
-                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);
+                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);*/
                 } while (more);
             }
             if (items.pollin(1)) {
