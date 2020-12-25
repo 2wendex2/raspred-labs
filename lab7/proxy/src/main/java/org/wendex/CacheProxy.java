@@ -23,6 +23,7 @@ public class CacheProxy {
         boolean more = false;
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
+            System.out.println("rrr");
             items.poll();
             if (items.pollin(FRONT_INDEX)) {
                 do {
