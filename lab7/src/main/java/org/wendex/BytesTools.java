@@ -1,2 +1,4 @@
-package org.wendex;public class BytesTools {
+package org.wendex;
+
+public class BytesTools {
 }

@@ -52,6 +52,7 @@ public class CmdHandler {
         while (handler.hasNext()){
             DataRequest request = handler.nextRequest();
             requester.send(request.toBytes());
+            requester.r
         }
     }
 }
