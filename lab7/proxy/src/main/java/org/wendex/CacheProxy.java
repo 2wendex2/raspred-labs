@@ -25,6 +25,7 @@ public class CacheProxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
             items.pollin(FRONT_INDEX);
+            frontend.recv(0);
             /*if (items.pollin(FRONT_INDEX)) {
                 do {
                     throw new IllegalStateException();
