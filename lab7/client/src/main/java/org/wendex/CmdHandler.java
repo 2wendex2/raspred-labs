@@ -13,6 +13,6 @@ public class CmdHandler {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(URL_HEAD + args[0]);
-        
+        System.out.printl("Launch and connect client");
     }
 }
