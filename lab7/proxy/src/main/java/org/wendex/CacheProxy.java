@@ -14,8 +14,6 @@ public class CacheProxy {
     private static int FRONT_INDEX = 0;
     private static int BACK_INDEX = 1;
 
-    private HashMap<byte[], Storage> storages = new HashMap<>();
-
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket frontend = context.socket(SocketType.ROUTER);
@@ -28,6 +26,8 @@ public class CacheProxy {
         items.register(backend, ZMQ.Poller.POLLIN);
         boolean more = false;
         byte[] message;
+        byte[] storage;
+        HashMap<byte[], Storage> storages = new HashMap<>();
 
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
@@ -44,10 +44,15 @@ public class CacheProxy {
             }
             if (items.pollin(BACK_INDEX)) {
                 do {
-                    byte[] storage = backend.recv(0);
-                    more = backend.hasReceiveMore();
-
-                    frontend.send(message, more ? ZMQ.SNDMORE : 0);
+                    storage = backend.recv(0);
+                    backend.recv(0);
+                    message = backend.recv();
+                    int beginInterval = BytesTools.bytesToIntOff(message, 0);
+                    int endInterval = BytesTools.bytesToIntOff(message, 4);
+                    Storage s = storages.get(storage);
+                    s.setBeginInterval(beginInterval);
+                    s.setEndInterval(endInterval);
+                    s.setNotificationTime(0);
                 } while (more);
             }
         }
