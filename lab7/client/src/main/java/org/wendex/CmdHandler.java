@@ -3,6 +3,7 @@ package org.wendex;
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
+import java.io.InputStream;
 import java.util.Scanner;
 
 public class CmdHandler {
@@ -10,7 +11,11 @@ public class CmdHandler {
 
     private Scanner scanner;
 
-    public CmdHandler(Scanner scanner)
+    public CmdHandler(InputStream source) {
+        this.scanner = new Scanner(source);
+    }
+
+    public next
 
     public static void main(String[] args) {
         if (args.length != 1)
