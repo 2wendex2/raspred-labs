@@ -25,6 +25,8 @@ public class Storage {
         this.beginInterval = beginInterval;
     }
 
+
+
     public Storage(byte[] routerFrame, int beginInterval, int endInterval) {
         this.routerFrame = routerFrame;
         this.beginInterval = beginInterval;
