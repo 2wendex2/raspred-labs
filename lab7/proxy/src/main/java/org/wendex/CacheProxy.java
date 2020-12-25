@@ -47,6 +47,9 @@ public class CacheProxy {
             }
         }
 
-        
+        items.close();
+        backend.close();
+        frontend.close();
+        context.term();
     }
 }
