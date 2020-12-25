@@ -15,6 +15,7 @@ public class CmdHandler {
         this.scanner = new Scanner(source);
     }
 
+    public DataRequest
 
     public static void main(String[] args) {
         if (args.length != 1)
