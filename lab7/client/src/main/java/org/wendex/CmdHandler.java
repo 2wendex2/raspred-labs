@@ -70,5 +70,7 @@ public class CmdHandler {
                     System.out.println("PUT: FAILURE");
             }
         }
+        requester.close();
+        
     }
 }
