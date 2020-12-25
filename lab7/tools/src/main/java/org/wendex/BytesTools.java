@@ -2,7 +2,7 @@ package org.wendex;
 
 public class BytesTools {
     static public byte[] intToBytes(int v) {
-        byte[] bytes = new byte[8];
+        byte[] bytes = new byte[4];
         bytes[0] = (byte)v;
         bytes[1] = (byte)(v >>> 8);
         bytes[2] = (byte)(v >>> 16);
