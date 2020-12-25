@@ -3,10 +3,14 @@ package org.wendex;
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
+import java.util.Scanner;
+
 public class CmdHandler {
     static String URL_HEAD = "tcp://";
 
-    private 
+    private Scanner scanner;
+
+    public CmdHandler(Scanner scanner)
 
     public static void main(String[] args) {
         if (args.length != 1)
