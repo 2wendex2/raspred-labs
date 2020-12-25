@@ -8,6 +8,8 @@ import java.util.Scanner;
 
 public class CmdHandler {
     static String URL_HEAD = "tcp://";
+    static String PUT_CMD = "PUT";
+    static String GET_CMD = "GET";
 
     private Scanner scanner;
 
@@ -24,13 +26,13 @@ public class CmdHandler {
         String[] args = line.trim().split("\\s");
         if (args.length == 0)
             return null;
-        if (args[0].equals("PUT")) {
+        if (args[0].equals(PUT_CMD)) {
             if (args.length != 3)
                 throw new IllegalArgumentException("Wrong argument number");
             int cell = Integer.parseInt(args[1]);
             int value = Integer.parseInt(args[2]);
             return new PutRequest(cell, value);
-        } else if (args[1].equals("GET")) {
+        } else if (args[1].equals(GET_CMD)) {
             if (args.length != 2)
                 throw new IllegalArgumentException("Wrong argument number");
             int cell = Integer.parseInt(args[1]);
