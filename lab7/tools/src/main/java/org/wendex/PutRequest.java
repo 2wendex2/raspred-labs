@@ -1,7 +1,7 @@
 package org.wendex;
 
 public class PutRequest extends DataRequest {
-    int value;
+    private int value;
 
     public PutRequest(int cell, int value) {
         this.cell = cell;

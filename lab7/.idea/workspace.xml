@@ -26,6 +26,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/org/wendex/CmdHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/wendex/CmdHandler.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/storage/src/main/java/org/wendex/CacheStorage.java" beforeDir="false" afterPath="$PROJECT_DIR$/storage/src/main/java/org/wendex/CacheStorage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tools/src/main/java/org/wendex/PutRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tools/src/main/java/org/wendex/PutRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
