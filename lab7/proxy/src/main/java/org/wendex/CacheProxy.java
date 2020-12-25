@@ -8,6 +8,7 @@ import java.util.ArrayList;
 public class CacheProxy {
     private static final String FRONT_URL = "tcp://*:5559";
     private static final String BACK_URL = "tcp://*:5560";
+    private static final byte[] EMPTY_MESSAGE = new byte[0];
 
     private static int FRONT_INDEX = 0;
     private static int BACK_INDEX = 1;
