@@ -1,5 +1,6 @@
 package org.wendex;
 
+import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
 public class CmdHandler {
@@ -10,6 +11,7 @@ public class CmdHandler {
             throw new IllegalArgumentException("Wrong arguments count");
 
         ZMQ.Context context = ZMQ.context(1);
-        ZMQ.Socket requester = context.socket()
+        ZMQ.Socket requester = context.socket(SocketType.REQ);
+        
     }
 }
