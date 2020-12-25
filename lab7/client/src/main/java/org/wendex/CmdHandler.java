@@ -57,9 +57,11 @@ public class CmdHandler {
                 System.out.println(e.getMessage());
                 continue;
             }
+            if (request == null)
+                continue;
             requester.send(request.toBytes());
             if (request instanceof GetRequest)
-                System.out.println(BytesTools.bytesToInt());
+                System.out.println("GET " + BytesTools.bytesToInt());
         }
     }
 }
