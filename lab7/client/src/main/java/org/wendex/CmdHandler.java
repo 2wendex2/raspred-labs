@@ -32,7 +32,7 @@ public class CmdHandler {
             int cell = Integer.parseInt(args[1]);
             int value = Integer.parseInt(args[2]);
             return new PutRequest(cell, value);
-        } else if (args[1].equals(GET_CMD)) {
+        } else if (args[0].equals(GET_CMD)) {
             if (args.length != 2)
                 throw new IllegalArgumentException("Wrong argument number");
             int cell = Integer.parseInt(args[1]);
