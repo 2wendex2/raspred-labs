@@ -1,2 +1,4 @@
-package org.wendex;public class CmdHandler {
+package org.wendex;
+
+public class CmdHandler {
 }
