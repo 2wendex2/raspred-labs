@@ -23,7 +23,7 @@ public class CacheProxy {
         boolean more = false;
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
-            items.poll(10000);
+            items.poll(1000);
             if (items.pollin(FRONT_INDEX)) {
                 do {
                     throw new IllegalStateException();
