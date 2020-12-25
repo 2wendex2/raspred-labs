@@ -45,7 +45,7 @@ public class CacheProxy {
                     more = backend.hasReceiveMore();
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
-            }*/ 
+            }*/
         }
 
         items.close();
