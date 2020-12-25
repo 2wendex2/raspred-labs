@@ -32,6 +32,13 @@ public class CacheStorage {
         this.interval = interval;
     }
 
+    private byte[] intervalBoundsMsg() {
+        byte[] bytes = new byte[8];
+        BytesTools.intToBytesOff(beginInterval, bytes, 0);
+        BytesTools.intToBytesOff(getEndInterval(), bytes, 4);
+        return bytes;
+    }
+
     static CacheStorage fromStrings(String[] args) {
         int beginInterval = Integer.parseInt(args[0]);
         int endInterval = Integer.parseInt(args[1]);
@@ -55,7 +62,8 @@ public class CacheStorage {
         while (!Thread.currentThread().isInterrupted()) {
             long delta = System.currentTimeMillis() - curTime;
             if (delta > NOTIFY_TIME) {
-                
+                socket.send(storage.intervalBoundsMsg());
+                curTime = System.currentTimeMillis();
             }
                 do {
                     message = frontend.recv(0);
