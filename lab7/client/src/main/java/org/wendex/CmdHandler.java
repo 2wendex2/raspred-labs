@@ -6,6 +6,8 @@ import org.zeromq.ZMQ;
 public class CmdHandler {
     static String URL_HEAD = "tcp://";
 
+    private 
+
     public static void main(String[] args) {
         if (args.length != 1)
             throw new IllegalArgumentException("Wrong arguments count");
@@ -14,6 +16,6 @@ public class CmdHandler {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(URL_HEAD + args[0]);
         System.out.println("Launch and connect client");
-        
+
     }
 }
