@@ -1,7 +1,7 @@
 package org.wendex;
 
-public class DataRequest {
+public class PutRequest {
     private boolean isPut;
-    
+    private boolean
 
 }
