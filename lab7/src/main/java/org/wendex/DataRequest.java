@@ -13,4 +13,6 @@ public abstract class DataRequest {
         else
             return new PutRequest(bytes);
     }
+
+    public abstract byte[] toBytes();
 }

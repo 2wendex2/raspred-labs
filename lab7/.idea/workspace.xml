@@ -23,9 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/lab7-client.iml" beforeDir="false" afterPath="$PROJECT_DIR$/client/lab7-client.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/main/java/org/wendex/CmdHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main/java/org/wendex/CmdHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/org/wendex/DataRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/org/wendex/DataRequest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
