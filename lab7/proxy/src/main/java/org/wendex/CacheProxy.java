@@ -26,7 +26,9 @@ public class CacheProxy {
             items.poll();
             if (items.pollin(FRONT_INDEX)) {
                 do {
-
+                    message = frontend.recv(0);
+                    more = frontend.hasReceiveMore();
+                    backend.send(message, more ? ZMQ.SNDMORE : 0);
                     /*DataRequest request = DataRequest.fromBytes(frontend.recv(0));
                     more = frontend.hasReceiveMore();
                     if (request instanceof GetRequest)
