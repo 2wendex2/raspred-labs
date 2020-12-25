@@ -25,7 +25,12 @@ public class Storage {
         this.beginInterval = beginInterval;
     }
 
-
+    public boolean frameEquals(byte[] bytes) {
+        if (routerFrame.length != bytes.length)
+            return false;
+        for (int i = 0; i < bytes.length; i++)
+            if (routerFrame[i])
+    }
 
     public Storage(byte[] routerFrame, int beginInterval, int endInterval) {
         this.routerFrame = routerFrame;

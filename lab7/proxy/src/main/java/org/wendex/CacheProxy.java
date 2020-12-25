@@ -4,6 +4,7 @@ import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class CacheProxy {
     private static final String FRONT_URL = "tcp://*:5559";
@@ -14,6 +15,7 @@ public class CacheProxy {
     private static int BACK_INDEX = 1;
 
     private ArrayList<Storage> storages = new ArrayList<>();
+    private HashMap<byte[], Long> notificationTime = new HashMap<>();
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
