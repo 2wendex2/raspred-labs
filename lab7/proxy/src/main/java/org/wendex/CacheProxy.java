@@ -24,7 +24,7 @@ public class CacheProxy {
         byte[] message;
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
-            if (items.pollin(FRONT_INDEX)) {
+            /*if (items.pollin(FRONT_INDEX)) {
                 do {
                     throw new IllegalStateException();
                    // message = frontend.recv(0);
@@ -36,7 +36,7 @@ public class CacheProxy {
                     if (request instanceof GetRequest)
                         frontend.send(BytesTools.intToBytes(4), more ? ZMQ.SNDMORE : 0);
                     else
-                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);*/
+                        frontend.send(BytesTools.boolToBytes(true), more ? ZMQ.SNDMORE : 0);
                 } while (more);
             }
             if (items.pollin(1)) {
@@ -45,7 +45,7 @@ public class CacheProxy {
                     more = backend.hasReceiveMore();
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
-            }
+            }*/ 
         }
 
         items.close();
