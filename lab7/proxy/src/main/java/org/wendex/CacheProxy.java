@@ -25,7 +25,7 @@ public class CacheProxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll();
             frontend.send(BytesTools.intToBytes(4));
-            //return;
+            return;
             /*if (items.pollin(FRONT_INDEX)) {
                 do {
                     DataRequest request = DataRequest.fromBytes(frontend.recv(0));
