@@ -7,7 +7,10 @@ public abstract class DataRequest {
         return cell;
     }
 
-    public static DataRequest getFromBytes(byte[] bytes) {
-
+    public static DataRequest fromBytes(byte[] bytes) {
+        if (bytes.length == 4)
+            return new GetRequest(bytes);
+        else
+            return new PutRequest(bytes);
     }
 }
