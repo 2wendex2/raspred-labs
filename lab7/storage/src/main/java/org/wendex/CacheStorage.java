@@ -60,6 +60,7 @@ public class CacheStorage {
         socket.connect(PROXY_URL);
         System.out.println("launch and connect storage");
         byte[] message;
+        boolean more = false;
         long curTime = System.currentTimeMillis() - NOTIFY_TIME - 1;
         socket.setReceiveTimeOut(RECIEVE_TIMEOUT);
         while (!Thread.currentThread().isInterrupted()) {
@@ -70,14 +71,21 @@ public class CacheStorage {
             }
             message = socket.recv(0);
             if (message != null) {
-                DataRequest request = DataRequest.fromBytes(message);
-                if (request instanceof GetRequest)
-                    socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
-                else {
-                    PutRequest p = (PutRequest) request;
-                    storage.set(p.getCell(), p.getValue());
-                    socket.send(BytesTools.boolToBytes(true));
-                }
+                do {
+                    more = socket.hasReceiveMore();
+                    if (more) {
+                        socket.send(message, ZMQ.SNDMORE);
+                        continue;
+                    }
+                    DataRequest request = DataRequest.fromBytes(message);
+                    if (request instanceof GetRequest)
+                        socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
+                    else {
+                        PutRequest p = (PutRequest) request;
+                        storage.set(p.getCell(), p.getValue());
+                        socket.send(BytesTools.boolToBytes(true));
+                    }
+                } while (more);
             }
         }
 

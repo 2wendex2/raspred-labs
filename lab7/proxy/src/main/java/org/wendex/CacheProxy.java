@@ -40,7 +40,7 @@ public class CacheProxy {
                         frontend.send(BytesTools.intToBytes(4), 0);
                 } while (more);
             }
-            if (items.pollin(1)) {
+            if (items.pollin(BACK_INDEX)) {
                 do {
                     message = backend.recv(0);
                     more = backend.hasReceiveMore();
