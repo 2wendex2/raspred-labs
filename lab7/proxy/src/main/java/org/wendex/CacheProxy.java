@@ -26,8 +26,8 @@ public class CacheProxy {
             items.poll(10000);
             if (items.pollin(FRONT_INDEX)) {
                 do {
-                    throw new IllegalStateException(Byte.toString());
-                    message = frontend.recv(0);
+                    throw new IllegalStateException();
+                   // message = frontend.recv(0);
 
                     //more = frontend.hasReceiveMore();
                     //backend.send(message, more ? ZMQ.SNDMORE : 0);
