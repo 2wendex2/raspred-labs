@@ -9,6 +9,6 @@ public class CmdHandler {
         if (args.length != 1)
             throw new IllegalArgumentException("Wrong arguments count");
 
-        ZMQ.Context context = 
+        ZMQ.Context context = ZMQ.context()
     }
 }
