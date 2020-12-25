@@ -71,6 +71,6 @@ public class CmdHandler {
             }
         }
         requester.close();
-        
+        context.term();
     }
 }
