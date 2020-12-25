@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/lab7.iml" filepath="$PROJECT_DIR$/lab7.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/lab7-client.iml" filepath="$PROJECT_DIR$/client/lab7-client.iml" />
       <module fileurl="file://$PROJECT_DIR$/proxy/lab7-proxy.iml" filepath="$PROJECT_DIR$/proxy/lab7-proxy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/storage/lab7-storage.iml" filepath="$PROJECT_DIR$/storage/lab7-storage.iml" />
       <module fileurl="file://$PROJECT_DIR$/tools/lab7-tools.iml" filepath="$PROJECT_DIR$/tools/lab7-tools.iml" />
     </modules>
   </component>
