@@ -5,6 +5,7 @@ import org.zeromq.ZMQ;
 
 public class CacheStorage {
     private static final String PROXY_URL = "tcp://127.0.0.1:5560";
+    private static final int NOTIFY_TIME = 10000;
 
     private int beginInterval;
     private int[] interval;
