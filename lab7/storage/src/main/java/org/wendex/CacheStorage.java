@@ -77,7 +77,7 @@ public class CacheStorage {
                         socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
                     else {
                         PutRequest p = (PutRequest)request;
-
+                        storage.set(p.getCell(), p.getValue());
                         socket.send(BytesTools.boolToBytes(true));
                     }
 
