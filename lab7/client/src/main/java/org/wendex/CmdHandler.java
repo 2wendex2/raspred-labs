@@ -60,6 +60,10 @@ public class CmdHandler {
                 continue;
             byte[] b = request.toBytes();
             System.out.println(b.length);
+            System.out.println(b[0]);
+            System.out.println(b[1]);
+            System.out.println(b[2]);
+            System.out.println(b[3]);
             requester.send(request.toBytes(), 0);
 
             if (request instanceof GetRequest)
