@@ -84,9 +84,7 @@ public class CacheStorage {
                 } while (more);
         }
 
-        items.close();
-        backend.close();
-        frontend.close();
+        socket.close();
         context.term();
     }
 }
