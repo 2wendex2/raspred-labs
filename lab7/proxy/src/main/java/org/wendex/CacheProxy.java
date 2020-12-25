@@ -45,13 +45,12 @@ public class CacheProxy {
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
             items.pollin(FRONT_INDEX);
-            frontend.recv(0);
             if (items.pollin(FRONT_INDEX)) {
                 do {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
                     if (more)
-                        frontend.send(message, more ? ZMQ.SNDMORE : 0);
+                        frontend.send(message, ZMQ.SNDMORE);
                     else
                         frontend.send(BytesTools.intToBytes(4), 0);
                 } while (more);
