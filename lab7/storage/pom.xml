@@ -18,7 +18,7 @@
     </parent>
     
     <groupId>org.wendex</groupId>
-    <artifactId>lab7-proxy</artifactId>
+    <artifactId>lab7-storage</artifactId>
     <packaging>jar</packaging>
     <version>0.1.0-SNAPSHOT</version>
     
@@ -44,7 +44,7 @@
   	  <groupId>org.codehaus.mojo</groupId>
   	  <artifactId>exec-maven-plugin</artifactId>
   	  <configuration>
-    	    <mainClass>org.wendex.CacheProxy</mainClass>
+    	    <mainClass>org.wendex.CacheStorage</mainClass>
   	  </configuration>
 	</plugin>
       </plugins>
