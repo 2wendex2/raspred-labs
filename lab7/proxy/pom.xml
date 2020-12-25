@@ -9,12 +9,6 @@
             <version>0.1.0-SNAPSHOT</version>
             <scope>compile</scope>
         </dependency>
-        <dependency>
-            <groupId>org.wendex</groupId>
-            <artifactId>lab7</artifactId>
-            <version>0.1.0-SNAPSHOT</version>
-            <scope>compile</scope>
-        </dependency>
     </dependencies>
 
     <parent>
@@ -24,7 +18,7 @@
     </parent>
     
     <groupId>org.wendex</groupId>
-    <artifactId>lab7-client</artifactId>
+    <artifactId>lab7-proxy</artifactId>
     <packaging>jar</packaging>
     <version>0.1.0-SNAPSHOT</version>
     
@@ -38,7 +32,7 @@
 	    <archive>
 	      <manifest>
 		<addClasspath>true</addClasspath>
-		<mainClass>org.wendex.CmdHandler</mainClass>
+		<mainClass>org.wendex.CacheProxy</mainClass>
 	      </manifest>
 	      <manifestEntries>
 	        <Built-By>Wendex</Built-By>
@@ -50,7 +44,7 @@
   	  <groupId>org.codehaus.mojo</groupId>
   	  <artifactId>exec-maven-plugin</artifactId>
   	  <configuration>
-    	    <mainClass>org.wendex.CmdHandler</mainClass>
+    	    <mainClass>org.wendex.CacheProxy</mainClass>
   	  </configuration>
 	</plugin>
       </plugins>
