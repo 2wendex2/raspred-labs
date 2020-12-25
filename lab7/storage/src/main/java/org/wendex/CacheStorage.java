@@ -48,7 +48,7 @@ public class CacheStorage {
         System.out.println("launch and connect storage");
         boolean more = false;
         byte[] message;
-
+        Notify
         while (!Thread.currentThread().isInterrupted()) {
                 do {
                     message = frontend.recv(0);
