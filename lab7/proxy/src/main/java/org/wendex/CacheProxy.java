@@ -49,7 +49,6 @@ public class CacheProxy {
                 } while (more);
             }
             if (items.pollin(BACK_INDEX)) {
-                switch (message.length) {
                     storage = backend.recv(0);
                     backend.recv(0);
                     message = backend.recv();
