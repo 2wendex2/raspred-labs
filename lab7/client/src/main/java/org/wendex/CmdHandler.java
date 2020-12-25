@@ -4,7 +4,7 @@ import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
 public class CmdHandler {
-
+    static String URL_HEAD = "tcp://";
 
     public static void main(String[] args) {
         if (args.length != 1)
