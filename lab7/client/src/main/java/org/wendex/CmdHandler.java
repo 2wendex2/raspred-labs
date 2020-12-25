@@ -15,7 +15,6 @@ public class CmdHandler {
         this.scanner = new Scanner(source);
     }
 
-    public next
 
     public static void main(String[] args) {
         if (args.length != 1)
@@ -25,6 +24,7 @@ public class CmdHandler {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(URL_HEAD + args[0]);
         System.out.println("Launch and connect client");
+
 
     }
 }

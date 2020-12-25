@@ -1,2 +1,4 @@
-package org.wendex;public class DataRequest {
+package org.wendex;
+
+public class DataRequest {
 }
