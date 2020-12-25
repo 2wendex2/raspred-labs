@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class CmdHandler {
-    static String PROXY_URL = "tcp://localhost:";
+    static String PROXY_URL = "tcp://localhost:5559";
     static String PUT_CMD = "PUT";
     static String GET_CMD = "GET";
 
