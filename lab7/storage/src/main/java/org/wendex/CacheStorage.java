@@ -27,6 +27,10 @@ public class CacheStorage {
         return interval[index - beginInterval];
     }
 
+    public void set(int index, int value) {
+        interval[index - beginInterval] = value;
+    }
+
     public CacheStorage(int beginInterval, int[] interval) {
         this.beginInterval = beginInterval;
         this.interval = interval;
@@ -66,14 +70,17 @@ public class CacheStorage {
                 curTime = System.currentTimeMillis();
             }
             message = socket.recv(0);
-            if (message)
+            if (message != null)
                 do {
-                    message = frontend.recv(0);
-                    more = frontend.hasReceiveMore();
-                    if (more)
-                        frontend.send(message, ZMQ.SNDMORE);
-                    else
-                        frontend.send(BytesTools.intToBytes(4), 0);
+                    DataRequest request = DataRequest.fromBytes(message);
+                    if (request instanceof GetRequest)
+                        socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
+                    else {
+                        PutRequest p = (PutRequest)request;
+
+                        socket.send(BytesTools.boolToBytes(true));
+                    }
+
                 } while (more);
         }
 
