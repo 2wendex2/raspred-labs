@@ -1,7 +1,7 @@
 package org.wendex;
 
 public class Storage {
-    private byte[] routerFrame;
+    private long notificationTime = 0;
     private int beginInterval;
     private int endInterval;
 
@@ -9,8 +9,8 @@ public class Storage {
         return beginInterval;
     }
 
-    public byte[] getRouterFrame() {
-        return routerFrame;
+    public long getNotificationTime() {
+        return notificationTime;
     }
 
     public int getEndInterval() {
@@ -25,15 +25,11 @@ public class Storage {
         this.beginInterval = beginInterval;
     }
 
-    public boolean frameEquals(byte[] bytes) {
-        if (routerFrame.length != bytes.length)
-            return false;
-        for (int i = 0; i < bytes.length; i++)
-            if (routerFrame[i])
+    public void setNotificationTime(long notificationTime) {
+        this.notificationTime = notificationTime;
     }
 
-    public Storage(byte[] routerFrame, int beginInterval, int endInterval) {
-        this.routerFrame = routerFrame;
+    public Storage(int beginInterval, int endInterval) {
         this.beginInterval = beginInterval;
         this.endInterval = endInterval;
     }
