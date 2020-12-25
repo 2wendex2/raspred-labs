@@ -58,8 +58,10 @@ public class CmdHandler {
             }
             if (request == null)
                 continue;
+            byte[] b = request.toBytes();
+            System.out.println(b.length);
             requester.send(request.toBytes(), 0);
-            System.out.println("dddd");
+
             if (request instanceof GetRequest)
                 System.out.println("GET: " + BytesTools.bytesToInt(requester.recv(0)));
             else {
