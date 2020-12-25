@@ -43,11 +43,9 @@ public class CacheStorage {
     public static void main(String[] args) {
         CacheStorage storage = fromStrings(args);
         ZMQ.Context context = ZMQ.context(1);
-        ZMQ.Socket frontend = context.socket(SocketType.ROUTER);
-        ZMQ.Socket backend = context.socket(SocketType.ROUTER);
-        frontend.bind(FRONT_URL);
-        backend.bind(BACK_URL);
-        System.out.println("launch and connect broker");
+        ZMQ.Socket socket = context.socket(SocketType.DEALER);
+        socket.connect(PROXY_URL);
+        System.out.println("launch and connect storage");
         ZMQ.Poller items = context.poller (2);
         items.register(frontend, ZMQ.Poller.POLLIN);
         items.register(backend, ZMQ.Poller.POLLIN);
