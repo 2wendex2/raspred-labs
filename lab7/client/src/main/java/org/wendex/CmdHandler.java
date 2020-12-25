@@ -46,7 +46,7 @@ public class CmdHandler {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(PROXY_URL);
         System.out.println("Launch and connect client");
-        
+
         CmdHandler handler = new CmdHandler(System.in);
         while (handler.hasNext()){
             DataRequest request;
@@ -70,7 +70,6 @@ public class CmdHandler {
                 else
                     System.out.println("PUT: FAILURE");
             }
-
         }
         requester.close();
         context.term();
