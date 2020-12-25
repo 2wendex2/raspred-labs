@@ -46,8 +46,7 @@ public class CmdHandler {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(PROXY_URL);
         System.out.println("Launch and connect client");
-        requester.setReceiveTimeOut(5000);
-
+        
         CmdHandler handler = new CmdHandler(System.in);
         while (handler.hasNext()){
             DataRequest request;
@@ -61,8 +60,6 @@ public class CmdHandler {
                 continue;
             byte[] b = request.toBytes();
             requester.send(request.toBytes(), 0);
-            if (requester.recv() == null)
-                return;
 
             if (request instanceof GetRequest)
                 System.out.println("GET: " + BytesTools.bytesToInt(requester.recv(0)));
