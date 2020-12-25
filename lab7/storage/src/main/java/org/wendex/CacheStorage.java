@@ -51,8 +51,12 @@ public class CacheStorage {
         boolean more = false;
         byte[] message;
         long curTime = System.currentTimeMillis();
+        socket.setReceiveTimeOut(RECIEVE_TIMEOUT);
         while (!Thread.currentThread().isInterrupted()) {
-
+            long delta = System.currentTimeMillis() - curTime;
+            if (delta > NOTIFY_TIME) {
+                
+            }
                 do {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
