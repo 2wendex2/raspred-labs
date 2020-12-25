@@ -14,6 +14,18 @@ public class BytesTools {
         return (bytes[0] & 0xFF) | ((bytes[1] & 0xFF) << 8) | ((bytes[2] & 0xFF) << 16) | ((bytes[3] & 0xFF) << 24);
     }
 
+    static public void intToBytesOff(int v, byte[] bytes, int off) {
+        bytes[off] = (byte)v;
+        bytes[off + 1] = (byte)(v >>> 8);
+        bytes[off + 2] = (byte)(v >>> 16);
+        bytes[off + 3] = (byte)(v >>> 24);
+    }
+
+    static public int bytesToIntOff(byte[] bytes, int off){
+        return (bytes[off] & 0xFF) | ((bytes[off + 1] & 0xFF) << 8) | ((bytes[off + 2] & 0xFF) << 16)
+                | ((bytes[off + 3] & 0xFF) << 24);
+    }
+
     static public byte[] boolToBytes(boolean b) {
         byte[] bytes = new byte[1];
         if (b)
