@@ -25,7 +25,16 @@ public class CacheStorage {
         this.interval = interval;
     }
 
-    public static void main(String[] args) {
+    static CacheStorage fromStrings(String[] args) {
+        int beginInterval = Integer.parseInt(args[0]);
+        int endInterval = Integer.parseInt(args[1]);
+        int length = endInterval - beginInterval + 1;
+        int[] interval = new int[length];
+        for (int i = 0; i < length; i++)
+            interval[i] = Integer.parseInt(args[i + 2]);
+        return new CacheStorage(beginInterval, interval);
+    }
 
+    public static void main(String[] args) {
     }
 }
