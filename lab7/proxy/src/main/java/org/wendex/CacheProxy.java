@@ -43,28 +43,27 @@ public class CacheProxy {
                     message = frontend.recv(0);
                     more = frontend.hasReceiveMore();
                     if (more)
-                        frontend.send(message, ZMQ.SNDMORE);
+                        backend.send(message, ZMQ.SNDMORE);
                     else
-                        frontend.send(BytesTools.intToBytes(4), 0);
+                        backend.send(message, 0);
                 } while (more);
             }
             if (items.pollin(BACK_INDEX)) {
-                    storage = backend.recv(0);
-                    backend.recv(0);
-                    message = backend.recv();
-                    if (!backend.hasReceiveMore()) {
-                        int beginInterval = BytesTools.bytesToIntOff(message, 0);
-                        int endInterval = BytesTools.bytesToIntOff(message, 4);
-                        Storage s = storages.get(storage);
-                        s.setBeginInterval(beginInterval);
-                        s.setEndInterval(endInterval);
-                        s.setNotificationTime(0);
-                    }
-                    else {
-                        frontend.send(message, ZMQ.SNDMORE);
-                        frontend.send(backend.recv(), ZMQ.SNDMORE);
-                        frontend.send(backend.recv(), 0);
-                    }
+                storage = backend.recv(0);
+                backend.recv(0);
+                message = backend.recv();
+                if (!backend.hasReceiveMore()) {
+                    int beginInterval = BytesTools.bytesToIntOff(message, 0);
+                    int endInterval = BytesTools.bytesToIntOff(message, 4);
+                    Storage s = storages.get(storage);
+                    s.setBeginInterval(beginInterval);
+                    s.setEndInterval(endInterval);
+                    s.setNotificationTime(0);
+                }
+                else {
+                    frontend.send(message, ZMQ.SNDMORE);
+                    frontend.send(backend.recv(), ZMQ.SNDMORE);
+                    frontend.send(backend.recv(), 0);
                 }
             }
         }
