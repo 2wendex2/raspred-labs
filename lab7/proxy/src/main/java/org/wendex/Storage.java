@@ -1,7 +1,7 @@
 package org.wendex;
 
 public class Storage {
-    private long notificationTime = 0;
+    private long notificationTime = System.currentTimeMillis();
     private int beginInterval;
     private int endInterval;
 
