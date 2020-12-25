@@ -46,9 +46,6 @@ public class CacheStorage {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect(PROXY_URL);
         System.out.println("launch and connect storage");
-        ZMQ.Poller items = context.poller (2);
-        items.register(frontend, ZMQ.Poller.POLLIN);
-        items.register(backend, ZMQ.Poller.POLLIN);
         boolean more = false;
         byte[] message;
 
