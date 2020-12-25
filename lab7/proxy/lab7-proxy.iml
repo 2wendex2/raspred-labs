@@ -9,7 +9,7 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="lab7" />
+    <orderEntry type="module" module-name="lab7-tools" />
     <orderEntry type="library" name="Maven: org.zeromq:jeromq:0.5.1" level="project" />
     <orderEntry type="library" name="Maven: eu.neilalexander:jnacl:1.0.0" level="project" />
   </component>

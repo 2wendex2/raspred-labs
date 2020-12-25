@@ -6,6 +6,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="lab7-tools" />
         <module name="lab7-proxy" />
         <module name="lab7-client" />
       </profile>
@@ -14,6 +15,7 @@
       <module name="lab7" target="8" />
       <module name="lab7-client" target="8" />
       <module name="lab7-proxy" target="8" />
+      <module name="lab7-tools" target="8" />
     </bytecodeTargetLevel>
   </component>
 </project>
