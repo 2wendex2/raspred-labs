@@ -43,8 +43,9 @@ public class CacheProxy {
             }
             if (items.pollin(BACK_INDEX)) {
                 do {
-                    message = backend.recv(0);
+                    byte[] storage = backend.recv(0);
                     more = backend.hasReceiveMore();
+
                     frontend.send(message, more ? ZMQ.SNDMORE : 0);
                 } while (more);
             }
