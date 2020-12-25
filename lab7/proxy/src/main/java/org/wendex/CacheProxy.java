@@ -10,6 +10,8 @@ public class CacheProxy {
     private static int FRONT_INDEX = 0;
     private static int BACK_INDEX = 1;
 
+    private 
+
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket frontend = context.socket(SocketType.ROUTER);

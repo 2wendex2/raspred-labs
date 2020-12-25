@@ -59,9 +59,8 @@ public class CacheStorage {
         ZMQ.Socket socket = context.socket(SocketType.DEALER);
         socket.connect(PROXY_URL);
         System.out.println("launch and connect storage");
-        boolean more = false;
         byte[] message;
-        long curTime = System.currentTimeMillis();
+        long curTime = System.currentTimeMillis() - NOTIFY_TIME - 1;
         socket.setReceiveTimeOut(RECIEVE_TIMEOUT);
         while (!Thread.currentThread().isInterrupted()) {
             long delta = System.currentTimeMillis() - curTime;
