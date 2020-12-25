@@ -1,2 +1,4 @@
-package org.wendex;public class Storage {
+package org.wendex;
+
+public class Storage {
 }

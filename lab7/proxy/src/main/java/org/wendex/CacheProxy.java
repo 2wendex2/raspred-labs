@@ -3,6 +3,9 @@ package org.wendex;
 import org.zeromq.SocketType;
 import org.zeromq.ZMQ;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 public class CacheProxy {
     private static final String FRONT_URL = "tcp://*:5559";
     private static final String BACK_URL = "tcp://*:5560";
@@ -10,7 +13,7 @@ public class CacheProxy {
     private static int FRONT_INDEX = 0;
     private static int BACK_INDEX = 1;
 
-    private 
+    private ArrayList<byte[]> storages;
 
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
