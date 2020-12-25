@@ -50,9 +50,15 @@ public class CmdHandler {
 
         CmdHandler handler = new CmdHandler(System.in);
         while (handler.hasNext()){
-            DataRequest request = handler.nextRequest();
+            DataRequest request;
+            try {
+                request = handler.nextRequest();
+            } catch (Exception e){
+                System.out.println(e.getMessage());
+                continue;
+            }
             requester.send(request.toBytes());
-            requester.r
+            
         }
     }
 }
