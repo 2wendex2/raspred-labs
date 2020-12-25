@@ -43,17 +43,15 @@ public class CacheProxy {
                 } while (more);
             }
             if (items.pollin(BACK_INDEX)) {
-                do {
-                    storage = backend.recv(0);
-                    backend.recv(0);
-                    message = backend.recv();
-                    int beginInterval = BytesTools.bytesToIntOff(message, 0);
-                    int endInterval = BytesTools.bytesToIntOff(message, 4);
-                    Storage s = storages.get(storage);
-                    s.setBeginInterval(beginInterval);
-                    s.setEndInterval(endInterval);
-                    s.setNotificationTime(0);
-                } while (more);
+                storage = backend.recv(0);
+                backend.recv(0);
+                message = backend.recv();
+                int beginInterval = BytesTools.bytesToIntOff(message, 0);
+                int endInterval = BytesTools.bytesToIntOff(message, 4);
+                Storage s = storages.get(storage);
+                s.setBeginInterval(beginInterval);
+                s.setEndInterval(endInterval);
+                s.setNotificationTime(0);
             }
         }
 
