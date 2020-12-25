@@ -1,5 +1,7 @@
 package org.wendex;
 
+import org.zeromq.ZMQ;
+
 public class CmdHandler {
 
 
@@ -7,6 +9,6 @@ public class CmdHandler {
         if (args.length != 1)
             throw new IllegalArgumentException("Wrong arguments count");
 
-        
+        ZMQ.Context context = 
     }
 }
