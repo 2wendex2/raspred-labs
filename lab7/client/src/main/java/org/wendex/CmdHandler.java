@@ -7,7 +7,7 @@ import java.io.InputStream;
 import java.util.Scanner;
 
 public class CmdHandler {
-    static String URL_HEAD = "tcp://";
+    static String PROXY_URL = "tcp://localhost:";
     static String PUT_CMD = "PUT";
     static String GET_CMD = "GET";
 
@@ -47,7 +47,7 @@ public class CmdHandler {
 
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
-        requester.connect(URL_HEAD + args[0]);
+        requester.connect(PROXY_URL);
         System.out.println("Launch and connect client");
 
         CmdHandler handler = new CmdHandler(System.in);
