@@ -1,2 +1,4 @@
-package org.wendex;public class CacheStorage {
+package org.wendex;
+
+public class CacheStorage {
 }
