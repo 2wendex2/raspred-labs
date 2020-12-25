@@ -16,5 +16,11 @@ public class CacheStorage {
         return interval.length;
     }
 
-    
+    public int get(int index) {
+        return interval[index - beginInterval];
+    }
+
+    public static void main(String[] args) {
+        
+    }
 }
