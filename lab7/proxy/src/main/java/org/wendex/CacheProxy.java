@@ -50,23 +50,22 @@ public class CacheProxy {
             }
             if (items.pollin(BACK_INDEX)) {
                 switch (message.length) {
-                    case NOTIFY_MSG_LENTH:
-                        storage = backend.recv(0);
-                        backend.recv(0);
-                        message = backend.recv();
+                    storage = backend.recv(0);
+                    backend.recv(0);
+                    message = backend.recv();
+                    if (!backend.hasReceiveMore()) {
                         int beginInterval = BytesTools.bytesToIntOff(message, 0);
                         int endInterval = BytesTools.bytesToIntOff(message, 4);
                         Storage s = storages.get(storage);
                         s.setBeginInterval(beginInterval);
                         s.setEndInterval(endInterval);
                         s.setNotificationTime(0);
-                        break;
-                    case GETEND_MSG_LENTH:
-                        backend.recv();
-                        backend.recv();
+                    }
+                    else {
+                        frontend.send(message, ZMQ.SNDMORE);
                         frontend.send(backend.recv(), ZMQ.SNDMORE);
-                        frontend.send(backend.recv(), ZMQ.SNDMORE);
-                        frontend.send(backend.recv(), ZMQ.SNDMORE);
+                        frontend.send(backend.recv(), 0);
+                    }
                 }
             }
         }
