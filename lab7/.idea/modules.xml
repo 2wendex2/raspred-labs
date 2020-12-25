@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/lab7.iml" filepath="$PROJECT_DIR$/lab7.iml" />
       <module fileurl="file://$PROJECT_DIR$/client/lab7-client.iml" filepath="$PROJECT_DIR$/client/lab7-client.iml" />
+      <module fileurl="file://$PROJECT_DIR$/proxy/lab7-proxy.iml" filepath="$PROJECT_DIR$/proxy/lab7-proxy.iml" />
     </modules>
   </component>
 </project>
