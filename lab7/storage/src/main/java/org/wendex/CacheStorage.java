@@ -20,7 +20,12 @@ public class CacheStorage {
         return interval[index - beginInterval];
     }
 
+    public CacheStorage(int beginInterval, int[] interval) {
+        this.beginInterval = beginInterval;
+        this.interval = interval;
+    }
+
     public static void main(String[] args) {
-        
+
     }
 }
