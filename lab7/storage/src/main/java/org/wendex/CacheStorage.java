@@ -79,7 +79,6 @@ public class CacheStorage {
                         message = socket.recv(0);
                         continue;
                     }
-                    System.out.println(message.length);
                     DataRequest request = DataRequest.fromBytes(message);
                     if (request instanceof GetRequest)
                         socket.send(BytesTools.intToBytes(storage.get(request.getCell())));
