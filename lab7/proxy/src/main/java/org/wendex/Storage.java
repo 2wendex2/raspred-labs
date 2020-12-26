@@ -4,7 +4,7 @@ public class Storage {
     private long notificationTime = System.currentTimeMillis();
     private int beginInterval;
     private int endInterval;
-    private byte[] route
+    private byte[] routeFrame;
 
     public int getBeginInterval() {
         return beginInterval;
@@ -12,6 +12,10 @@ public class Storage {
 
     public long getNotificationTime() {
         return notificationTime;
+    }
+
+    public byte[] getRouteFrame() {
+        return routeFrame;
     }
 
     public int getEndInterval() {
@@ -30,8 +34,9 @@ public class Storage {
         this.notificationTime = notificationTime;
     }
 
-    public Storage(int beginInterval, int endInterval) {
+    public Storage(int beginInterval, int endInterval, byte[] routeFrame) {
         this.beginInterval = beginInterval;
         this.endInterval = endInterval;
+        this.routeFrame = routeFrame;
     }
 }

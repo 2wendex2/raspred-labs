@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="" />
+    <list default="true" id="67b892c4-fe85-400a-bbc1-90faaaad8796" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/proxy/src/main/java/org/wendex/Storage.java" beforeDir="false" afterPath="$PROJECT_DIR$/proxy/src/main/java/org/wendex/Storage.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -77,6 +79,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="768" y="227" width="374" height="592" key="#com.intellij.ide.util.MemberChooser" timestamp="1608883892218">
