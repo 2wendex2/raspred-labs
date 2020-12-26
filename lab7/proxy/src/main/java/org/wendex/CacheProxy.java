@@ -65,6 +65,7 @@ public class CacheProxy {
                     int beginInterval = BytesTools.bytesToIntOff(message, 0);
                     int endInterval = BytesTools.bytesToIntOff(message, 4);
                     storageList.notifyUpdate(storage, beginInterval, endInterval);
+                    System.out.println("NOTIFY: " + beginInterval + " " + endInterval);
                 }
                 else {
                     frontend.send(message, ZMQ.SNDMORE);
