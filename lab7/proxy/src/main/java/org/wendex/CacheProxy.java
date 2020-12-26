@@ -65,10 +65,7 @@ public class CacheProxy {
                 if (!backend.hasReceiveMore()) {
                     int beginInterval = BytesTools.bytesToIntOff(message, 0);
                     int endInterval = BytesTools.bytesToIntOff(message, 4);
-                    Storage s = storages.get(storage);
-                    s.setBeginInterval(beginInterval);
-                    s.setEndInterval(endInterval);
-                    s.setNotificationTime(System.currentTimeMillis());
+                    storageList.notifyUpdate(storage, beginInterval, endInterval);
                 }
                 else {
                     frontend.send(message, ZMQ.SNDMORE);
