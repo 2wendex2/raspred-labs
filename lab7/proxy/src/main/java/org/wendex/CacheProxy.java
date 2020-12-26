@@ -20,7 +20,6 @@ public class CacheProxy {
     private static final int GETEND_MSG_LENTH = 4;
     private static final int PUTEND_MSG_LENGTH = 1;
 
-
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket frontend = context.socket(SocketType.ROUTER);
