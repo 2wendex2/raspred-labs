@@ -10,6 +10,7 @@ public class CmdHandler {
     static String PROXY_URL = "tcp://localhost:5559";
     static String PUT_CMD = "PUT";
     static String GET_CMD = "GET";
+    static int REQ_TIMEOUT = 10000;
 
     private Scanner scanner;
 
@@ -45,6 +46,7 @@ public class CmdHandler {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(PROXY_URL);
+        requester.setReceiveTimeOut(REQ_TIMEOUT);
         System.out.println("Launch and connect client");
 
         CmdHandler handler = new CmdHandler(System.in);
@@ -63,13 +65,20 @@ public class CmdHandler {
 
             if (request instanceof GetRequest) {
                 byte[] r = requester.recv();
-                if (r.length != 1)
+                if (r == null)
+                    System.out.println("GET: TIMEOUT");
+                else if (r.length != 1)
                     System.out.println("GET: " + BytesTools.bytesToInt(r));
                 else
                     System.out.println("GET: FAILURE");
             }
             else {
-                boolean success = BytesTools.bytesToBool(requester.recv(0));
+                byte[] r = requester.recv();
+                if (r == null) {
+                    System.out.println("PUT: TIMEOUT");
+                    continue;
+                }
+                boolean success = BytesTools.bytesToBool(r);
                 if (success)
                     System.out.println("PUT: SUCCESS");
                 else
