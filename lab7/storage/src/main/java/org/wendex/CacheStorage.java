@@ -69,6 +69,7 @@ public class CacheStorage {
             System.out.println(curTime);
             System.out.println(delta);
             if (delta > NOTIFY_TIME) {
+                System.out.println("s");
                 socket.send(storage.intervalBoundsMsg());
                 curTime = System.currentTimeMillis();
             }
