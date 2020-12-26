@@ -30,8 +30,8 @@ public class Storage {
         this.beginInterval = beginInterval;
     }
 
-    public void setNotificationTime(long notificationTime) {
-        this.notificationTime = notificationTime;
+    public void updateNotificationTime() {
+        notificationTime = System.currentTimeMillis();
     }
 
     public Storage(int beginInterval, int endInterval, byte[] routeFrame) {
