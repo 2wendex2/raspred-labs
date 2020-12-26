@@ -59,11 +59,8 @@ public class CacheProxy {
             }
             if (items.pollin(BACK_INDEX)) {
                 storage = backend.recv(0);
-                System.out.println(storage.length);
                 message = backend.recv();
-                System.out.println(message.length);
-                System.out.println(backend.hasReceiveMore());
-                /*if (!backend.hasReceiveMore()) {
+                if (!backend.hasReceiveMore()) {
                     int beginInterval = BytesTools.bytesToIntOff(message, 0);
                     int endInterval = BytesTools.bytesToIntOff(message, 4);
                     storageList.notifyUpdate(storage, beginInterval, endInterval);
@@ -71,9 +68,9 @@ public class CacheProxy {
                 }
                 else {
                     frontend.send(message, ZMQ.SNDMORE);
-                    frontend.send(backend.recv(), ZMQ.SNDMORE);
+                    //frontend.send(backend.recv(), ZMQ.SNDMORE);
                     frontend.send(backend.recv(), 0);
-                }*/
+                }
             }
         }
 
