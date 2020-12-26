@@ -66,6 +66,8 @@ public class CacheStorage {
         socket.setReceiveTimeOut(RECIEVE_TIMEOUT);
         while (!Thread.currentThread().isInterrupted()) {
             long delta = System.currentTimeMillis() - curTime;
+            System.out.println(curTime);
+            System.out.println(delta);
             if (delta > NOTIFY_TIME) {
                 socket.send(storage.intervalBoundsMsg());
                 curTime = System.currentTimeMillis();
