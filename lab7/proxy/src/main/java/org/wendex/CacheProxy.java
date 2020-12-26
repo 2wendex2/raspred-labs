@@ -68,6 +68,7 @@ public class CacheProxy {
                 }
                 else {
                     frontend.send(message, ZMQ.SNDMORE);
+                    frontend.send(backend.recv(), ZMQ.SNDMORE);
                     frontend.send(backend.recv(), 0);
                 }
             }
