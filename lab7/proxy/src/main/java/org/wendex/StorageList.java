@@ -55,5 +55,6 @@ public class StorageList {
             if (index >= storage.getBeginInterval() && index <= storage.getEndInterval())
                 return storage;
         }
+        return null;
     }
 }
