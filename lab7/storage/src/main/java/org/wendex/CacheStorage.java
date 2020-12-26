@@ -76,6 +76,7 @@ public class CacheStorage {
                     more = socket.hasReceiveMore();
                     if (more) {
                         socket.send(message, ZMQ.SNDMORE);
+                        message = socket.recv(0);
                         continue;
                     }
                     DataRequest request = DataRequest.fromBytes(message);
