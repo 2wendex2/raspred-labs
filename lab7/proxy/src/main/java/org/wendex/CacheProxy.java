@@ -21,20 +21,6 @@ public class CacheProxy {
     private static final int PUTEND_MSG_LENGTH = 1;
 
 
-    public static byte[] randomStorage(HashMap<byte[], Storage> storages, int index) {
-        long curTime = System.currentTimeMillis();
-        for (Iterator<Map.Entry<byte[], Storage>> it = storages.entrySet().iterator(); it.hasNext();) {
-            Map.Entry<byte[], Storage> entry = it.next();
-            byte[] k = entry.getKey();
-            Storage v = entry.getValue();
-            if (curTime - v.getNotificationTime() > STORAGE_TIMEOUT) {
-                it.remove();
-                continue;
-            }
-            
-        }
-    }
-
     public static void main(String[] args) {
         ZMQ.Context context = ZMQ.context(1);
         ZMQ.Socket frontend = context.socket(SocketType.ROUTER);
@@ -49,21 +35,16 @@ public class CacheProxy {
         byte[] message;
         byte[] storage;
         byte[] client;
-        HashMap<byte[], Storage> storages = new HashMap<>();
-
+        StorageList storageList = new StorageList();
 
         while (!Thread.currentThread().isInterrupted()) {
             items.poll(1000);
             items.pollin(FRONT_INDEX);
             if (items.pollin(FRONT_INDEX)) {
-                do {
-                    message = frontend.recv(0);
-                    more = frontend.hasReceiveMore();
-                    if (more)
-                        backend.send(message, ZMQ.SNDMORE);
-                    else
-                        backend.send(message, 0);
-                } while (more);
+                client = frontend.recv(0);
+                frontend.recv(0);
+                message = frontend.recv(0);
+
             }
             if (items.pollin(BACK_INDEX)) {
                 storage = backend.recv(0);
