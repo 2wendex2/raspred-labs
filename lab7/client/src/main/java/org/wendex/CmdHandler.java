@@ -47,6 +47,7 @@ public class CmdHandler {
         ZMQ.Socket requester = context.socket(SocketType.REQ);
         requester.connect(PROXY_URL);
         requester.setReceiveTimeOut(REQ_TIMEOUT);
+        requester.setReqRelaxed(true);
         System.out.println("Launch and connect client");
 
         CmdHandler handler = new CmdHandler(System.in);
