@@ -58,6 +58,7 @@ public class CacheProxy {
                 }
             }
             if (items.pollin(BACK_INDEX)) {
+                System.out.println("NN");
                 storage = backend.recv(0);
                 backend.recv(0);
                 message = backend.recv();
