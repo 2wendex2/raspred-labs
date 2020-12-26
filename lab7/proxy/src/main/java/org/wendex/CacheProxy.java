@@ -46,14 +46,14 @@ public class CacheProxy {
                 DataRequest request = DataRequest.fromBytes(message);
                 Storage s = storageList.findByIndex(request.getCell());
                 if (s == null) {
-                    frontend.send(client);
-                    frontend.send(EMPTY_MESSAGE);
+                    frontend.send(client, ZMQ.SNDMORE);
+                    frontend.send(EMPTY_MESSAGE, ZMQ.SNDMORE);
                     frontend.send(BytesTools.boolToBytes(false));
                 } else {
-                    backend.send(s.getRouteFrame());
-                    backend.send(EMPTY_MESSAGE);
-                    backend.send(client);
-                    backend.send(EMPTY_MESSAGE);
+                    backend.send(s.getRouteFrame(), ZMQ.SNDMORE);
+                    backend.send(EMPTY_MESSAGE, ZMQ.SNDMORE);
+                    backend.send(client, ZMQ.SNDMORE);
+                    backend.send(EMPTY_MESSAGE,ZMQ.SNDMORE);
                     backend.send(message);
                 }
             }
