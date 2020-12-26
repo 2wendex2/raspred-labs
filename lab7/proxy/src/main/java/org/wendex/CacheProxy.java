@@ -60,8 +60,6 @@ public class CacheProxy {
             if (items.pollin(BACK_INDEX)) {
                 storage = backend.recv(0);
                 System.out.println(storage.length);
-                byte[] b = backend.recv(0);
-                System.out.println(b.length);
                 message = backend.recv();
                 System.out.println(message.length);
                 System.out.println(backend.hasReceiveMore());
