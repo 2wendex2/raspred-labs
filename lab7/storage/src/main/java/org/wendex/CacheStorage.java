@@ -7,7 +7,7 @@ public class CacheStorage {
     private static final String PROXY_URL = "tcp://127.0.0.1:5560";
     private static final int NOTIFY_TIME = 10000;
     private static final int RECIEVE_TIMEOUT = NOTIFY_TIME;
-    private static final int FIRST_NOTIFY_DELTA = NOTIFY_TIME - 10;
+    private static final int FIRST_NOTIFY_DELTA = NOTIFY_TIME + 1;
 
     private int beginInterval;
     private int[] interval;
