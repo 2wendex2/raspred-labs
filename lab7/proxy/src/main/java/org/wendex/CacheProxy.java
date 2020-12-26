@@ -64,6 +64,7 @@ public class CacheProxy {
                 System.out.println(b.length);
                 message = backend.recv();
                 System.out.println(message.length);
+                System.out.println(backend.hasReceiveMore());
                 /*if (!backend.hasReceiveMore()) {
                     int beginInterval = BytesTools.bytesToIntOff(message, 0);
                     int endInterval = BytesTools.bytesToIntOff(message, 4);
