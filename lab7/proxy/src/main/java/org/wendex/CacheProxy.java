@@ -44,7 +44,8 @@ public class CacheProxy {
                 client = frontend.recv(0);
                 frontend.recv(0);
                 message = frontend.recv(0);
-
+                DataRequest request = DataRequest.fromBytes(message);
+                Storage s = storageList.findByIndex(request.getCell());
             }
             if (items.pollin(BACK_INDEX)) {
                 storage = backend.recv(0);
