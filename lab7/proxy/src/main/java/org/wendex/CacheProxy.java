@@ -51,7 +51,6 @@ public class CacheProxy {
                     frontend.send(BytesTools.boolToBytes(false));
                 } else {
                     backend.send(s.getRouteFrame(), ZMQ.SNDMORE);
-                    backend.send(EMPTY_MESSAGE, ZMQ.SNDMORE);
                     backend.send(client, ZMQ.SNDMORE);
                     backend.send(EMPTY_MESSAGE,ZMQ.SNDMORE);
                     backend.send(message);
