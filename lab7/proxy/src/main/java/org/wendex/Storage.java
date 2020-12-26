@@ -4,6 +4,7 @@ public class Storage {
     private long notificationTime = System.currentTimeMillis();
     private int beginInterval;
     private int endInterval;
+    private byte[] route
 
     public int getBeginInterval() {
         return beginInterval;
