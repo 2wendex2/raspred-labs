@@ -27,6 +27,8 @@ public class StorageList {
     }
 
     public Storage findByIndex(int index) {
+        if (list.size() == 0)
+            return null;
         int firstIndex = random.nextInt(list.size());
         long curTime = System.currentTimeMillis();
         for (int i = firstIndex; i < list.size(); i++) {
