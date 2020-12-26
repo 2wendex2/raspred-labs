@@ -46,7 +46,6 @@ public class CacheProxy {
 
                 DataRequest request = DataRequest.fromBytes(message);
                 Storage s = storageList.findByIndex(request.getCell());
-                System.out.println(request.getCell());
                 if (s == null) {
                     frontend.send(client, ZMQ.SNDMORE);
                     frontend.send(EMPTY_MESSAGE, ZMQ.SNDMORE);
