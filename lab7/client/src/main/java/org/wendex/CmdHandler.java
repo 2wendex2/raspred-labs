@@ -63,8 +63,8 @@ public class CmdHandler {
             byte[] b = request.toBytes();
             requester.send(request.toBytes(), 0);
 
+            byte[] r = requester.recv();
             if (request instanceof GetRequest) {
-                byte[] r = requester.recv();
                 if (r == null)
                     System.out.println("GET: TIMEOUT");
                 else if (r.length != 1)
@@ -73,7 +73,6 @@ public class CmdHandler {
                     System.out.println("GET: FAILURE");
             }
             else {
-                byte[] r = requester.recv();
                 if (r == null) {
                     System.out.println("PUT: TIMEOUT");
                     continue;
