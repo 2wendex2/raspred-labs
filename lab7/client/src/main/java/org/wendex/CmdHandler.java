@@ -64,7 +64,7 @@ public class CmdHandler {
             if (request instanceof GetRequest) {
                 byte[] r = requester.recv();
                 if (r.length != 1)
-                    System.out.println("GET: " + BytesTools.bytesToInt(requester.recv(0)));
+                    System.out.println("GET: " + BytesTools.bytesToInt(r));
                 else
                     System.out.println("GET: FAILURE");
             }
