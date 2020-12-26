@@ -61,7 +61,7 @@ public class CacheStorage {
         System.out.println("launch and connect storage");
         byte[] message;
         boolean more = false;
-        long curTime = System.currentTimeMillis() - 2 * NOTIFY_TIME;
+        long curTime = System.currentTimeMillis() - 1000 * NOTIFY_TIME;
         socket.setReceiveTimeOut(RECIEVE_TIMEOUT);
         while (!Thread.currentThread().isInterrupted()) {
             long delta = System.currentTimeMillis() - curTime;
