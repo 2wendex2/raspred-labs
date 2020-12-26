@@ -14,6 +14,11 @@ public class StorageList {
             Storage storage = map.get(frame);
             storage.setBeginInterval(beginInterval);
             storage.setEndInterval(endInterval);
+            storage.updateNotificationTime();
+        } else {
+            Storage storage = new Storage(beginInterval, endInterval, frame);
+            map.put(frame, storage);
+            list.add(storage);
         }
     }
 
