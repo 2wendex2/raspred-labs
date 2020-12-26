@@ -41,11 +41,8 @@ public class CacheProxy {
             items.pollin(FRONT_INDEX);
             if (items.pollin(FRONT_INDEX)) {
                 client = frontend.recv(0);
-                byte[] b = frontend.recv(0);
+                frontend.recv(0);
                 message = frontend.recv(0);
-                System.out.println(client.length);
-                System.out.println(b.length);
-                System.out.println(message.length);
                 DataRequest request = DataRequest.fromBytes(message);
                 Storage s = storageList.findByIndex(request.getCell());
                 if (s == null) {
