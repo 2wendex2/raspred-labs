@@ -62,7 +62,7 @@ public class CacheProxy {
             }
             if (items.pollin(BACK_INDEX)) {
                 storage = backend.recv(0);
-                message = backend.recv();
+                message = backend.recv(0);
                 if (!backend.hasReceiveMore()) {
                     int beginInterval = BytesTools.bytesToIntOff(message, 0);
                     int endInterval = BytesTools.bytesToIntOff(message, 4);
