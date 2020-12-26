@@ -5,7 +5,7 @@ import java.util.HashMap;
 import java.util.Random;
 
 public class StorageList {
-    private static final long STORAGE_TIMEOUT = 10000;
+    private static final long STORAGE_TIMEOUT = 20000;
 
     private ArrayList<Storage> list = new ArrayList<>();
     private HashMap<byte[], Storage> map = new HashMap<>();
