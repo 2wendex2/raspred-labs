@@ -87,6 +87,8 @@ public class CacheStorage {
                         socket.send(BytesTools.boolToBytes(true));
                     }
                 } while (more);
+            } else {
+                System.out.println("azaza");
             }
         }
 
