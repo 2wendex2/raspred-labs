@@ -19,7 +19,7 @@ public class CacheProxy {
     private static final int NOTIFY_MSG_LENTH = 8;
     private static final int GETEND_MSG_LENTH = 4;
     private static final int PUTEND_MSG_LENGTH = 1;
-    private static final long STORAGE_TIMEOUT = 60000;
+
 
     public static byte[] randomStorage(HashMap<byte[], Storage> storages, int index) {
         long curTime = System.currentTimeMillis();
